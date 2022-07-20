@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="466a65f2-3d12-4bee-9449-240cadf12e47" name="Changes" comment="" />
+    <list default="true" id="466a65f2-3d12-4bee-9449-240cadf12e47" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
