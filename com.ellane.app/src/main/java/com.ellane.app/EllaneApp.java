@@ -11,16 +11,9 @@ public class EllaneApp {
     }
 
     private void gameWelcomeMessage() {
-        System.out.println("welcome message firing...");
-
-        String userDirectory = Paths.get("")
-                .toAbsolutePath()
-                .toString();
-        System.out.println(userDirectory);
 
         String banner = null;
         if (Files.exists(Path.of("com.ellane.app/resources/gameArt.txt"))) {
-            System.out.println("file seen..");
             try {
                 banner = Files.readString(Path.of("com.ellane.app/resources/gameArt.txt"));
                 System.out.println(banner);
