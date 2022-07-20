@@ -7,6 +7,10 @@ public class Main {
         System.out.println("start game...");
         EllaneApp app = new EllaneApp();
         app.initialize();
+
+
+
+
     }
 
 }
