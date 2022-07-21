@@ -7,6 +7,11 @@
       <module fileurl="file://$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" filepath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" filepath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" />
       <module fileurl="file://$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" filepath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" filepath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" filepath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" filepath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" filepath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ellane_game.iml" filepath="$PROJECT_DIR$/../ellane_game.iml" />
     </modules>
   </component>
 </project>

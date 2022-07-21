@@ -27,6 +27,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NLC-Ellane.iml" beforeDir="false" afterPath="$PROJECT_DIR$/NLC-Ellane.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RoomTest.json" beforeDir="false" />
@@ -35,6 +37,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/jsonparsing/GsonROOMTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/jsonparsing/GsonTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/testRooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/testRooms.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +51,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -73,7 +84,7 @@
       <recent name="com.ellane.jsonparsing" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
       <module name="com.ellane.client" />
@@ -87,9 +98,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="JsonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ellane_game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ellane.jsonparsing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.jsonparsing" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.jsonparsing.JsonTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.JsonTest" />
       </list>
     </recent_temporary>
   </component>
