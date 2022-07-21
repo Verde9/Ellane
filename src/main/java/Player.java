@@ -1,4 +1,3 @@
-import javax.print.event.PrintJobEvent;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -33,5 +32,10 @@ public class Player {
 
     public void setInventory(ArrayList<String> inventory) {
         this.inventory = inventory;
+    }
+
+    public String displayInformationForLook(){
+        String look = in.nextLine();
+        return look;
     }
 }
