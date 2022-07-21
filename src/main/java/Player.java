@@ -35,7 +35,12 @@ public class Player {
     }
 
     public String displayInformationForLook(){
-        String look = in.nextLine();
-        return look;
+        String input = in.nextLine();
+        String look = null;
+        if (input == "look");
+        seeItems();
+    }
+
+    private void seeItems() {
     }
 }
