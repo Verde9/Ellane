@@ -1,0 +1,81 @@
+{
+  "ROOM": [{
+    "south": "OPEN AREA",
+    "item": "sword",
+    "item_status": " inside of a display case. It is unlocked",
+    "item2": "gun",
+    "item_status2": "its a MF gun..but it doesnt do anything with out bullets",
+    "randenc": "20",
+    "desc": "You are in a bedroom. There is nothing of use in this room. It stinks and everything looks crappy, but you see, to the SOUTH; an ugly OPEN AREA"
+
+  }],
+  "OPEN AREA": {
+    "north": "ROOM",
+    "south": "FRONT DOOR",
+    "east": "LIVING ROOM",
+    "west": "KITCHEN",
+    "randenc": "0",
+    "desc": "You are in an open area. The House has a terrible flor plan for you to see. To the WEST: a decrepit KITCHEN, To the North: a hellhole of a BEDROOM, to the SOUTH: a wooden FRONT DOOR, and to the EAST: a fugly LIVING ROOM, and I mean FUUUUUUUGGGGGGGGLLLLLY... There is nothing in this room to use."
+  },
+  "FRONT DOOR": {
+    "north": "FRONT DOOR",
+    "south": "NEIGHBORHOOD",
+    "randenc": "100",
+    "desc": "The only means to escape, WHAT ARE YOU WAITING FOR?!? \n OPEN IT!!!!!!"
+  },
+  "LIVING ROOM": {
+    "north": "MASTER",
+    "south": "GARAGE",
+    "east": "BACK DOOR",
+    "west": "OPEN AREA",
+    "desc": "A FUGLY LIVING ROOM... oh my god... THERES NO TV IN HERE! And one shaky lamp that really wont stay on... Am I being watched?!?!"
+  },
+  "GARAGE": {
+    "north": "LIVING ROOM",
+    "south": "NEIGHBORHOOD",
+    "desc": "A bunch of tools hanging on the wall! It smells like a bachelor apartment; loneliness, depression, a little bit of oil and a whole lot of chicken. The car in the middle is still not put together, but thats okay...",
+    "item": ["sword", "screw driver", "candy", "loneliness", "depression"]
+  },
+  "NEIGHBORHOOD": {
+    "north": "GARAGE"
+  },
+  "KITCHEN": {
+    "west": "PANTRY",
+    "east": "OPEN AREA",
+    "spell": "fireball",
+    "desc": "You are in a the kitchen. This where chef curry and Chef harden cooks up the defense... wait..sorry wrong kitchen. Damn, just pick up the fireball spell on the table... And is that PANTRY ajar to the left? (west)",
+    "randenc": "0",
+    "up": "KITCHEN"
+  },
+  "DINING ROOM": {
+    "west": "HALL",
+    "south": "GARDEN",
+    "north": "PANTRY",
+    "desc": "You are in the dining room. The table is set for an elegant party but is covered a blanket of dust. Sleeping bats cling to the chandelier. North is a dark pantry. South lies the garden. West returns to the hall.",
+    "randenc": "0",
+    "item": "potion",
+    "item_status": " hiding among the bottles of wine. It is cherry red in color"
+  },
+  "GARDEN": {
+    "north": "DINING ROOM",
+    "spell": "fireball",
+    "randenc": "0",
+  },
+  "PANTRY": {
+    "down": "TRAP DOOR",
+    "east": "KITCHEN",
+    "randenc": "50",
+    "item": "cookie",
+    "desc": "You are in a the pantry, with a monster... Im going to die. At least ill die with the COOKIES in here, but if i kill the monster and take the cookies... maybe ill be able to get out of here.. but Look DOWN, theres a TRAP DOOR. Or if I go EAST, im back at the Kitchen",
+    "item_status": " hiding among the bottles of wine. It is cherry red in color"
+  },
+  "TRAP DOOR": {
+    "randenc": "100",
+    "up":  "PANTRY",
+    "item": "battle axe",
+    "item_status": "The door above you will not open. You know that you are at deaths door. Grab the Axe and meet your fate. Good-Bye Adventure, Your story will be told as legend",
+    "desc": "THERES A MONSTER IN HERE!!! I wish I could go back UP to the PANTRY"
+
+  }
+
+}
