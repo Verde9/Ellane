@@ -8,10 +8,5 @@ public class Main {
 
         EllaneApp app = new EllaneApp();
         app.initialize();
-
-
-
-
     }
-
 }
