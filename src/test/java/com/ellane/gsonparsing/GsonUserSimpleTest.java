@@ -21,12 +21,12 @@ class GsonUserSimpleTest {
 
     public static void serializeUserSimple() {
 
-        GsonNestedUserSimple bedroom = new
-        GsonNestedUserSimple("bedroom","OPEN AREA", "sword",
+        PlayerLocationsAndItems bedroom = new
+                PlayerLocationsAndItems("bedroom","OPEN AREA", "sword",
                 "inside of display case. It is Unlocked",
                 "gun", "its a MF gun, but it doesnt do anything without bullets",
                 "20", "This room is dope");
-        GsonNestedUserSimple open_area = new GsonNestedUserSimple("OPEN AREA","Please Work", "GIN",
+        PlayerLocationsAndItems open_area = new PlayerLocationsAndItems("OPEN AREA","Please Work", "GIN",
                 "PLEASE ITEM STATUS WORK",
                 "gun", "its a MF gun, but it doesnt do anything without bullets",
                 "20", "This room is dope");
@@ -44,7 +44,7 @@ class GsonUserSimpleTest {
                 "\n" +
                 "}";
 
-        //GsonNestedUserSimple front_door = new GsonNestedUserSimple("FRONT DOOR");
+        //PlayerLocationsAndItems front_door = new PlayerLocationsAndItems("FRONT DOOR");
 
 
         //GsonUserSimple user = new GsonUserSimple();
@@ -54,7 +54,7 @@ class GsonUserSimpleTest {
 
         //Below is correct
         Gson json = new Gson();
-        GsonNestedUserSimple bedroom3 = json.fromJson(bedroom2, GsonNestedUserSimple.class);
+        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
 
 
         System.out.println(bedroom3.getDesc());
@@ -118,19 +118,19 @@ class GsonUserSimpleTest {
                 "  }\n" +
                 "]";
 
-        List<GsonNestedUserSimple> inputList = Arrays.asList(new GsonNestedUserSimple("bedroom","OPEN AREA", "sword",
+        List<PlayerLocationsAndItems> inputList = Arrays.asList(new PlayerLocationsAndItems("bedroom","OPEN AREA", "sword",
                         "inside of display case. It is Unlocked",
                         "gun", "its a MF gun, but it doesnt do anything without bullets",
-                        "20", "This room is dope"), new GsonNestedUserSimple("OPEN AREA","Please Work", "GIN",
+                        "20", "This room is dope"), new PlayerLocationsAndItems("OPEN AREA","Please Work", "GIN",
                         "PLEASE ITEM STATUS WORK",
                         "gun", "its a MF gun, but it doesnt do anything without bullets",
                         "20", "This room is dope"));
 
 
-        Type listOfMyClassObject = new TypeToken<ArrayList<GsonNestedUserSimple>>() {}.getType();
+        Type listOfMyClassObject = new TypeToken<ArrayList<PlayerLocationsAndItems>>() {}.getType();
 
         Gson gson = new Gson();
-        List<GsonNestedUserSimple> outputList = gson.fromJson(inputString, listOfMyClassObject);
+        List<PlayerLocationsAndItems> outputList = gson.fromJson(inputString, listOfMyClassObject);
 
 
 

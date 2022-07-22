@@ -1,10 +1,9 @@
-package com.ellane.app;
+package com.backupfiles;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 
 public class EllaneApp {
@@ -14,7 +13,7 @@ public class EllaneApp {
 
     Scanner scan = new Scanner(System.in);
 
-    public void initialize() throws InterruptedException {
+    public void initialize() {
         gameWelcomeMessage();
         promptToStartGame();
     }
@@ -37,7 +36,7 @@ public class EllaneApp {
         }
     }
 
-    private void promptToStartGame() throws InterruptedException {
+    private void promptToStartGame() {
         System.out.println("Do you wish to play? type 'yes' or type 'quit game'");
         String userInput = scan.nextLine().toLowerCase();
         System.out.println("user input: " + userInput);
@@ -54,40 +53,27 @@ public class EllaneApp {
         }
     }
 
-    private void startGame() throws InterruptedException {
+    private void startGame() {
         displayGameInfo();
     }
 
-    private void displayGameInfo() throws InterruptedException {
+    private void displayGameInfo() {
         System.out.println("The chaos spreads & the bombs keep exploding around the city");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println("The fire is spreading from building to building & most signs of life as gone!");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println("you get stuck inside of a building, but it can collapse at any minute & fire is spreading");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println("Luckily there id a helicopter on the roof evacuating the survivors that made it to the roof");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println("Unfortunately, you have been wounded & are losing blood as more time passes");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println();
-        TimeUnit.SECONDS.sleep(1);
         System.out.println("Time is ticking & you don't have much time!");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println();
         System.out.println("A dying woman tells you her sick daughter Ellane is stuck somewhere inside & asked you to save & escape together");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println("The objectives you have are simple:");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println("- collect the 3 items needed for a cure to save Ellane");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println("- Find Ellane");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println("- Safely make it to the roof to escape by helicopter before 50 turns pass");
-        TimeUnit.SECONDS.sleep(1);
         System.out.println();
-        Player player = new Player();
-        player.makeDecision();
-
+        //Player player = new Player();
+        //make room prop here
     }
 }
 

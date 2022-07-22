@@ -1,10 +1,10 @@
-package com.ellane.gsonparsing;
+package com.ellane.app;
 
+import com.ellane.gsonparsing.PlayerLocationsAndItems;
 import com.google.gson.Gson;
 
 import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -17,11 +17,11 @@ public class Player {
     private Array Room[] = new Array[1];
 
     //change player locations to GSON Json soon.
-    PlayerLocationsAndItems bedroom = new PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
+    com.ellane.gsonparsing.PlayerLocationsAndItems bedroom = new com.ellane.gsonparsing.PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
             "inside of display case. It is Unlocked",
             "gun", "its a MF gun, but it doesnt do anything without bullets",
             "20", "This room is dope");
-    PlayerLocationsAndItems open_area = new PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
+    com.ellane.gsonparsing.PlayerLocationsAndItems open_area = new com.ellane.gsonparsing.PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
             "inside of display case. It is Unlocked",
             "gun", "its a MF gun, but it doesnt do anything without bullets",
             "20", "This room is dope");
@@ -45,7 +45,7 @@ public class Player {
                 "\n" +
                 "}";
         Gson json = new Gson();
-        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
+        com.ellane.gsonparsing.PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
         System.out.println(bedroom3.getItem2());
     }
 
