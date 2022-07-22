@@ -1,5 +1,7 @@
 package com.ellane.gsonparsing;
 
+import com.google.gson.Gson;
+
 class GsonNestedUserSimple {
 
 
@@ -8,7 +10,6 @@ class GsonNestedUserSimple {
 
 
     private GsonUserSimple gsonUserSimple;
-
 
     public GsonNestedUserSimple(String currentRoom, String south,
                                 String item, String item_status,
@@ -23,6 +24,8 @@ class GsonNestedUserSimple {
         this.randenc = randenc;
         this.desc = desc;
     }
+
+
 
     public String getCurrentRoom() {
         return currentRoom;
