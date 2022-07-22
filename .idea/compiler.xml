@@ -17,14 +17,8 @@
       <module name="com.ellane.client" target="11" />
       <module name="com.ellane.model" target="11" />
       <module name="com.ellane.view" target="11" />
-      <module name="NLC-Ellane" target="11" />
-    </bytecodeTargetLevel>
-    <bytecodeTargetLevel>
-      <module name="com.ellane.app" target="11" />
-      <module name="com.ellane.client" target="11" />
-      <module name="com.ellane.model" target="11" />
-      <module name="com.ellane.view" target="11" />
       <module name="ellane_game" target="11" />
+      <module name="NLC-Ellane" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
