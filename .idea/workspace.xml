@@ -7,6 +7,27 @@
     <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="1. Added Json Class, Test.Json File, BooksPOJO.java,AuthorPojo, DayPojo, JSON TEST, POM XML and Simple TEST CASE&#10;2. All these things are to get the files ready for json. I added the test classes as well">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayGame.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_surefire_surefire_api_2_22_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_surefire_surefire_booter_2_22_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_surefire_surefire_logger_api_2_22_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/DeSerialRoomTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonNestedUserSimple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonParsing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonUserSimple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/LASTMAIN.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PLayerClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/roomTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/roomTestMAIN.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/ellane/gsonparsing/GsonUserSimpleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonNestedUserSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonNestedUserSimple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
@@ -20,6 +41,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
         <option value="Class" />
       </list>
     </option>
