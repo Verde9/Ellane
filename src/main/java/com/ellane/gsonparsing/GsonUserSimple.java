@@ -1,25 +1,25 @@
 package com.ellane.gsonparsing;
 
-class GsonUserSimple {
+public class GsonUserSimple {
 
     private String ROOM;
 
-    private GsonNestedUserSimple gsonNestedUserSimple;
+    private PlayerLocationsAndItems playerLocationsAndItems;
 
-    public GsonUserSimple(GsonNestedUserSimple gsonNestedUserSimple) {
-        this.gsonNestedUserSimple = gsonNestedUserSimple;
+    public GsonUserSimple(PlayerLocationsAndItems playerLocationsAndItems) {
+        this.playerLocationsAndItems = playerLocationsAndItems;
     }
 
-    public GsonUserSimple(String whatRoomAreyouin, GsonNestedUserSimple gsonNestedUserSimple) {
+    public GsonUserSimple(String whatRoomAreyouin, PlayerLocationsAndItems playerLocationsAndItems) {
         this.ROOM = whatRoomAreyouin;
-        this.gsonNestedUserSimple = gsonNestedUserSimple;
+        this.playerLocationsAndItems = playerLocationsAndItems;
     }
 
-    public GsonNestedUserSimple getGsonNestedUserSimple() {
-        return gsonNestedUserSimple;
+    public PlayerLocationsAndItems getGsonNestedUserSimple() {
+        return playerLocationsAndItems;
     }
 
-    public void setGsonNestedUserSimple(GsonNestedUserSimple gsonNestedUserSimple) {
-        this.gsonNestedUserSimple = gsonNestedUserSimple;
+    public void setGsonNestedUserSimple(PlayerLocationsAndItems playerLocationsAndItems) {
+        this.playerLocationsAndItems = playerLocationsAndItems;
     }
 }

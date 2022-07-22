@@ -1,19 +1,20 @@
 package com.ellane.gsonparsing;
 
-class GsonNestedUserSimple {
+import com.google.gson.Gson;
+
+public class PlayerLocationsAndItems {
 
 
     String currentRoom,south,item,item_status,item2,item_status2,randenc,desc;
 
 
 
-    private GsonUserSimple gsonUserSimple;
+    //private GsonUserSimple gsonUserSimple;
 
-
-    public GsonNestedUserSimple(String currentRoom, String south,
-                                String item, String item_status,
-                                String item2, String item_status2,
-                                String randenc, String desc) {
+    public PlayerLocationsAndItems(String currentRoom, String south,
+                                   String item, String item_status,
+                                   String item2, String item_status2,
+                                   String randenc, String desc) {
         this.currentRoom = currentRoom;
         this.south = south;
         this.item = item;
@@ -23,6 +24,8 @@ class GsonNestedUserSimple {
         this.randenc = randenc;
         this.desc = desc;
     }
+
+
 
     public String getCurrentRoom() {
         return currentRoom;
@@ -90,7 +93,7 @@ class GsonNestedUserSimple {
 
     @Override
     public String toString() {
-        return "GsonNestedUserSimple{" +
+        return "PlayerLocationsAndItems{" +
                 "currentRoom='" + currentRoom + '\'' +
                 ", south='" + south + '\'' +
                 ", item='" + item + '\'' +
@@ -99,7 +102,7 @@ class GsonNestedUserSimple {
                 ", item_status2='" + item_status2 + '\'' +
                 ", randenc='" + randenc + '\'' +
                 ", desc='" + desc + '\'' +
-                ", gsonUserSimple=" + gsonUserSimple +
+                ", gsonUserSimple=" + //gsonUserSimple +
                 '}';
     }
 }

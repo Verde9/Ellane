@@ -16,9 +16,7 @@ class TestMainCasdfasdfa {
                 "\n" +
                 "}";
         Gson json = new Gson();
-        GsonNestedUserSimple bedroom3 = json.fromJson(bedroom2, GsonNestedUserSimple.class);
-
-
+        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
         System.out.println(bedroom3.getItem2());
     }
 

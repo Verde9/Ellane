@@ -74,8 +74,10 @@ class roomTestMAIN {
         DeSerialRoomTest[] deSerialRoomTests = new Gson().fromJson(deSerialRoomTest, DeSerialRoomTest[].class);
 
         System.out.println(Arrays.asList(deSerialRoomTests));
+        System.out.println(deSerialRoomTests[0]);
+        System.out.println(deSerialRoomTests[0].currentRoom);
 
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        //Gson gson = new GsonBuilder().setPrettyPrinting().create();
 //
 //        JsonElement jsonElement = gson.fromJson(Arrays.toString(deSerialRoomTests), JsonElement.class);
 //        String jsonINString = gson.toJson(jsonElement);

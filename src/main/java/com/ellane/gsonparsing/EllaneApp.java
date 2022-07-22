@@ -1,4 +1,4 @@
-package com.ellane.app;
+package com.ellane.gsonparsing;
 
 import java.io.IOException;
 import java.nio.file.Files;
