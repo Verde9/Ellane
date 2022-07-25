@@ -10,24 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="1. Added Json Class, Test.Json File, BooksPOJO.java,AuthorPojo, DayPojo, JSON TEST, POM XML and Simple TEST CASE&#10;2. All these things are to get the files ready for json. I added the test classes as well">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/com_ellane_client_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javazoom_jlayer_1_0_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com.ellane.client/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Music/For Work 2_1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Music/intro wav 2_1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/backupfiles/SoundHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ellane_game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ellane_game.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/Player.java" afterDir="false" />
     </list>
-    <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="1. Added Json Class, Test.Json File, BooksPOJO.java,AuthorPojo, DayPojo, JSON TEST, POM XML and Simple TEST CASE&#10;2. All these things are to get the files ready for json. I added the test classes as well" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="Dev-Shon" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -170,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PlayGame" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.roomTestMAIN" />
         <item itemvalue="Application.TestMainCasdfasdfa" />
+        <item itemvalue="Application.roomTestMAIN" />
+        <item itemvalue="Application.PlayGame" />
         <item itemvalue="Application.PlayerClient" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
