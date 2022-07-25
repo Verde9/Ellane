@@ -2,9 +2,11 @@ package com.ellane.gsonparsing;
 
 import com.google.gson.Gson;
 
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +17,12 @@ public class Player {
     private String secondWord; //take this out.. Not a characteristic by the player
     ArrayList<String> inventory = new ArrayList<>();
     private Array Room[] = new Array[1];
+
+
+
+
+
+
 
     //change player locations to GSON Json soon.
     PlayerLocationsAndItems bedroom = new PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
@@ -31,6 +39,8 @@ public class Player {
 
         makeDecision();
     }
+
+
 
     public void GsonParsing() {
         String bedroom2 = "{\n" +
@@ -103,6 +113,11 @@ public class Player {
         //verifyFirstWord(firstWord);
     }
 
+
+
+
+
+
     private void verifyFirstWord(String firstWord) throws InterruptedException {
         switch (firstWord) {
             case "look":
@@ -127,20 +142,94 @@ public class Player {
                 makeDecision();
                 break;
             case "get":
-                if (secondWord.equals(bedroom.getItem()) || secondWord.equals(bedroom.getItem2()))
-               inventory.add(secondWord);
-                System.out.println("You grabbed this item, press enter ");
+                if (secondWord.equals(bedroom.getItem()) || secondWord.equals(bedroom.getItem2())){
+                    inventory.add(secondWord);
+                    if(secondWord.equals(bedroom.getItem())){
+                        bedroom.getItem().isEmpty();
+                    }
+                    else {
+                        bedroom.getItem2().isEmpty();
+                    }
+                    System.out.println("You grabbed this item, press enter ");
+                }
                 makeDecision();
                 break;
             case "q":
                 System.out.println("Thank you for Playing!");
                 TimeUnit.SECONDS.sleep(1);
+                break;
 
-
+            case "play":
+                if (secondWord.equals("music")){
+                    System.out.println("These are the directions for the music player");
+                    runMusic("src/Music/intro wav 2_1.wav");
+                }
+                makeDecision();
+                break;
 
 
         }
     }
+
+
+
+    public static void runMusic(String path) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
+            Clip clip = AudioSystem.getClip();
+            clip.open(inputStream);
+            clip.loop(1);
+            FloatControl gainControl =
+                    (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            gainControl.setValue(-15.0f); // Reduce volume by 10 decibels.
+            String response = "";
+
+
+            while (!response.equals("Q")){
+                System.out.println("P = Play Music, S= Stop Music, R=Reset, V =Volume, Q= quit music player");
+                System.out.println("Enter your choice: ");
+                response = scanner.next();
+                response = response.toUpperCase();
+
+                switch (response){
+                    case ("P"):
+                        clip.start();
+                        break;
+                    case ("S"):
+                        clip.stop();
+                        break;
+                    case ("R"):
+                        clip.setMicrosecondPosition(0);
+                        break;
+                    case ("V") :
+                        System.out.println("what do you want the level to be? :  (-17 is lower volume " +
+                                "and 0.0 is higher volume)");
+                        String setVolume = scanner.next();
+                        gainControl.setValue(Float.parseFloat(String.valueOf(setVolume)));
+                        break;
+                    case ("Q"):
+                        System.out.println("the music will stop playing... forever, until you activate again");
+                        clip.stop();
+                        break;
+                    default:
+                        System.out.println("not a valid response for music player");
+
+
+                }
+            }
+
+
+        }
+        catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+
 
     //not really using this method
     private void lookInCurrentRoom() throws InterruptedException {
@@ -192,4 +281,6 @@ public class Player {
         // System.out.println("eg. 'LOOK UP', 'PICKUP SWORD', JUMP DOWN, MOVE, ");
         makeDecision();;
     }
+
+
 }
