@@ -35,7 +35,5 @@ public class PlayerClient {
 
         //System.out.println(direction1[3].toLowerCase(Locale.ROOT));
         //player1.getPlayerDecision(action);
-
-
     }
 }
