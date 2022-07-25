@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="com.ellane.client:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
+    <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="1. Added Json Class, Test.Json File, BooksPOJO.java,AuthorPojo, DayPojo, JSON TEST, POM XML and Simple TEST CASE&#10;2. All these things are to get the files ready for json. I added the test classes as well">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
@@ -45,6 +51,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/Player.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -65,10 +74,21 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ellaneJar" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.51839083" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\StudentWork(DSA)\Ellane\NLC-Ellane\src\main\java\com\pleaseletthiswork" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\StudentWork(DSA)\Ellane\NLC-Ellane\src\Music" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.ellane.jsonparsing" />
@@ -76,14 +96,24 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.ellane.gsonparsing" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ellane.app" />
+      <recent name="com.backupfiles" />
+      <recent name="com.ellane.gsonparsing" />
+      <recent name="com.pleaseletthiswork" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="GsonUserSimpleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.GsonUserSimpleTest" />
       <module name="ellane_game" />
+  <component name="RunManager" selected="Application.PlayGame">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
+      <module name="com.ellane.client" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.gsonparsing.*" />
+          <option name="PATTERN" value="com.ellane.client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,8 +121,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LASTMAIN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.LASTMAIN" />
+    <configuration name="PlayGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.PlayGame" />
       <module name="ellane_game" />
       <extension name="coverage">
         <pattern>
@@ -113,6 +143,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+    <configuration name="PlayerClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="PlayerClient" />
+      <module name="ellane_game" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,9 +180,10 @@
       <list>
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestMainCasdfasdfa" />
-        <item itemvalue="Application.GsonUserSimpleTest" />
-        <item itemvalue="Application.LASTMAIN" />
         <item itemvalue="Application.roomTestMAIN" />
+        <item itemvalue="Application.PlayGame" />
+        <item itemvalue="Application.PlayerClient" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -184,6 +218,7 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/NLC_Ellane$roomTestMAIN.ic" NAME="roomTestMAIN Coverage Results" MODIFIED="1658467801639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
