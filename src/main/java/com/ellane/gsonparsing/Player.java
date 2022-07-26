@@ -2,19 +2,21 @@ package com.ellane.gsonparsing;
 
 import com.ellane.jsonparsing.JsonRules;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import org.skyscreamer.jsonassert.JSONParser;
 
 import javax.sound.sampled.*;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
+
+
 
 public class Player {
     private String name;
@@ -23,11 +25,11 @@ public class Player {
     private String secondWord; //take this out.. Not a characteristic by the player
     ArrayList<String> inventory = new ArrayList<>();
     private Array Room[] = new Array[1];
+    private Object currentRoom2;
 
-    ArrayList generateMap2 = new ArrayList();
 
 
-    public void generateMap(){
+    public void writingGenerateMap(){
 
         PlayerLocationsAndItems playerLocationsAndItems = new PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
                 "inside of display case. It is Unlocked",
@@ -55,6 +57,34 @@ public class Player {
 
     }
 
+    public void readingGenerateTestBedroom() throws FileNotFoundException {
+
+      /*  String path = "testRooms.json";
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+
+        Gson gson = new Gson();
+        Object json = gson.fromJson(bufferedReader, PlayerLocationsAndItems.class);
+
+
+        System.out.println(json.getClass());
+        System.out.println(json.toString());*/
+
+
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("testRooms.json"));
+            JsonObject parser = JsonParser.parseReader(reader).getAsJsonObject();
+            System.out.println(parser.get("currentRoom").getAsString());
+            System.out.println(parser.get("item").getAsString());
+
+            currentRoom2 = parser.get("currentRoom").getAsString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+
     /*public void generateMap() throws IOException {
         JsonNode bedroomNode = JsonRules.parse(new File("testRooms.json"));
         PlayerLocationsAndItems bedroom = JsonRules.fromJson(bedroomNode, PlayerLocationsAndItems.class);
@@ -67,6 +97,9 @@ public class Player {
 
 
     }*/
+
+
+
     //change player locations to GSON JsonRules soon.
     PlayerLocationsAndItems bedroom = new PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
             "inside of display case. It is Unlocked",
@@ -78,10 +111,7 @@ public class Player {
             "20", "This room is dope");
 
 
-    public void playAllGames() throws InterruptedException, IOException {
 
-        makeDecision();
-    }
 
 
 
@@ -100,6 +130,7 @@ public class Player {
         Gson json = new Gson();
         PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
         System.out.println(bedroom3.getItem2());
+        bedroom3.getRandenc();
     }
 
 
@@ -162,6 +193,9 @@ public class Player {
 
 
     private void verifyFirstWord(String firstWord) throws InterruptedException, IOException {
+
+
+
         switch (firstWord) {
             case "look":
                 System.out.println("this is in your inventory " + getInventory());
@@ -216,7 +250,8 @@ public class Player {
                 makeDecision();
                 break;
             case "generate":
-                generateMap();
+                //readingGenerateTestBedroom();
+                System.out.println(currentRoom2);
                 makeDecision();
                 break;
 

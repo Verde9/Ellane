@@ -115,6 +115,7 @@ public class EllaneApp {
             String response = "";
 
 
+
             while (!response.equals("Q")){
                 System.out.println("What is playing right now is the intro music, Please Press 'Q' to stop " +
                         "playing before continuing..... or else.....");
