@@ -1,6 +1,5 @@
 package com.ellane.app;
 
-<<<<<<< HEAD
 import com.ellane.model.Player;
 
 import java.io.IOException;
@@ -23,39 +22,16 @@ public class EllaneApp {
     //change player locations to GSON Json soon.
     com.ellane.model.PlayerLocationsAndItems bedroom = new com.ellane.model.PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
             "inside of display case. It is Unlocked",
-            "gun", "its a MF gun, but it doesn't do anything without bullets",
+            "gun", "its a MF gun, but it doesnt do anything without bullets",
             "20", "This room is dope");
     com.ellane.model.PlayerLocationsAndItems open_area = new com.ellane.model.PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
             "inside of display case. It is Unlocked",
-            "gun", "its a MF gun, but it doesn't do anything without bullets",
+            "gun", "its a MF gun, but it doesnt do anything without bullets",
             "20", "This room is dope");
 
 
 
     public void initialize() throws InterruptedException {
-=======
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.function.DoubleToIntFunction;
-
-/*
- *This is a the Controller.
- * It orchestrates the overall flow of the application.
- *It prompts the user for input, and then passes that input into the system ("Model").
- * ALL PROMPTS SHOULD COME FROM HERE
- */
-public class EllaneApp {
-    private int roundCount = 50;
-    Boolean gameEnds = false;
-
-    Scanner scan = new Scanner(System.in);
-
-    public void initialize() {
->>>>>>> 21631bdec8c454fc8ce65da7a725fd9902a5a802
         gameWelcomeMessage();
         promptToStartGame();
     }
@@ -63,12 +39,7 @@ public class EllaneApp {
     private void gameWelcomeMessage() {
 
         String banner = null;
-<<<<<<< HEAD
-        String t = Path.of("./com.ellane.app/resources/gameArt.txt").toString();
-        if (Files.exists(Path.of("./com.ellane.app/resources/gameArt.txt"))) {
-=======
         if (Files.exists(Path.of("com.ellane.app/resources/gameArt.txt"))) {
->>>>>>> 21631bdec8c454fc8ce65da7a725fd9902a5a802
             try {
                 banner = Files.readString(Path.of("com.ellane.app/resources/gameArt.txt"));
                 System.out.println(banner);
@@ -83,7 +54,6 @@ public class EllaneApp {
         }
     }
 
-<<<<<<< HEAD
     private void promptToStartGame() throws InterruptedException {
         System.out.println("Do you wish to play? type 'yes' or type 'quit game'");
         String userInput = scan.nextLine().toLowerCase();
@@ -94,18 +64,6 @@ public class EllaneApp {
         }
 
         if (userInput.equals("yes")) {
-=======
-    private void promptToStartGame() {
-        System.out.println("Do you wish to play? type 'yes' or typ 'quit game'");
-        String userInput = scan.nextLine().toLowerCase();
-        System.out.println("user input: " + userInput);
-
-        if(userInput.equals("quit game")) {
-            System.out.println("...Thanks for playing! Goodbye!");
-        }
-
-        if(userInput.equals("yes")) {
->>>>>>> 21631bdec8c454fc8ce65da7a725fd9902a5a802
             System.out.println("Let's Play!");
             startGame();
         } else {
@@ -113,7 +71,6 @@ public class EllaneApp {
         }
     }
 
-<<<<<<< HEAD
     private void startGame() throws InterruptedException {
         displayGameInfo();
 
@@ -249,16 +206,9 @@ public class EllaneApp {
         //System.out.println("valid action commands: LOOK, USE, GO, JUMP, DROP, PICKUP, CONTROLS");
         // System.out.println("eg. 'LOOK UP', 'PICKUP SWORD', JUMP DOWN, MOVE, ");
         player.makeDecision();
-=======
-    private void startGame() {
-
->>>>>>> 21631bdec8c454fc8ce65da7a725fd9902a5a802
     }
 }
 
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 21631bdec8c454fc8ce65da7a725fd9902a5a802

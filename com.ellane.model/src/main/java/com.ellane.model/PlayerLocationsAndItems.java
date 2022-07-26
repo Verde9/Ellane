@@ -1,5 +1,5 @@
-
 package com.ellane.model;
+
 public class PlayerLocationsAndItems {
 
 
