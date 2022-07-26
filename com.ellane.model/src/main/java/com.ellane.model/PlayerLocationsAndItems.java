@@ -1,6 +1,4 @@
-package com.ellane.gsonparsing;
-
-import com.google.gson.Gson;
+package com.ellane.model;
 
 public class PlayerLocationsAndItems {
 
