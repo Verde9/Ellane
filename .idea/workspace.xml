@@ -10,26 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CHARACTERS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/PlayerLocationsAndItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/PlayerLocationsAndItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/DeSerialRoomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/DeSerialRoomTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonParsing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/GsonParsing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonUserSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/GsonUserSimple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/PlayGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayerLocationsAndItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/PlayerLocationsAndItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/TestMainCasdfasdfa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/TestMainCasdfasdfa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/roomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/roomTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/roomTestMAIN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/roomTestMAIN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/gsonparsing/GsonUserSimpleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ellane/model/GsonUserSimpleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Music/For Work 2_1.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Music/For Work 2_1.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Music/intro wav 2_1.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Music/intro wav 2_1.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/jsonparsing/JsonRulesTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/model/GsonUserSimpleTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +51,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/ellane/model/Player.java" root0="SKIP_INSPECTION" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -83,7 +72,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ellaneJar" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.51839083" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
@@ -96,6 +85,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\StudentWork(DSA)\Ellane\NLC-Ellane" />
       <recent name="C:\StudentWork(DSA)\Ellane\NLC-Ellane\src\Music" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -203,6 +193,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -211,6 +202,41 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
+          <line>133</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
+          <line>132</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
+          <line>224</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
+          <line>225</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

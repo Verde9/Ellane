@@ -1,5 +1,4 @@
 package com.ellane.model;
-
 import com.google.gson.Gson;
 
 import java.sql.Array;
@@ -14,14 +13,8 @@ public class Player {
     ArrayList<String> inventory = new ArrayList<>();
     private Array Room[] = new Array[1];
 
+    String decision;
 
-    public void playAllGames() throws InterruptedException {
-
-        makeDecision();
-    }
-
-
-    Scanner in = new Scanner(System.in);
 
     // Make constructor for properties
 
@@ -43,15 +36,17 @@ public class Player {
      }
 
     public String makeDecision() throws InterruptedException {
-        System.out.println();
+
+        Scanner in = new Scanner(System.in);
         System.out.println("What do you want to do: ");
         System.out.println("Enter CONTROLS to get game controls");
-        TimeUnit.SECONDS.sleep(1);
+        System.out.println();
+        //TimeUnit.SECONDS.sleep(1);
         String decision = in.nextLine();
-        System.out.println(decision);
-        return decision;
-
+        return  decision;
     }
+
+
 
 
     public ArrayList<String> getInventory() {
