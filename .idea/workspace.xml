@@ -9,8 +9,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
     <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="1. Added Json Class, Test.Json File, BooksPOJO.java,AuthorPojo, DayPojo, JSON TEST, POM XML and Simple TEST CASE&#10;2. All these things are to get the files ready for json. I added the test classes as well">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ellane_game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ellane_game.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testRooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/testRooms.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +103,10 @@
       <recent name="com.pleaseletthiswork" />
     </key>
   </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="GsonUserSimpleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.GsonUserSimpleTest" />
+      <module name="ellane_game" />
   <component name="RunManager" selected="Application.PlayGame">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
@@ -119,6 +134,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
+      <module name="com.ellane.client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ellane.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
     <configuration name="PlayerClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PlayerClient" />
       <module name="ellane_game" />
@@ -154,6 +178,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestMainCasdfasdfa" />
         <item itemvalue="Application.roomTestMAIN" />
         <item itemvalue="Application.PlayGame" />
@@ -183,6 +208,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
