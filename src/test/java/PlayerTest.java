@@ -5,6 +5,7 @@ public class PlayerTest extends TestCase {
 
     public void testDisplayInformationForLook() {
         Player player = new Player("Dave");
+       // player.displayInformationForLook();
         //player.displayInformationForLook();
     }
 }
