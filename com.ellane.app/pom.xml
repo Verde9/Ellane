@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>com.ellane.app</artifactId>
+<<<<<<< HEAD
     <dependencies>
         <dependency>
             <groupId>org.example</groupId>
@@ -29,6 +30,8 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+=======
+>>>>>>> 21631bdec8c454fc8ce65da7a725fd9902a5a802
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

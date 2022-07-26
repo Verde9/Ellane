@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="com.ellane.client" />
+        <module name="com.ellane.model" />
+        <module name="com.ellane.view" />
+        <module name="com.ellane.app" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.ellane.app" target="11" />
+      <module name="com.ellane.client" target="11" />
+      <module name="com.ellane.model" target="11" />
+      <module name="com.ellane.view" target="11" />
+      <module name="ellane_game" target="11" />
+      <module name="NLC-Ellane" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

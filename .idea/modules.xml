@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/Eliane-game.iml" filepath="$PROJECT_DIR$/.idea/Eliane-game.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" filepath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" filepath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" filepath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" filepath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ellane_game.iml" filepath="$PROJECT_DIR$/ellane_game.iml" />
+>>>>>>> 21631bdec8c454fc8ce65da7a725fd9902a5a802
     </modules>
   </component>
 </project>
