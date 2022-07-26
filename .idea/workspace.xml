@@ -111,11 +111,11 @@
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true" />
     <configuration name="PlayGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.model.PlayGame" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.PlayGame" />
       <module name="ellane_game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.model.*" />
+          <option name="PATTERN" value="com.ellane.gsonparsing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -131,11 +131,11 @@
       </method>
     </configuration>
     <configuration name="TestMainCasdfasdfa" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.model.TestMainCasdfasdfa" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.TestMainCasdfasdfa" />
       <module name="ellane_game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.model.*" />
+          <option name="PATTERN" value="com.ellane.gsonparsing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -144,11 +144,11 @@
       </method>
     </configuration>
     <configuration name="roomTestMAIN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.model.roomTestMAIN" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.roomTestMAIN" />
       <module name="ellane_game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.model.*" />
+          <option name="PATTERN" value="com.ellane.gsonparsing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
