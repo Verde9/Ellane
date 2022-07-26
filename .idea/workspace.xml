@@ -10,18 +10,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
-    <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="1. Added Json Class, Test.Json File, BooksPOJO.java,AuthorPojo, DayPojo, JSON TEST, POM XML and Simple TEST CASE&#10;2. All these things are to get the files ready for json. I added the test classes as well">
+      <change afterPath="$PROJECT_DIR$/src/main/java/CHARACTERS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/PlayerLocationsAndItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/PlayerLocationsAndItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ellane_game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ellane_game.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testRooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/testRooms.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/DeSerialRoomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/DeSerialRoomTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/EllaneApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonParsing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/GsonParsing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonUserSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/GsonUserSimple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/PlayGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayerLocationsAndItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/PlayerLocationsAndItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/TestMainCasdfasdfa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/TestMainCasdfasdfa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/roomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/roomTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/roomTestMAIN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/roomTestMAIN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/gsonparsing/GsonUserSimpleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ellane/model/GsonUserSimpleTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +60,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/Player.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/ellane/model/Player.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -104,10 +112,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="GsonUserSimpleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.GsonUserSimpleTest" />
-      <module name="ellane_game" />
-  <component name="RunManager" selected="Application.PlayGame">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
       <module name="com.ellane.client" />
@@ -121,12 +125,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true" />
     <configuration name="PlayGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.PlayGame" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.model.PlayGame" />
       <module name="ellane_game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.gsonparsing.*" />
+          <option name="PATTERN" value="com.ellane.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,15 +139,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
-      <module name="com.ellane.client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ellane.client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
     <configuration name="PlayerClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PlayerClient" />
       <module name="ellane_game" />
@@ -151,11 +147,11 @@
       </method>
     </configuration>
     <configuration name="TestMainCasdfasdfa" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.TestMainCasdfasdfa" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.model.TestMainCasdfasdfa" />
       <module name="ellane_game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.gsonparsing.*" />
+          <option name="PATTERN" value="com.ellane.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -164,11 +160,11 @@
       </method>
     </configuration>
     <configuration name="roomTestMAIN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.roomTestMAIN" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.model.roomTestMAIN" />
       <module name="ellane_game" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.gsonparsing.*" />
+          <option name="PATTERN" value="com.ellane.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -183,7 +179,6 @@
         <item itemvalue="Application.roomTestMAIN" />
         <item itemvalue="Application.PlayGame" />
         <item itemvalue="Application.PlayerClient" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -218,7 +213,6 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/NLC_Ellane$roomTestMAIN.ic" NAME="roomTestMAIN Coverage Results" MODIFIED="1658467801639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
