@@ -1,12 +1,18 @@
 package com.ellane.gsonparsing;
 
+import com.ellane.jsonparsing.JsonRules;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
 
 import javax.sound.sampled.*;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -18,13 +24,50 @@ public class Player {
     ArrayList<String> inventory = new ArrayList<>();
     private Array Room[] = new Array[1];
 
+    ArrayList generateMap2 = new ArrayList();
+
+
+    public void generateMap(){
+
+        PlayerLocationsAndItems playerLocationsAndItems = new PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
+                "inside of display case. It is Unlocked",
+                "gun", "its a MF gun, but it doesnt do anything without bullets",
+                "20", "This room is dope");
+        try {
+            // create a map
+            Map<String, Object> map = new HashMap<>();
+            map.put("ROOM", new String[]{"bedroom", "open area", "den"});
+            map.put("items", new String[]{"sword","gun", "candy", "bread"});
+            map.put("Magic", new String[]{"fire", "ice"});
+            map.put("admin", true);
+            // create a writer
+            Writer writer = new FileWriter("testBedroom3.json");
+
+            // convert map to JSON File
+            new Gson().toJson(map, writer);
+
+            // close the writer
+            writer.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    /*public void generateMap() throws IOException {
+        JsonNode bedroomNode = JsonRules.parse(new File("testRooms.json"));
+        PlayerLocationsAndItems bedroom = JsonRules.fromJson(bedroomNode, PlayerLocationsAndItems.class);
+        generateMap2.add(bedroom);
+        System.out.println(generateMap2);
 
 
 
 
 
 
-    //change player locations to GSON Json soon.
+    }*/
+    //change player locations to GSON JsonRules soon.
     PlayerLocationsAndItems bedroom = new PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
             "inside of display case. It is Unlocked",
             "gun", "its a MF gun, but it doesnt do anything without bullets",
@@ -35,7 +78,7 @@ public class Player {
             "20", "This room is dope");
 
 
-    public void playAllGames() throws InterruptedException {
+    public void playAllGames() throws InterruptedException, IOException {
 
         makeDecision();
     }
@@ -83,7 +126,7 @@ public class Player {
         this.name = name;
      }
 
-    public void makeDecision() throws InterruptedException {
+    public void makeDecision() throws InterruptedException, IOException {
         System.out.println();
         System.out.println("What do you want to do: ");
         System.out.println("Enter CONTROLS to get game controls");
@@ -93,7 +136,7 @@ public class Player {
         verifyDecision(decision);
     }
 
-    private void verifyDecision(String decision) throws InterruptedException {
+    private void verifyDecision(String decision) throws InterruptedException, IOException {
         //String[] stringArr = decision.split("");
         String[] stringArr = decision.split(" ");
         //System.out.println(Arrays.toString(stringArr));
@@ -118,7 +161,7 @@ public class Player {
 
 
 
-    private void verifyFirstWord(String firstWord) throws InterruptedException {
+    private void verifyFirstWord(String firstWord) throws InterruptedException, IOException {
         switch (firstWord) {
             case "look":
                 System.out.println("this is in your inventory " + getInventory());
@@ -166,6 +209,17 @@ public class Player {
                 }
                 makeDecision();
                 break;
+            case "fuse":
+                if ((inventory.equals("gun") && inventory.equals("sword"))){
+                    System.out.println("A NEW WEAPON HAS BEEN MADE");
+                }
+                makeDecision();
+                break;
+            case "generate":
+                generateMap();
+                makeDecision();
+                break;
+
 
 
         }
@@ -232,14 +286,14 @@ public class Player {
 
 
     //not really using this method
-    private void lookInCurrentRoom() throws InterruptedException {
+    private void lookInCurrentRoom() throws InterruptedException, IOException {
         System.out.println("current Room Description");
         System.out.println("Items in room are going to be provided");// replace code later
         //Call Room details here from temporary room
         makeDecision();
     }
 
-    private void verifyRoomMovement(String secondWord) throws InterruptedException {
+    private void verifyRoomMovement(String secondWord) throws InterruptedException, IOException {
         switch(secondWord) {
             case "east":
                 System.out.println();
@@ -267,7 +321,7 @@ public class Player {
         this.inventory = inventory;
     }
 
-    private void showGameControls() throws InterruptedException {
+    private void showGameControls() throws InterruptedException, IOException {
         System.out.println("Actions:\n" +
                 "    GO [north, south, east, west, up, down]\n" +
                 "    GET [item, spell]\n" +
@@ -281,6 +335,8 @@ public class Player {
         // System.out.println("eg. 'LOOK UP', 'PICKUP SWORD', JUMP DOWN, MOVE, ");
         makeDecision();;
     }
+
+
 
 
 }

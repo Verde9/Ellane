@@ -7,7 +7,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 class PlayGame {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         //SoundHandler.runMusic("src/Music/intro wav 2_1.wav");
         EllaneApp players = new EllaneApp();
         players.initialize();

@@ -8,11 +8,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 
-public class JsonTest {
+public class JsonRulesTest {
 
 
     private String simpleTestCaseJsonSource = "{\n" +
@@ -43,7 +44,7 @@ public class JsonTest {
     @Test
     public void parse_Should_Grab_Key_From_SimpleTestCaseJsonSource() throws IOException {
 
-        JsonNode node = Json.parse(simpleTestCaseJsonSource);
+        JsonNode node = JsonRules.parse(new File("test.json"));
         System.out.println(node.get("title").asText());
         assertEquals(node.get("title").asText(), "Holes");
     }
@@ -51,8 +52,8 @@ public class JsonTest {
     @Test
     public void fromJson_Should_Grab_SimpleTestCaseJsonPOJO_Class_Title() throws IOException {
 
-        JsonNode node = Json.parse(simpleTestCaseJsonSource);
-        SimpleTestCaseJsonPOJO pojo = Json.fromJson(node, SimpleTestCaseJsonPOJO.class);
+        JsonNode node = JsonRules.parse(new File("test.json"));
+        SimpleTestCaseJsonPOJO pojo = JsonRules.fromJson(node, SimpleTestCaseJsonPOJO.class);
         System.out.println("POJO title: " + pojo.title);
         assertEquals(pojo.title, "Holes");
 
@@ -62,8 +63,8 @@ public class JsonTest {
     public void toJson_Will_Take_The_SimpleTestCaseJsonPOJO_Set_The_Title_And_Pass_Correctly() {
         SimpleTestCaseJsonPOJO pojo = new SimpleTestCaseJsonPOJO();
         pojo.setTitle("Test String");
-        JsonNode node = Json.toJson(pojo);
-        System.out.println(Json.toJson(pojo));
+        JsonNode node = JsonRules.toJson(pojo);
+        System.out.println(JsonRules.toJson(pojo));
 
         assertEquals(node.get("title").asText(), "Test String");
     }
@@ -73,9 +74,9 @@ public class JsonTest {
         SimpleTestCaseJsonPOJO pojo = new SimpleTestCaseJsonPOJO();
         pojo.setTitle("Test String");
 
-        JsonNode node = Json.toJson(pojo);
+        JsonNode node = JsonRules.toJson(pojo);
 
-        System.out.println(Json.stingifyJson(node));
+        System.out.println(JsonRules.stingifyJson(node));
 
 
     }
@@ -85,15 +86,15 @@ public class JsonTest {
         SimpleTestCaseJsonPOJO pojo = new SimpleTestCaseJsonPOJO();
         pojo.setTitle("Test String");
 
-        JsonNode node = Json.toJson(pojo);
-        System.out.println(Json.prettyPrintJson(node));
+        JsonNode node = JsonRules.toJson(pojo);
+        System.out.println(JsonRules.prettyPrintJson(node));
     }
 
     @Test
     public void dayTestScenario1_Should_Grab_DayPojo_Class_Title_And_Show_GET_date()
             throws IOException {
-        JsonNode node = Json.parse(dayScenario1);
-        DayPojo pojo = Json.fromJson(node, DayPojo.class);
+        JsonNode node = JsonRules.parse(new File("test.json"));
+        DayPojo pojo = JsonRules.fromJson(node, DayPojo.class);
         assertEquals("2019-12-25", pojo.getDate().toString());
     }
 
@@ -101,8 +102,8 @@ public class JsonTest {
     @Test
     public void authorAndBookPOJOTestCase_Should_Grab_AuthorPojo_Class_Title_And_Show_GET_Data_correctly()
             throws IOException {
-        JsonNode node = Json.parse(authorAndBookPOJOTestCase);
-        AuthorPOJO pojo = Json.fromJson(node, AuthorPOJO.class);
+        JsonNode node = JsonRules.parse(new File("test.json"));
+        AuthorPOJO pojo = JsonRules.fromJson(node, AuthorPOJO.class);
         System.out.println("Author :" + pojo.getAuthorName());
         System.out.println("Date " + pojo.getBooks());
         for (BooksPOJO booksPOJO: pojo.getBooks()){

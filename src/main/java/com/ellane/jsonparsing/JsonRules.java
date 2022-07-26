@@ -4,9 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import java.io.File;
 import java.io.IOException;
 
-class Json {
+public class JsonRules {
 
     private static ObjectMapper objectMapper = getDefaultObjectMapper();
 
@@ -18,8 +19,7 @@ class Json {
         return defaultObjectMapper;
     }
 
-    public static JsonNode parse(String src) throws IOException {
-
+    public static JsonNode parse(File src) throws IOException {
         return objectMapper.readTree(src);
     }
 

@@ -10,7 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="1. Added Json Class, Test.Json File, BooksPOJO.java,AuthorPojo, DayPojo, JSON TEST, POM XML and Simple TEST CASE&#10;2. All these things are to get the files ready for json. I added the test classes as well">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PLAI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testBedroom.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/EllaneApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/TestMainCasdfasdfa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/TestMainCasdfasdfa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/jsonparsing/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/jsonparsing/JsonRules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/jsonparsing/JsonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ellane/jsonparsing/JsonRulesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.json" beforeDir="false" afterPath="$PROJECT_DIR$/test.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,9 +164,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PlayGame" />
         <item itemvalue="Application.TestMainCasdfasdfa" />
         <item itemvalue="Application.roomTestMAIN" />
-        <item itemvalue="Application.PlayGame" />
         <item itemvalue="Application.PlayerClient" />
         <item itemvalue="Application.Main" />
       </list>

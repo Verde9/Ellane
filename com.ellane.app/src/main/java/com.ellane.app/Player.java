@@ -16,7 +16,7 @@ public class Player {
     ArrayList<String> inventory = new ArrayList<>();
     private Array Room[] = new Array[1];
 
-    //change player locations to GSON Json soon.
+    //change player locations to GSON JsonRules soon.
     com.ellane.gsonparsing.PlayerLocationsAndItems bedroom = new com.ellane.gsonparsing.PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
             "inside of display case. It is Unlocked",
             "gun", "its a MF gun, but it doesnt do anything without bullets",

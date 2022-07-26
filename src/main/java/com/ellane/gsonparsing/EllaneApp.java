@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 
@@ -16,12 +18,9 @@ public class EllaneApp {
 
     Scanner scan = new Scanner(System.in);
 
-    public void initialize() throws InterruptedException {
+    public void initialize() throws InterruptedException, IOException {
         gameWelcomeMessage();
         promptToStartGame();
-
-
-
     }
 
     private void gameWelcomeMessage() {
@@ -42,7 +41,8 @@ public class EllaneApp {
         }
     }
 
-    private void promptToStartGame() throws InterruptedException {
+    private void promptToStartGame() throws InterruptedException, IOException {
+
         introMusic("src/Music/For Work 2_1.wav");
         System.out.println("Do you wish to play? type 'yes' or type 'quit game'");
         String userInput = scan.nextLine().toLowerCase();
@@ -60,13 +60,13 @@ public class EllaneApp {
         }
     }
 
-    private void startGame() throws InterruptedException {
-        introMusic("src/Music/For Work 2_1.wav");
+    private void startGame() throws InterruptedException, IOException {
+       // introMusic("src/Music/For Work 2_1.wav");
         displayGameInfo();
 
     }
 
-    private void displayGameInfo() throws InterruptedException {
+    private void displayGameInfo() throws InterruptedException, IOException {
         System.out.println("The chaos spreads & the bombs keep exploding around the city");
         TimeUnit.SECONDS.sleep((long) 2.5);
         System.out.println("The fire is spreading from building to building & most signs of life as gone!");
@@ -98,7 +98,11 @@ public class EllaneApp {
 
     }
 
+
+
+
     public static void introMusic(String path) {
+
         try {
             Scanner scanner = new Scanner(System.in);
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
@@ -112,7 +116,9 @@ public class EllaneApp {
 
 
             while (!response.equals("Q")){
-                System.out.println("P = Play Music, S= Stop Music, R=Reset, V =Volume");
+                System.out.println("What is playing right now is the intro music, Please Press 'Q' to stop " +
+                        "playing before continuing..... or else.....");
+                System.out.println("P = Play Music, S= Stop Music, R=Reset, V =Volume, Q = QUIT NOW");
                 System.out.println("Enter your choice: ");
                 response = scanner.next();
                 response = response.toUpperCase();
@@ -132,6 +138,12 @@ public class EllaneApp {
                         String setVolume = scanner.next();
                         gainControl.setValue(Float.parseFloat(String.valueOf(setVolume)));
                         break;
+                    case ("Q"):
+                        System.out.println("The Music has stopped... Now let us begin...");
+                        clip.stop();
+                        TimeUnit.SECONDS.sleep((long) 2.5);
+                        System.out.println();
+                        break;
                     default:
                         System.out.println("not a valid response for music player");
 
@@ -141,7 +153,7 @@ public class EllaneApp {
 
 
         }
-        catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+        catch (UnsupportedAudioFileException | LineUnavailableException | IOException | InterruptedException e) {
             e.printStackTrace();
         }
 
