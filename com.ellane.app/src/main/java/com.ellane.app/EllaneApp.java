@@ -1,5 +1,7 @@
 package com.ellane.app;
 
+import com.ellane.model.ActionCommands;
+import com.ellane.model.Characters;
 import com.ellane.model.Player;
 
 import java.io.IOException;
@@ -9,15 +11,20 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 
+
 public class EllaneApp {
     private String firstWord;
     private String secondWord;
     private String playerCurrentRoom;
     private int roundCount = 50;
     Boolean gameOver = false;
+    private com.ellane.model.ActionCommands ActionCommands;
+    private com.ellane.model.Characters Characters;
+
 
     Scanner scan = new Scanner(System.in);
-    Player player = new Player();
+    Player player = new Player("LB", com.ellane.model.Characters.MALE_SOLDIER);
+
 
     //change player locations to GSON Json soon.
     com.ellane.model.PlayerLocationsAndItems bedroom = new com.ellane.model.PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
@@ -28,8 +35,6 @@ public class EllaneApp {
             "inside of display case. It is Unlocked",
             "gun", "its a MF gun, but it doesnt do anything without bullets",
             "20", "This room is dope");
-
-
 
     public void initialize() throws InterruptedException {
         gameWelcomeMessage();
@@ -86,17 +91,6 @@ public class EllaneApp {
         //verifyDecision(playerDecision);
     }
 
-    private void verifyDecision(String decision) throws InterruptedException {
-        String stringArr[] = decision.split(" ", 2);
-        System.out.println(stringArr);
-        firstWord = stringArr[0].toLowerCase();
-        secondWord = stringArr[1].toLowerCase();
-        System.out.println("first Word: " + firstWord);
-        System.out.println("second Word: " + secondWord);
-
-        verifyFirstWord(firstWord);
-    }
-
     private void verifyFirstWord(String firstWord) throws InterruptedException {
         switch (firstWord) {
             case "look":
@@ -134,7 +128,7 @@ public class EllaneApp {
         }
     }
 
-        private void verifyRoomMovement (String secondWord){
+    private void verifyRoomMovement (String secondWord){
             switch (secondWord) {
                 case "east":
                     System.out.println();
@@ -152,14 +146,14 @@ public class EllaneApp {
             }
         }
 
-        private void lookInCurrentRoom () {
+    private void lookInCurrentRoom () {
             System.out.println("current Room Description");
             System.out.println("Items in room are going to be provided");// replace code later
             //Call Room details here from temporary room
             //makeDecision();
         }
 
-        private void displayGameInfo () throws InterruptedException {
+    private void displayGameInfo () throws InterruptedException {
             System.out.println("The chaos spreads & the bombs keep exploding around the city");
             TimeUnit.SECONDS.sleep(2);
             System.out.println("The fire is spreading from building to building & most signs of life as gone!");
@@ -191,8 +185,6 @@ public class EllaneApp {
 
         }
 
-
-
     private void showGameControls() throws InterruptedException {
         System.out.println("Actions:\n" +
                 "    GO [north, south, east, west, up, down]\n" +
@@ -205,7 +197,19 @@ public class EllaneApp {
         //System.out.println("The game commands are as follows: ");
         //System.out.println("valid action commands: LOOK, USE, GO, JUMP, DROP, PICKUP, CONTROLS");
         // System.out.println("eg. 'LOOK UP', 'PICKUP SWORD', JUMP DOWN, MOVE, ");
-        player.makeDecision();
+        String answer = player.makeDecision();
+        verifyDecision(answer);
+    }
+
+    private void verifyDecision(String decision) throws InterruptedException {
+        String stringArr[] = decision.split(" ", 2);
+        System.out.println(stringArr);
+        firstWord = stringArr[0].toLowerCase();
+        secondWord = stringArr[1].toLowerCase();
+        System.out.println("first Word: " + firstWord);
+        System.out.println("second Word: " + secondWord);
+
+        verifyFirstWord(firstWord);
     }
 }
 

@@ -10,26 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CHARACTERS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/ActionCommands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Characters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Directions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/PlayerLocationsAndItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/PlayerLocationsAndItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/DeSerialRoomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/DeSerialRoomTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonParsing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/GsonParsing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/GsonUserSimple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/GsonUserSimple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/PlayGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/PlayerLocationsAndItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/PlayerLocationsAndItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/TestMainCasdfasdfa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/TestMainCasdfasdfa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/roomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/roomTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ellane/gsonparsing/roomTestMAIN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/roomTestMAIN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/gsonparsing/GsonUserSimpleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/ellane/model/GsonUserSimpleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -58,9 +45,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/ellane/model/Player.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
