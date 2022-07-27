@@ -4,7 +4,7 @@ import com.ellane.model.ActionCommands;
 import com.ellane.model.Characters;
 import com.ellane.model.Player;
 import com.ellane.model.PlayerLocationsAndItems;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 import javax.sound.sampled.*;
@@ -165,6 +165,18 @@ public class EllaneApp {
                     verifyDecision(decision);
                     break;
                 case "go":
+                    if (secondWord.equals("south")){
+                        verifyRoomMovement(secondWord);
+                    }
+                    else if (secondWord.equals("north")){
+                        verifyRoomMovement(secondWord);
+                    }
+                    else if (secondWord.equals("east")){
+                        verifyRoomMovement(secondWord);
+                    }
+                    else if (secondWord.equals("west")){
+                        verifyRoomMovement(secondWord);
+                    }
                 case "climb":
                     verifyRoomMovement(secondWord);
                     decision = player.makeDecision();
@@ -234,7 +246,7 @@ public class EllaneApp {
 
             switch (secondWord) {
                 case "east":
-                    System.out.println();
+                    System.out.println("This is my room");
                     //verify there is an east room to move to
                     //update currentroom property
                     //display currentRoom description
@@ -245,15 +257,15 @@ public class EllaneApp {
 
                     break;
                 case "west":
-                    System.out.println();
+                    System.out.println("You are in " + open_area);
                     //Implement logic
                     break;
                 case "north":
-                    System.out.println();
+                    System.out.println("room office_1");
                     //Implement logic
                     break;
                 case "south":
-                    System.out.println();
+                    System.out.println(bedroom);
                     //Implement logic
                     //create method to verifyDirectionIs Possible from current room
                     break;
@@ -309,22 +321,22 @@ public class EllaneApp {
 
 
     //TODO: get the Gson working... this code needs modifying
-    public void GsonParsing() {
-        String bedroom2 = "{\n" +
-                "  \"currentRoom\": \"BEDROOM\",\n" +
-                "  \"south\": \"OPEN AREA\",\n" +
-                "  \"item\": \"sword\",\n" +
-                "  \"item_status\": \" inside of a display case. It is unlocked\",\n" +
-                "  \"item2\": \"gun\",\n" +
-                "  \"item_status2\": \"its a MF gun..but it doesnt do anything with out bullets\",\n" +
-                "  \"randenc\": \"20\",\n" +
-                "  \"desc\": \"You are in a bedroom. There is nothing of use in this room. It stinks and everything looks crappy, but you see, to the SOUTH; an ugly OPEN AREA\"\n" +
-                "\n" +
-                "}";
-        Gson json = new Gson();
-        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
-        System.out.println(bedroom3.getItem2());
-    }
+//    public void GsonParsing() {
+//        String bedroom2 = "{\n" +
+//                "  \"currentRoom\": \"BEDROOM\",\n" +
+//                "  \"south\": \"OPEN AREA\",\n" +
+//                "  \"item\": \"sword\",\n" +
+//                "  \"item_status\": \" inside of a display case. It is unlocked\",\n" +
+//                "  \"item2\": \"gun\",\n" +
+//                "  \"item_status2\": \"its a MF gun..but it doesnt do anything with out bullets\",\n" +
+//                "  \"randenc\": \"20\",\n" +
+//                "  \"desc\": \"You are in a bedroom. There is nothing of use in this room. It stinks and everything looks crappy, but you see, to the SOUTH; an ugly OPEN AREA\"\n" +
+//                "\n" +
+//                "}";
+//        Gson json = new Gson();
+//        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
+//        System.out.println(bedroom3.getItem2());
+//    }
 
     //this is to run the main game music...after the intro.
     public static void runMusic(String path) {
