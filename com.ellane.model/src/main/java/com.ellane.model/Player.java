@@ -3,6 +3,7 @@ import com.google.gson.Gson;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -12,6 +13,7 @@ public class Player {
     private com.ellane.model.Characters CHARACTERTYPE;
     ArrayList<String> inventory = new ArrayList<>();
     private Array Room[] = new Array[1];
+
 
     String decision;
 
@@ -73,5 +75,9 @@ public class Player {
 
     private void increaseHealth(int increaseAmount) {
         health += increaseAmount;
+    }
+
+    public void setInventory(ArrayList<String> inventory) {
+        this.inventory = inventory;
     }
 }

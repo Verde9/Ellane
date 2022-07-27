@@ -100,7 +100,6 @@ public class PlayerLocationsAndItems {
                 ", item_status2='" + item_status2 + '\'' +
                 ", randenc='" + randenc + '\'' +
                 ", desc='" + desc + '\'' +
-                ", gsonUserSimple=" + //gsonUserSimple +
                 '}';
     }
 }
