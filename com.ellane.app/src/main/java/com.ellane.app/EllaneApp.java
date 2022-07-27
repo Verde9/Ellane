@@ -1,10 +1,8 @@
 package com.ellane.app;
 
-import com.ellane.model.ActionCommands;
-import com.ellane.model.Characters;
+//import com.ellane.model.*;
+//import com.google.gson.Gson;
 import com.ellane.model.Player;
-import com.ellane.model.PlayerLocationsAndItems;
-import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 import javax.sound.sampled.*;
@@ -115,8 +113,8 @@ public class EllaneApp {
 
     private void verifyRoomMovement (String secondWord){
             switch (secondWord) {
-                case "east":
-                    System.out.println();
+                case "south":
+                    System.out.println("I did it");
                     //verify there is an east room to move to
                     //update currentroom property
                     //display currentRoom description
@@ -127,6 +125,10 @@ public class EllaneApp {
                     break;
                 case "west":
                     System.out.println();
+                    break;
+
+                case "north":
+                    System.out.println("My name is Shon");
                     break;
             }
         }
@@ -191,22 +193,22 @@ public class EllaneApp {
     }
 
     //TODO: get the Gson working... this code needs modifying
-    public void GsonParsing() {
-        String bedroom2 = "{\n" +
-                "  \"currentRoom\": \"BEDROOM\",\n" +
-                "  \"south\": \"OPEN AREA\",\n" +
-                "  \"item\": \"sword\",\n" +
-                "  \"item_status\": \" inside of a display case. It is unlocked\",\n" +
-                "  \"item2\": \"gun\",\n" +
-                "  \"item_status2\": \"its a MF gun..but it doesnt do anything with out bullets\",\n" +
-                "  \"randenc\": \"20\",\n" +
-                "  \"desc\": \"You are in a bedroom. There is nothing of use in this room. It stinks and everything looks crappy, but you see, to the SOUTH; an ugly OPEN AREA\"\n" +
-                "\n" +
-                "}";
-        Gson json = new Gson();
-        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
-        System.out.println(bedroom3.getItem2());
-    }
+//    public void GsonParsing() {
+//        String bedroom2 = "{\n" +
+//                "  \"currentRoom\": \"BEDROOM\",\n" +
+//                "  \"south\": \"OPEN AREA\",\n" +
+//                "  \"item\": \"sword\",\n" +
+//                "  \"item_status\": \" inside of a display case. It is unlocked\",\n" +
+//                "  \"item2\": \"gun\",\n" +
+//                "  \"item_status2\": \"its a MF gun..but it doesnt do anything with out bullets\",\n" +
+//                "  \"randenc\": \"20\",\n" +
+//                "  \"desc\": \"You are in a bedroom. There is nothing of use in this room. It stinks and everything looks crappy, but you see, to the SOUTH; an ugly OPEN AREA\"\n" +
+//                "\n" +
+//                "}";
+//        Gson json = new Gson();
+//        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
+//        System.out.println(bedroom3.getItem2());
+//    }
 
 
 
@@ -240,7 +242,13 @@ public class EllaneApp {
                 verifyDecision(answer);
                 break;
             case "go":
-                verifyRoomMovement(secondWord);
+                //verifyRoomMovement(secondWord);
+                if (secondWord.equals("south")){
+                    verifyRoomMovement(secondWord);
+                }
+                else if(secondWord.equals("north")){
+                    verifyRoomMovement(secondWord);
+                }
                 answer = player.makeDecision();
                 verifyDecision(answer);
                 break;

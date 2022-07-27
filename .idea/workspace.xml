@@ -9,18 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/ActionCommands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Characters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Directions.java" afterDir="false" />
+    <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="1. Added Json Class, Test.Json File, BooksPOJO.java,AuthorPojo, DayPojo, JSON TEST, POM XML and Simple TEST CASE&#10;2. All these things are to get the files ready for json. I added the test classes as well">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/jsonparsing/pojo/AuthorPOJO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/jsonparsing/pojo/BooksPOJO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/jsonparsing/pojo/DayPojo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/jsonparsing/pojo/RoomPOJO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/ellane/jsonparsing/pojo/SimpleTestCaseJsonPOJO.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Dev-Shon" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -219,7 +210,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -230,37 +220,17 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
-          <line>95</line>
+          <line>93</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
-          <line>130</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
-          <line>133</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
-          <line>131</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
-          <line>132</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
-          <line>224</line>
+          <line>226</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
-          <line>225</line>
+          <line>227</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
