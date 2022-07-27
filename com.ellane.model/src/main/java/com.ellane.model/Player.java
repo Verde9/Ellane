@@ -1,5 +1,4 @@
 package com.ellane.model;
-
 import com.google.gson.Gson;
 
 import java.sql.Array;
@@ -45,21 +44,19 @@ public class Player {
         return inventory;
     }
 
-
      //--------------METHODS------------------//
     public String makeDecision() throws InterruptedException {
-        System.out.println();
+
+        Scanner in = new Scanner(System.in);
         System.out.println("What do you want to do: ");
         System.out.println("Enter CONTROLS to get game controls");
+        System.out.println();
         TimeUnit.SECONDS.sleep(1);
         String decision = in.nextLine();
-        System.out.println(decision);
-        return decision;
+        return  decision;
     }
 
-    public void addItemToInventory() {
 
-    }
 
     private void dropItemFromInventory() {
 
