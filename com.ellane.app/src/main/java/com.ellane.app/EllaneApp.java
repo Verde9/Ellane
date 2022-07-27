@@ -1,5 +1,7 @@
 package com.ellane.app;
 
+import com.ellane.model.ActionCommands;
+import com.ellane.model.Characters;
 import com.ellane.model.Player;
 import com.ellane.model.PlayerLocationsAndItems;
 import com.google.gson.Gson;
@@ -16,6 +18,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 
+
 public class EllaneApp {
     private String firstWord;
     private String secondWord;
@@ -23,10 +26,13 @@ public class EllaneApp {
     private int roundCount = 50;
     Boolean gameOver = false;
     ArrayList<String> inventory = new ArrayList<>();
+    private com.ellane.model.ActionCommands ActionCommands;
+    private com.ellane.model.Characters Characters;
+
 
     Scanner scan = new Scanner(System.in);
-    //Scanner in = new Scanner(System.in);
-    private final Player player = new Player();
+    Player player = new Player("LB", com.ellane.model.Characters.MALE_SOLDIER);
+
 
     //change player locations to GSON Json soon.
     com.ellane.model.PlayerLocationsAndItems bedroom = new com.ellane.model.PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
@@ -107,7 +113,7 @@ public class EllaneApp {
     //Chris is working on this method, but we may not need it... depending on the Gson to Json
     //but have him code this still, just in case
 
-        private void verifyRoomMovement (String secondWord){
+    private void verifyRoomMovement (String secondWord){
             switch (secondWord) {
                 case "east":
                     System.out.println();
@@ -170,8 +176,6 @@ public class EllaneApp {
             TimeUnit.SECONDS.sleep(1);
             System.out.println();
         }
-
-
 
 
     private void showGameControls() throws InterruptedException {
