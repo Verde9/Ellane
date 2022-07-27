@@ -1,5 +1,4 @@
 package com.ellane.model;
-
 import com.google.gson.Gson;
 
 import java.sql.Array;
@@ -12,6 +11,10 @@ public class Player {
     private Integer health = 100;
     private com.ellane.model.Characters CHARACTERTYPE;
     ArrayList<String> inventory = new ArrayList<>();
+    private Array Room[] = new Array[1];
+
+    String decision;
+
 
     Scanner in = new Scanner(System.in);
 
@@ -48,18 +51,17 @@ public class Player {
 
      //--------------METHODS------------------//
     public String makeDecision() throws InterruptedException {
-        System.out.println();
+
+        Scanner in = new Scanner(System.in);
         System.out.println("What do you want to do: ");
         System.out.println("Enter CONTROLS to get game controls");
-        TimeUnit.SECONDS.sleep(1);
+        System.out.println();
+        //TimeUnit.SECONDS.sleep(1);
         String decision = in.nextLine();
-        System.out.println(decision);
-        return decision;
+        return  decision;
     }
 
-    public void addItemToInventory() {
 
-    }
 
     private void dropItemFromInventory() {
 
