@@ -1,5 +1,10 @@
 package com.ellane.app;
 
+import com.ellane.model.Locations;
+import com.ellane.model.PlayerLocationsAndItems;
+import com.ellane.model.Items;
+import com.ellane.model.Json;
+import com.ellane.model.Player;
 import com.ellane.model.ActionCommands;
 import com.ellane.model.Characters;
 import com.ellane.model.Player;
@@ -27,6 +32,8 @@ public class EllaneApp {
     ArrayList<String> inventory = new ArrayList<>();
     private com.ellane.model.ActionCommands ActionCommands;
     private com.ellane.model.Characters Characters;
+    List<Items> gameItems = new ArrayList<>();
+    List<Locations> playerLocations = new ArrayList<>();
 
 
     Scanner scan = new Scanner(System.in);
@@ -45,10 +52,27 @@ public class EllaneApp {
 
 
     //this will run the app in the main class
-    public void initialize() throws InterruptedException {
+    public void initialize() throws InterruptedException, IOException {
         gameWelcomeMessage();
         promptToStartGame();
+
+
     }
+
+    public void generatePlayerItems() throws IOException {
+        JsonNode bedroomNode = Json.parse(new File("bedroomItems.json"));
+        Items items = Json.fromJson(bedroomNode, Items.class);
+        gameItems.add(items);
+
+    }
+
+    public void generateLocation() throws IOException {
+        JsonNode locationNode = Json.parse(new File("allRooms.json"));
+        Locations locations = Json.fromJson(locationNode, Locations.class);
+        playerLocations.add(locations);
+
+    }
+
 
 
     //after initialize is called, the "ellane" picture will show
@@ -72,7 +96,7 @@ public class EllaneApp {
 
     //this would be one of the first things asked... Needs to make a introGame function again to call before
     //the sout line to play music
-    private void promptToStartGame() throws InterruptedException {
+    private void promptToStartGame() throws InterruptedException, IOException {
         introMusic("Music/For Work 2_1.wav");
         System.out.println("Do you wish to play? type 'yes' or type 'quit game'");
         String userInput = scan.nextLine().toLowerCase();
@@ -92,7 +116,15 @@ public class EllaneApp {
         }
     }
 
-    private void startGame() throws InterruptedException {
+    public void run() throws IOException {
+        generatePlayerItems();
+
+    }
+
+
+
+
+    private void startGame() throws InterruptedException, IOException {
         displayGameInfo();
         while (!gameOver){
             String answer = player.makeDecision();
@@ -325,6 +357,130 @@ public class EllaneApp {
         PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
         System.out.println(bedroom3.getItem2());
     }
+
+
+
+
+
+  /*  public void readingGenerateTestBedroom() throws FileNotFoundException {
+
+
+        Gson gson = new Gson();
+        Object object = gson.fromJson(new FileReader("testRooms.json"), PlayerLocationsAndItems.class);
+
+        System.out.println(object);
+
+
+
+    }
+*/
+
+  /*  public void makeDecision() throws InterruptedException {
+        System.out.println();
+        System.out.println("What do you want to do: ");
+        System.out.println("Enter CONTROLS to get game controls");
+        TimeUnit.SECONDS.sleep(1);
+        String decision = in.nextLine();
+        System.out.println(decision);
+        verifyDecision(decision);
+    }*/
+
+
+
+
+    //TODO: MAIN GAME LOGIC
+    private void verifyFirstWord(String firstWord) throws InterruptedException, IOException {
+        generatePlayerItems();
+        generateLocation();
+        switch (firstWord) {
+            case "look":
+                for (Locations location :playerLocations){
+                    System.out.println("this is in your inventory" + getInventory() +
+                            "this is your current location" +location.getBasement());
+                }
+                String answer = player.makeDecision();
+                verifyDecision(answer);
+                break;
+            case "controls":
+                showGameControls();
+                answer = player.makeDecision();
+                verifyDecision(answer);
+                break;
+            case "go":
+                for (Locations locations : playerLocations){
+                    if (locations.getBasement().equals(secondWord)){
+                        System.out.println(" This is your current location" + secondWord);
+                    }
+                    else if (locations.getCommon_Area().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getLobby().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getMechanical_Room().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getOffice_1().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getOffice_Floor_2().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+
+                    else {
+                        System.out.println("not a location");
+                    }
+
+                }
+                verifyRoomMovement(secondWord);
+                answer = player.makeDecision();
+                verifyDecision(answer);
+                break;
+            case "inventory":
+                System.out.println(getInventory());
+                answer = player.makeDecision();
+                verifyDecision(answer);
+                break;
+            case "get":
+                for (Items items: gameItems){
+                    if (items.getItem().equals(secondWord)){
+                        inventory.add(items.getItem());
+
+                    }
+                    if (items.getItem2().equals(secondWord)){
+                        inventory.add(items.getItem2());
+                    }
+                    else {
+                        System.out.println("nothing added to inventory");
+                    }
+                }
+                answer = player.makeDecision();
+                verifyDecision(answer);
+                break;
+
+            case "q":
+                System.out.println("Thank you for Playing!");
+                TimeUnit.SECONDS.sleep(1);
+                break;
+            case "play":
+                if (secondWord.equals("music")){
+                    System.out.println("These are the directions for the music player");
+                    runMusic("Music/intro wav 2_1.wav");
+                }
+                answer = player.makeDecision();
+                verifyDecision(answer);
+                break;
+            default:
+                System.out.println("incorrect command. Check game control for options");
+                answer = player.makeDecision();
+                verifyDecision(answer);
+                break;
+
+
+        }
+    }
+
+
 
     //this is to run the main game music...after the intro.
     public static void runMusic(String path) {
