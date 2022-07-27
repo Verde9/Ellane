@@ -1,5 +1,5 @@
 package com.ellane.model;
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -74,4 +74,5 @@ public class Player {
     private void increaseHealth(int increaseAmount) {
         health += increaseAmount;
     }
+
 }

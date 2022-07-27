@@ -102,6 +102,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Ellane-game" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Ellane-game" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
       <module name="com.ellane.client" />
