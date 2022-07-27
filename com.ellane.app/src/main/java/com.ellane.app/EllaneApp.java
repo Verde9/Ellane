@@ -6,29 +6,27 @@ import com.ellane.model.Items;
 import com.ellane.model.Json;
 import com.ellane.model.Player;
 import com.ellane.model.ActionCommands;
-import com.ellane.model.Directions;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ellane.model.Characters;
+import com.ellane.model.Player;
+import com.ellane.model.PlayerLocationsAndItems;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import org.jetbrains.annotations.NotNull;
 
 import javax.sound.sampled.*;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-
 
 
 public class EllaneApp {
     private String firstWord;
     private String secondWord;
-    private String playerCurrentRoom;
+   // private com.ellane.model.PlayerLocationsAndItems  playerCurrentRoom;
     private int roundCount = 50;
     Boolean gameOver = false;
     ArrayList<String> inventory = new ArrayList<>();
@@ -112,12 +110,11 @@ public class EllaneApp {
             System.out.println("Let's Play!");
             startGame();
         } else {
-            System.out.println("INVALID INPUT");
+            System.err.println("INVALID INPUT");
+            System.out.println();
+            promptToStartGame();
         }
     }
-
-
-
 
     public void run() throws IOException {
         generatePlayerItems();
@@ -136,16 +133,137 @@ public class EllaneApp {
 
     }
 
-
-    private void displayGameLevelOneInfo() throws InterruptedException, IOException {
-        verifyDecision(player.makeDecision());
+    private void displayGameLevelOneInfo() throws InterruptedException {
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        String decision = player.makeDecision();
+        verifyDecision(decision);
     }
 
+    private void showGameControls() throws InterruptedException {
+        System.out.println("GAME COMMANDS: \n" +
+                "    GO + [north, south, east, west]\n" +
+                "    CLIMB + [up, down]\n" +
+                "    GRAB + [item_name]\n" +
+                "    DROP + [item_name]\n" +
+                "    USE + [item_name]\n" +
+                "    LOOK\n" +
+                "    INVENTORY\n" +
+                "    HEALTH \n" +
+                "    HELP\n" +
+                "    QUIT\n");
+    }
+
+    //TODO: (delete this comment later),this is making a String Array of our words so like ["john", "doe"]
+    private void verifyDecision(String decision) throws InterruptedException {
+        String[] stringArr = decision.split(" ");
+        firstWord = stringArr[0].toLowerCase();
+
+        try {
+            if(stringArr.length < 1) {
+                System.err.println("MUST ENTER A COMMAND TO CONTINUE...");
+                player.makeDecision();
+            }
+            else if (stringArr.length == 1){
+                verifyFirstWord(firstWord);
+            }
+            else {
+                secondWord = stringArr[1].toLowerCase();
+                verifyFirstWord(firstWord);
+            }
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    //TODO: MAIN GAME LOGIC
+    private void verifyFirstWord(String firstWord) throws InterruptedException {
+        String decision;
+
+        try {
+            switch (firstWord) {
+                case "look":
+                    System.out.println("this is in your inventory " + getInventory());
+                    System.out.println("You are in  " +bedroom.getCurrentRoom() + " " + " I can see a "+
+                            bedroom.getItem() + " and I can sea " + bedroom.getItem2() +
+                            " "+ bedroom.getItem_status());
+                    decision = player.makeDecision();
+                    verifyDecision(decision);
+                    break;
+                case "help":
+                    showGameControls();
+                    decision = player.makeDecision();
+                    verifyDecision(decision);
+                    break;
+                case "go":
+                case "climb":
+                    verifyRoomMovement(secondWord);
+                    decision = player.makeDecision();
+                    verifyDecision(decision);
+                    break;
+                case "inventory":
+                    System.out.println(getInventory());
+                    decision = player.makeDecision();
+                    verifyDecision(decision);
+                    break;
+                case "grab":
+                    if (secondWord.equals(bedroom.getItem()) || secondWord.equals(bedroom.getItem2())){
+                        inventory.add(secondWord);
+                        if(secondWord.equals(bedroom.getItem())){
+                            bedroom.getItem().isEmpty();
+                        }
+                        else {
+                            bedroom.getItem2().isEmpty();
+                        }
+                        System.out.println("You grabbed this item, enter 'INVENTORY' to see item ");
+                    }
+                    decision = player.makeDecision();
+                    verifyDecision(decision);
+                    break;
+                case "drop":
+                    //implement logic
+                    break;
+                case "health":
+                    //implement logic
+                    break;
+                case "use":
+                    //implement logic
+                    break;
+                case "quit":
+                    System.out.println("Thank you for Playing!");
+                    TimeUnit.SECONDS.sleep(1);
+                    break;
+                case "play":
+                    if (secondWord.equals("music")) {
+                        System.out.println("These are the directions for the music player");
+                        runMusic("Music/intro wav 2_1.wav");
+                    }
+                    decision = player.makeDecision();
+                    verifyDecision(decision);
+                    break;
+                default:
+                    System.err.println("INVALID COMMAND...");
+                    System.out.println();
+
+                    System.err.println("ENTER A VALID COMMAND... ");
+                    showGameControls();
+                    System.out.println();
+
+                    decision = player.makeDecision();
+                    verifyDecision(decision);
+                    break;
+            }
+        } catch(Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
 
     //Chris is working on this method, but we may not need it... depending on the Gson to Json
     //but have him code this still, just in case
+    private void verifyRoomMovement (String secondWord) throws InterruptedException {
+        String decision;
 
-    private void verifyRoomMovement (String secondWord){
             switch (secondWord) {
                 case "east":
                     System.out.println();
@@ -153,34 +271,46 @@ public class EllaneApp {
                     //update currentroom property
                     //display currentRoom description
                     //display currentRoom items by looping over them all
-                    //call makeDecision()
+                    //call player.makeDecision()
                     //If not valid, throw ERROR MESSAGE
                     //makeDecision();
+
                     break;
                 case "west":
                     System.out.println();
+                    //Implement logic
+                    break;
+                case "north":
+                    System.out.println();
+                    //Implement logic
+                    break;
+                case "south":
+                    System.out.println();
+                    //Implement logic
+                    //create method to verifyDirectionIs Possible from current room
+                    break;
+                case "up":
+                    System.out.println();
+                    //Implement logic
+                    break;
+                case "down":
+                    System.out.println();
+                    //Implement logic
+                    break;
+                default:
+                    System.err.println("INVALID COMMAND. \n MOVING TO DIRECTION " + secondWord + " FROM CURRENT ROOM NOT POSSIBLE");
+                    System.out.println();
+                    System.err.println("MAKE ANOTHER DECISION");
+
+                    showGameControls();
+                    decision = player.makeDecision();
+                    verifyDecision(decision);
                     break;
             }
         }
 
-
-        //TODO: (delete this comment later),this is making a String Array of our words so like ["john", "doe"]
-    private void verifyDecision(String decision) throws InterruptedException, IOException {
-        String[] stringArr = decision.split(" ");
-        firstWord = stringArr[0].toLowerCase();
-        if (stringArr.length <= 1){
-            verifyFirstWord(firstWord);
-        }
-        else {
-
-            secondWord = stringArr[1].toLowerCase();
-            verifyFirstWord(firstWord);
-        }
-
-    }
-
     //TODO: (Delete this comment later)--- this is the main game info screen
-        private void displayGameInfo () throws InterruptedException {
+    private void displayGameInfo () throws InterruptedException {
             System.out.println("The chaos spreads & the bombs keep exploding around the city");
             TimeUnit.SECONDS.sleep(1);
             System.out.println("The fire is spreading from building to building & most signs of life as gone!");
@@ -209,18 +339,6 @@ public class EllaneApp {
             System.out.println();
         }
 
-
-    private void showGameControls() throws InterruptedException {
-        System.out.println("Actions:\n" +
-                "    GO [north, south, east, west, up, down]\n" +
-                "    GET [item, spell]\n" +
-                "    USE [item, spell]\n" +
-                "    LOOK\n" +
-                "    INV/INVENTORY\n" +
-                "\n" +
-                "Type 'help' at any time! Type 'q' to quit!");
-
-    }
 
     //TODO: get the Gson working... this code needs modifying
     public void GsonParsing() {
@@ -482,8 +600,6 @@ public class EllaneApp {
     public Boolean getGameOver() {
         return gameOver;
     }
-
-
 
 }
 

@@ -12,11 +12,6 @@ public class Player {
     private Integer health = 100;
     private com.ellane.model.Characters CHARACTERTYPE;
     ArrayList<String> inventory = new ArrayList<>();
-    private Array Room[] = new Array[1];
-
-
-    String decision;
-
 
     Scanner in = new Scanner(System.in);
 
@@ -50,7 +45,6 @@ public class Player {
         return inventory;
     }
 
-
      //--------------METHODS------------------//
     public String makeDecision() throws InterruptedException {
 
@@ -58,7 +52,7 @@ public class Player {
         System.out.println("What do you want to do: ");
         System.out.println("Enter CONTROLS to get game controls");
         System.out.println();
-        //TimeUnit.SECONDS.sleep(1);
+        TimeUnit.SECONDS.sleep(1);
         String decision = in.nextLine();
         return  decision;
     }
