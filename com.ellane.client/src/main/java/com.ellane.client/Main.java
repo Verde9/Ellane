@@ -7,5 +7,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         EllaneApp app = new EllaneApp();
         app.initialize();
+
+        //TODO: need to test all items...
     }
 }
