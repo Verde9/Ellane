@@ -1,8 +1,9 @@
 package com.ellane.model;
-//import com.google.gson.Gson;
+import com.google.gson.Gson;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -70,4 +71,7 @@ public class Player {
         health += increaseAmount;
     }
 
+    public void setInventory(ArrayList<String> inventory) {
+        this.inventory = inventory;
+    }
 }
