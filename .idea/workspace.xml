@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5a0ad262-c70f-436b-9ac7-be06bf8e4177" name="Changes" comment="">
+    <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__top_jfunc_json_Json_jackson_1_0.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/AlLLLLLLLROOMS.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/allRooms.json" afterDir="false" />
@@ -21,15 +21,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_20030203_000550.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_25.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_26.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+    <list default="true" id="5a0ad262-c70f-436b-9ac7-be06bf8e4177" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AlLLLLLLLROOMS.json" beforeDir="false" afterPath="$PROJECT_DIR$/AlLLLLLLLROOMS.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allRooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/allRooms.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bedroomItems.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Locations.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Locations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/PlayerLocationsAndItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/PlayerLocationsAndItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" afterDir="false" />
@@ -218,6 +219,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
