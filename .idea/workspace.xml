@@ -10,28 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/basement.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/basementItems.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/LocationsAndDirections.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common_area.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common_areaItems.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lobby.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lobbyItems.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mechanicalRoom.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mechanicalRoomItems.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/office_1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/office_1_Items.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/office_Floor_4.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/office_floor_1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/office_floor_1_Items.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/office_floor_2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/office_floor_2_Items.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/office_floor_3.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/office_floor_3_Items.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/office_floor_4_Items.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rooftop.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rooftop_items.json" afterDir="false" />
-    <list default="true" id="5a0ad262-c70f-436b-9ac7-be06bf8e4177" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__top_jfunc_json_Json_jackson_1_0.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/AlLLLLLLLROOMS.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/allRooms.json" afterDir="false" />
@@ -240,6 +218,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
