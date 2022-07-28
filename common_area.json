@@ -1,0 +1,12 @@
+{
+  "name": "common_Area",
+  "north": "na",
+  "south": "open area",
+  "east": "living room",
+  "west": "kitchen",
+  "desc": "someone stop me",
+  "item": "sword",
+  "item_status": " inside of a display case. It is unlocked",
+  "item2": "gun",
+  "item_status2": "its a MF gun..but it doesnt do anything with out bullets"
+}
