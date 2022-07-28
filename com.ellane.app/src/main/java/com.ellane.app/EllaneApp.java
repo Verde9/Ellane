@@ -379,6 +379,7 @@ public class EllaneApp {
                 if (playerlocations3.containsKey(currentRoom)){
                     System.out.println(playerlocations3.get("east"));
                 }
+
                 //verify there is an east room to move to
                 //update currentroom property
                 //display currentRoom description

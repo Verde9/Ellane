@@ -51,8 +51,6 @@ public class Player {
     public String makeDecision() throws InterruptedException {
 
         Scanner in = new Scanner(System.in);
-        System.out.println("What do you want to do: ");
-        System.out.println("Enter CONTROLS to get game controls");
         System.out.println();
         TimeUnit.SECONDS.sleep(1);
         String decision = in.nextLine();
