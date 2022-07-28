@@ -9,9 +9,9 @@ import com.ellane.model.ActionCommands;
 import com.ellane.model.Characters;
 import com.ellane.model.Player;
 import com.ellane.model.PlayerLocationsAndItems;
-//import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
-import com.ellane.model.Directions;
 
 import javax.sound.sampled.*;
 import java.io.File;
@@ -26,7 +26,6 @@ import java.util.concurrent.TimeUnit;
 
 
 public class EllaneApp {
-    private Directions directions;
     private String firstWord;
     private String secondWord;
    // private com.ellane.model.PlayerLocationsAndItems  playerCurrentRoom;
@@ -58,25 +57,21 @@ public class EllaneApp {
     public void initialize() throws InterruptedException, IOException {
         gameWelcomeMessage();
         promptToStartGame();
+    }
 
+    public void generatePlayerItems() throws IOException {
+        JsonNode bedroomNode = Json.parse(new File("bedroomItems.json"));
+        Items items = Json.fromJson(bedroomNode, Items.class);
+        gameItems.add(items);
 
     }
 
-//    public void generatePlayerItems() throws IOException {
-//        JsonNode bedroomNode = Json.parse(new File("bedroomItems.json"));
-//        Items items = Json.fromJson(bedroomNode, Items.class);
-//        gameItems.add(items);
-//
-//    }
-//
-//    public void generateLocation() throws IOException {
-//        JsonNode locationNode = Json.parse(new File("allRooms.json"));
-//        Locations locations = Json.fromJson(locationNode, Locations.class);
-//        playerLocations.add(locations);
-//
-//    }
+    public void generateLocation() throws IOException {
+        JsonNode locationNode = Json.parse(new File("AlLLLLLLLROOMS.json"));
+        Locations locations = Json.fromJson(locationNode, Locations.class);
+        playerLocations.add(locations);
 
-
+    }
 
     //after initialize is called, the "ellane" picture will show
     //the image is pretty big now.... should we make it smaller?
@@ -119,12 +114,10 @@ public class EllaneApp {
         }
     }
 
-//    public void run() throws IOException {
-//        generatePlayerItems();
-//
-//    }
+    public void run() throws IOException {
+        generatePlayerItems();
 
-
+    }
 
 
     private void startGame() throws InterruptedException, IOException {
@@ -181,96 +174,108 @@ public class EllaneApp {
     }
 
     //TODO: MAIN GAME LOGIC
-    private void verifyFirstWord(String firstWord) throws InterruptedException {
+    private void verifyFirstWord(String firstWord) throws InterruptedException, IOException {
         String decision;
+        generatePlayerItems();
+        generateLocation();
+        switch (firstWord) {
+            case "look":
+                for (Locations location :playerLocations){
+                    System.out.println("this is in your inventory" + getInventory() +
+                            "this is your current location" +location.getBasement());
+                }
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            case "help":
+                showGameControls();
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            case "go":
+            case "climb":
+                for (Locations locations : playerLocations){
+                    if (locations.getBasement().equals(secondWord)){
+                        System.out.println(" This is your current location" + secondWord);
+                    }
+                    else if (locations.getCommon_Area().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getLobby().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getMechanical_Room().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getOffice_1().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getOffice_Floor_2().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
 
-        try {
-            switch (firstWord) {
-                case "look":
-                    System.out.println("this is in your inventory " + getInventory());
-                    System.out.println("You are in  " +bedroom.getCurrentRoom() + " " + " I can see a "+
-                            bedroom.getItem() + " and I can sea " + bedroom.getItem2() +
-                            " "+ bedroom.getItem_status());
-                    decision = player.makeDecision();
-                    verifyDecision(decision);
-                    break;
-                case "help":
-                    showGameControls();
-                    decision = player.makeDecision();
-                    verifyDecision(decision);
-                    break;
-                case "go":
-                    if (secondWord.equals("south")){
-                        verifyRoomMovement(secondWord);
+                    else {
+                        System.out.println("not a location");
                     }
-                    else if (secondWord.equals("north")){
-                        verifyRoomMovement(secondWord);
-                    }
-                    else if (secondWord.equals("east")){
-                        verifyRoomMovement(secondWord);
-                    }
-                    else if (secondWord.equals("west")){
-                        verifyRoomMovement(secondWord);
-                    }
-                case "climb":
-                    verifyRoomMovement(secondWord);
-                    decision = player.makeDecision();
-                    verifyDecision(decision);
-                    break;
-                case "inventory":
-                    System.out.println(getInventory());
-                    decision = player.makeDecision();
-                    verifyDecision(decision);
-                    break;
-                case "grab":
-                    if (secondWord.equals(bedroom.getItem()) || secondWord.equals(bedroom.getItem2())){
-                        inventory.add(secondWord);
-                        if(secondWord.equals(bedroom.getItem())){
-                            bedroom.getItem().isEmpty();
-                        }
-                        else {
-                            bedroom.getItem2().isEmpty();
-                        }
-                        System.out.println("You grabbed this item, enter 'INVENTORY' to see item ");
-                    }
-                    decision = player.makeDecision();
-                    verifyDecision(decision);
-                    break;
-                case "drop":
-                    //implement logic
-                    break;
-                case "health":
-                    //implement logic
-                    break;
-                case "use":
-                    //implement logic
-                    break;
-                case "quit":
-                    System.out.println("Thank you for Playing!");
-                    TimeUnit.SECONDS.sleep(1);
-                    break;
-                case "play":
-                    if (secondWord.equals("music")) {
-                        System.out.println("These are the directions for the music player");
-                        runMusic("Music/intro wav 2_1.wav");
-                    }
-                    decision = player.makeDecision();
-                    verifyDecision(decision);
-                    break;
-                default:
-                    System.err.println("INVALID COMMAND...");
-                    System.out.println();
 
-                    System.err.println("ENTER A VALID COMMAND... ");
-                    showGameControls();
-                    System.out.println();
+                }
+                verifyRoomMovement(secondWord);
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            case "inventory":
+                System.out.println(getInventory());
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            case "grab":
+                for (Items items: gameItems){
+                    if (items.getItem().equals(secondWord)){
+                        inventory.add(items.getItem());
 
-                    decision = player.makeDecision();
-                    verifyDecision(decision);
-                    break;
-            }
-        } catch(Exception e) {
-            System.err.println(e.getMessage());
+                    }
+                    if (items.getItem2().equals(secondWord)){
+                        inventory.add(items.getItem2());
+                    }
+                    else {
+                        System.out.println("nothing added to inventory");
+                    }
+                }
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            case "drop":
+                //implement logic
+                break;
+            case "health":
+                //implement logic
+                break;
+            case "use":
+                //implement logic
+                break;
+            case "quit":
+                System.out.println("Thank you for Playing!");
+                TimeUnit.SECONDS.sleep(1);
+                break;
+            case "play":
+                if (secondWord.equals("music")) {
+                    System.out.println("These are the directions for the music player");
+                    runMusic("Music/intro wav 2_1.wav");
+                }
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            default:
+                System.err.println("INVALID COMMAND...");
+                System.out.println();
+
+                System.err.println("ENTER A VALID COMMAND... ");
+                showGameControls();
+                System.out.println();
+
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
         }
     }
 
@@ -281,7 +286,7 @@ public class EllaneApp {
 
             switch (secondWord) {
                 case "east":
-                    System.out.println("This is my room");
+                    System.out.println();
                     //verify there is an east room to move to
                     //update currentroom property
                     //display currentRoom description
@@ -292,15 +297,15 @@ public class EllaneApp {
 
                     break;
                 case "west":
-                    System.out.println("You are in " + open_area);
+                    System.out.println();
                     //Implement logic
                     break;
                 case "north":
-                    System.out.println("room office_1");
+                    System.out.println();
                     //Implement logic
                     break;
                 case "south":
-                    System.out.println(bedroom);
+                    System.out.println();
                     //Implement logic
                     //create method to verifyDirectionIs Possible from current room
                     break;
@@ -354,147 +359,37 @@ public class EllaneApp {
             System.out.println();
         }
 
-
     //TODO: get the Gson working... this code needs modifying
-//    public void GsonParsing() {
-//        String bedroom2 = "{\n" +
-//                "  \"currentRoom\": \"BEDROOM\",\n" +
-//                "  \"south\": \"OPEN AREA\",\n" +
-//                "  \"item\": \"sword\",\n" +
-//                "  \"item_status\": \" inside of a display case. It is unlocked\",\n" +
-//                "  \"item2\": \"gun\",\n" +
-//                "  \"item_status2\": \"its a MF gun..but it doesnt do anything with out bullets\",\n" +
-//                "  \"randenc\": \"20\",\n" +
-//                "  \"desc\": \"You are in a bedroom. There is nothing of use in this room. It stinks and everything looks crappy, but you see, to the SOUTH; an ugly OPEN AREA\"\n" +
-//                "\n" +
-//                "}";
-//        Gson json = new Gson();
-//        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
-//        System.out.println(bedroom3.getItem2());
-//    }
+    public void GsonParsing() {
+        String bedroom2 = "{\n" +
+                "  \"currentRoom\": \"BEDROOM\",\n" +
+                "  \"south\": \"OPEN AREA\",\n" +
+                "  \"item\": \"sword\",\n" +
+                "  \"item_status\": \" inside of a display case. It is unlocked\",\n" +
+                "  \"item2\": \"gun\",\n" +
+                "  \"item_status2\": \"its a MF gun..but it doesnt do anything with out bullets\",\n" +
+                "  \"randenc\": \"20\",\n" +
+                "  \"desc\": \"You are in a bedroom. There is nothing of use in this room. It stinks and everything looks crappy, but you see, to the SOUTH; an ugly OPEN AREA\"\n" +
+                "\n" +
+                "}";
+        Gson json = new Gson();
+        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
+        System.out.println(bedroom3.getItem2());
+    }
 
 
 
 
 
   /*  public void readingGenerateTestBedroom() throws FileNotFoundException {
-
-
         Gson gson = new Gson();
         Object object = gson.fromJson(new FileReader("testRooms.json"), PlayerLocationsAndItems.class);
 
         System.out.println(object);
-
-
-
     }
 */
 
-  /*  public void makeDecision() throws InterruptedException {
-        System.out.println();
-        System.out.println("What do you want to do: ");
-        System.out.println("Enter CONTROLS to get game controls");
-        TimeUnit.SECONDS.sleep(1);
-        String decision = in.nextLine();
-        System.out.println(decision);
-        verifyDecision(decision);
-    }*/
 
-
-
-
-    //TODO: MAIN GAME LOGIC
-//    private void verifyFirstWord(String firstWord) throws InterruptedException, IOException {
-//        generatePlayerItems();
-//        generateLocation();
-//        switch (firstWord) {
-//            case "look":
-//                for (Locations location :playerLocations){
-//                    System.out.println("this is in your inventory" + getInventory() +
-//                            "this is your current location" +location.getBasement());
-//                }
-//                String answer = player.makeDecision();
-//                verifyDecision(answer);
-//                break;
-//            case "controls":
-//                showGameControls();
-//                answer = player.makeDecision();
-//                verifyDecision(answer);
-//                break;
-//            case "go":
-//                for (Locations locations : playerLocations){
-//                    if (locations.getBasement().equals(secondWord)){
-//                        System.out.println(" This is your current location" + secondWord);
-//                    }
-//                    else if (locations.getCommon_Area().equals(secondWord)){
-//                        System.out.println("this is your current location" + secondWord);
-//                    }
-//                    else if (locations.getLobby().equals(secondWord)){
-//                        System.out.println("this is your current location" + secondWord);
-//                    }
-//                    else if (locations.getMechanical_Room().equals(secondWord)){
-//                        System.out.println("this is your current location" + secondWord);
-//                    }
-//                    else if (locations.getOffice_1().equals(secondWord)){
-//                        System.out.println("this is your current location" + secondWord);
-//                    }
-//                    else if (locations.getOffice_Floor_2().equals(secondWord)){
-//                        System.out.println("this is your current location" + secondWord);
-//                    }
-//
-//                    else {
-//                        System.out.println("not a location");
-//                    }
-//
-//                }
-//                verifyRoomMovement(secondWord);
-//                answer = player.makeDecision();
-//                verifyDecision(answer);
-//                break;
-//            case "inventory":
-//                System.out.println(getInventory());
-//                answer = player.makeDecision();
-//                verifyDecision(answer);
-//                break;
-//            case "get":
-//                for (Items items: gameItems){
-//                    if (items.getItem().equals(secondWord)){
-//                        inventory.add(items.getItem());
-//
-//                    }
-//                    if (items.getItem2().equals(secondWord)){
-//                        inventory.add(items.getItem2());
-//                    }
-//                    else {
-//                        System.out.println("nothing added to inventory");
-//                    }
-//                }
-//                answer = player.makeDecision();
-//                verifyDecision(answer);
-//                break;
-//
-//            case "q":
-//                System.out.println("Thank you for Playing!");
-//                TimeUnit.SECONDS.sleep(1);
-//                break;
-//            case "play":
-//                if (secondWord.equals("music")){
-//                    System.out.println("These are the directions for the music player");
-//                    runMusic("Music/intro wav 2_1.wav");
-//                }
-//                answer = player.makeDecision();
-//                verifyDecision(answer);
-//                break;
-//            default:
-//                System.out.println("incorrect command. Check game control for options");
-//                answer = player.makeDecision();
-//                verifyDecision(answer);
-//                break;
-//
-//
-//        }
-//    }
-//
 
 
     //this is to run the main game music...after the intro.

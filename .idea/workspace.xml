@@ -9,14 +9,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/floors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_20030203_000550.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_26.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__top_jfunc_json_Json_jackson_1_0.xml" beforeDir="false" />
+    <list default="true" id="5a0ad262-c70f-436b-9ac7-be06bf8e4177" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__top_jfunc_json_Json_jackson_1_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AlLLLLLLLROOMS.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allRooms.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bedroomItems.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Items.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Json.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/JsonTestMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Locations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_20030203_000550.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_25.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_26.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/PlayerLocationsAndItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/PlayerLocationsAndItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.view/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.view/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ellane_game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ellane_game.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testBedroom.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testBedroom3.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +89,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ellaneJar" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.51839083" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
@@ -178,7 +200,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="" />
+      <changelist id="5a0ad262-c70f-436b-9ac7-be06bf8e4177" name="Changes" comment="" />
       <created>1658355527730</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
