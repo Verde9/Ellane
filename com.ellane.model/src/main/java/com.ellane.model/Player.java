@@ -12,13 +12,15 @@ public class Player {
     private Integer health = 100;
     private com.ellane.model.Characters CHARACTERTYPE;
     ArrayList<String> inventory = new ArrayList<>();
+    private LocationsAndDirections locationsAndDirections;
 
     Scanner in = new Scanner(System.in);
 
     // Make constructor for properties
     public Player(String name,  Characters character) {
-
     }
+
+
 
     public void setName(String name) {
         this.name = name;
@@ -74,4 +76,5 @@ public class Player {
     public void setInventory(ArrayList<String> inventory) {
         this.inventory = inventory;
     }
+
 }
