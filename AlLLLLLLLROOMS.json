@@ -1,0 +1,25 @@
+{
+
+  "basement": "basement",
+  "basementStatus": "it stinks down here",
+  "lobby": "lobby",
+  "lobbyStatus": "It did look nice before.... yea, before the fire",
+  "office_1": "office_1",
+  "office_1Status": "Looks like someone didnt clean in here",
+  "common_Area": "common_Area",
+  "common_AreaStatus": "This is where I would get all the babes!",
+  "mechanical_Room": "mechanical_Room",
+  "mechanical_Room_Status": "I dont even know where I am doing here, I cant work shit",
+  "office_Floor_1": " office_Floor_1",
+  "office_Floor_1_Status": "this looks like my first jobs office.... glad its on fire",
+  "office_Floor_2": "office_Floor_2",
+  "office_Floor_2_Status": "this is where my old boss worked....and look at him dead right there",
+  "office_Floor_3": "office_Floor_3",
+  "office_Floor_3_Status": "was I in here before?",
+  "office_Floor_4": "office_Floor_4",
+  "office_Floor_4_Status": "looks like another damn office",
+  "rooftop_Status": "THANK GOD IM SAVED"
+
+
+
+}
