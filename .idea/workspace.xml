@@ -9,11 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85957dde-ba04-43e2-ac0c-567b65ba74fb" name="Changes" comment="">
+    <list default="true" id="85957dde-ba04-43e2-ac0c-567b65ba74fb" name="Changes" comment="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-=======
-=======
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__top_jfunc_json_Json_jackson_1_0.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/AlLLLLLLLROOMS.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/allRooms.json" afterDir="false" />
@@ -32,12 +29,11 @@
       <change beforePath="$PROJECT_DIR$/bedroomItems.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" afterDir="false" />
->>>>>>> 4d7a508968fdb1ccc81c5646fd07cab26b573811
+
       <change beforePath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Locations.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Locations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
->>>>>>> dev
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
