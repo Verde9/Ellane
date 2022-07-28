@@ -20,6 +20,7 @@ public class Locations {
     private String office_Floor_3_Status;
     private String office_Floor_4;
     private String office_Floor_4_Status;
+    private String rooftop;
     private String rooftop_Status;
 
 
@@ -167,6 +168,14 @@ public class Locations {
         this.office_Floor_4_Status = office_Floor_4_Status;
     }
 
+    public String getRooftop() {
+        return rooftop;
+    }
+
+    public void setRooftop(String rooftop) {
+        this.rooftop = rooftop;
+    }
+
     public String getRooftop_Status() {
         return rooftop_Status;
     }
@@ -196,6 +205,7 @@ public class Locations {
                 ", office_Floor_3_Status='" + office_Floor_3_Status + '\'' +
                 ", office_Floor_4='" + office_Floor_4 + '\'' +
                 ", office_Floor_4_Status='" + office_Floor_4_Status + '\'' +
+                ", rooftop='" + rooftop + '\'' +
                 ", rooftop_Status='" + rooftop_Status + '\'' +
                 '}';
     }
