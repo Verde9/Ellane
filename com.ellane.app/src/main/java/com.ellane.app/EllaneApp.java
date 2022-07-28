@@ -36,10 +36,9 @@ public class EllaneApp {
     private com.ellane.model.Characters Characters;
     List<Items> gameItems = new ArrayList<>();
     List<Locations> playerLocations = new ArrayList<>();
-
+    Player player1;
 
     Scanner scan = new Scanner(System.in);
-    Player player = new Player("LB", com.ellane.model.Characters.MALE_SOLDIER);
 
 
     //change player locations to GSON Json soon.
@@ -98,15 +97,16 @@ public class EllaneApp {
         introMusic("Music/For Work 2_1.wav");
         System.out.println("Do you wish to play? type 'yes' or type 'quit game'");
         String userInput = scan.nextLine().toLowerCase();
-        System.out.println("user input: " + userInput);
 
         if (userInput.equals("quit game")) {
             System.out.println("...Thanks for playing! Goodbye!");
         }
 
         if (userInput.equals("yes")) {
+            System.out.println();
             System.out.println("Let's Play!");
-            startGame();
+            createPlayerOneCharacter();
+
         } else {
             System.err.println("INVALID INPUT");
             System.out.println();
@@ -114,26 +114,97 @@ public class EllaneApp {
         }
     }
 
-    public void run() throws IOException {
-        generatePlayerItems();
+    private void createPlayerOneCharacter() throws IOException, InterruptedException {
+        boolean valid = false;
+        String playerName = "";
+        while(playerName.length() <= 0) {
+            System.out.println();
+            System.out.println("Enter your name:");
+            playerName = scan.nextLine().toLowerCase();
+            if(playerName.length() <= 0) {
+                System.err.println("YOU MUST ENTER A NAME");
+            }
+        }
 
+        System.out.println();
+
+
+        while(!valid) {
+            System.out.println("Select character to play as:");
+
+            for(Characters character  : Characters.values()) {
+                System.out.println(character.getCharacterType());
+            }
+
+            System.out.println();
+            String characterChoice = scan.nextLine().toLowerCase();
+
+            for(Characters character  : Characters.values()) {
+                if(characterChoice.equals(character.getCharacterType())) {
+                    System.out.println();
+                    player1 = new Player(playerName, character);
+                    System.out.println("New Player Created!");
+                    startGame();
+                    valid = true;
+                    break;
+                }
+            }
+
+            if(!valid) {
+                System.out.println();
+                System.err.println("INVALID CHARACTER SELECTED");
+            }
+        }
     }
 
+    public void run() throws IOException {
+        generatePlayerItems();
+    }
 
     private void startGame() throws InterruptedException, IOException {
         displayGameInfo();
         while (!gameOver){
-            String answer = player.makeDecision();
+            String answer = player1.makeDecision();
             verifyDecision(answer);
         }
-
     }
 
+    //TODO: (Delete this comment later)--- this is the main game info screen
+    private void displayGameInfo () throws InterruptedException {
+        System.out.println("The chaos spreads & the bombs keep exploding around the city");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("The fire is spreading from building to building & most signs of life as gone!");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("you get stuck inside of a building, but it can collapse at any minute & fire is spreading");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("Luckily there id a helicopter on the roof evacuating the survivors that made it to the roof");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("Unfortunately, you have been wounded & are losing blood as more time passes");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println();
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("Time is ticking & you don't have much time!");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println();
+        System.out.println("A dying woman tells you her sick daughter Ellane is stuck somewhere inside & asked you to save & escape together");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("The objectives you have are simple:");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("- collect the 3 items needed for a cure to save Ellane");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("- Find Ellane");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("- Safely make it to the roof to escape by helicopter before 50 turns pass");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println();
+    }
+
+
     private void displayGameLevelOneInfo() throws InterruptedException {
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        String decision = player.makeDecision();
+        System.out.println("You suddenly awake & realize you were knocked out from the impact of an explosion..");
+        System.out.println("It's dark and find yourself in the basement parking of a building..");
+        System.out.println("");
+        String decision = player1.makeDecision();
         verifyDecision(decision);
     }
 
@@ -159,7 +230,7 @@ public class EllaneApp {
         try {
             if(stringArr.length < 1) {
                 System.err.println("MUST ENTER A COMMAND TO CONTINUE...");
-                player.makeDecision();
+                player1.makeDecision();
             }
             else if (stringArr.length == 1){
                 verifyFirstWord(firstWord);
@@ -184,31 +255,31 @@ public class EllaneApp {
                     System.out.println("this is in your inventory" + getInventory() +
                             "this is your current location" +location.getBasement());
                 }
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             case "help":
                 showGameControls();
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             case "go":
             case "climb":
                 for (Locations locations : playerLocations){
                     if (locations.getBasement().equals(secondWord)){
-                        System.out.println(" This is your current location" + secondWord);
+                        System.out.println(" This is your current location: " + secondWord);
                     }
                     else if (locations.getCommon_Area().equals(secondWord)){
-                        System.out.println("this is your current location" + secondWord);
+                        System.out.println("this is your current location: " + secondWord);
                     }
                     else if (locations.getLobby().equals(secondWord)){
-                        System.out.println("this is your current location" + secondWord);
+                        System.out.println("this is your current location: " + secondWord);
                     }
                     else if (locations.getMechanical_Room().equals(secondWord)){
-                        System.out.println("this is your current location" + secondWord);
+                        System.out.println("this is your current location: " + secondWord);
                     }
                     else if (locations.getOffice_1().equals(secondWord)){
-                        System.out.println("this is your current location" + secondWord);
+                        System.out.println("this is your current location: " + secondWord);
                     }
                     else if (locations.getOffice_Floor_2().equals(secondWord)){
                         System.out.println("this is your current location" + secondWord);
@@ -220,12 +291,12 @@ public class EllaneApp {
 
                 }
                 verifyRoomMovement(secondWord);
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             case "inventory":
                 System.out.println(getInventory());
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             case "grab":
@@ -241,7 +312,7 @@ public class EllaneApp {
                         System.out.println("nothing added to inventory");
                     }
                 }
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             case "drop":
@@ -255,6 +326,7 @@ public class EllaneApp {
                 break;
             case "quit":
                 System.out.println("Thank you for Playing!");
+                gameOver = true;
                 TimeUnit.SECONDS.sleep(1);
                 break;
             case "play":
@@ -262,7 +334,7 @@ public class EllaneApp {
                     System.out.println("These are the directions for the music player");
                     runMusic("Music/intro wav 2_1.wav");
                 }
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             default:
@@ -273,7 +345,7 @@ public class EllaneApp {
                 showGameControls();
                 System.out.println();
 
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
         }
@@ -323,40 +395,10 @@ public class EllaneApp {
                     System.err.println("MAKE ANOTHER DECISION");
 
                     showGameControls();
-                    decision = player.makeDecision();
+                    decision = player1.makeDecision();
                     verifyDecision(decision);
                     break;
             }
-        }
-
-    //TODO: (Delete this comment later)--- this is the main game info screen
-    private void displayGameInfo () throws InterruptedException {
-            System.out.println("The chaos spreads & the bombs keep exploding around the city");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("The fire is spreading from building to building & most signs of life as gone!");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("you get stuck inside of a building, but it can collapse at any minute & fire is spreading");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("Luckily there id a helicopter on the roof evacuating the survivors that made it to the roof");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("Unfortunately, you have been wounded & are losing blood as more time passes");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println();
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("Time is ticking & you don't have much time!");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println();
-            System.out.println("A dying woman tells you her sick daughter Ellane is stuck somewhere inside & asked you to save & escape together");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("The objectives you have are simple:");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("- collect the 3 items needed for a cure to save Ellane");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("- Find Ellane");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("- Safely make it to the roof to escape by helicopter before 50 turns pass");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println();
         }
 
     //TODO: get the Gson working... this code needs modifying
@@ -378,19 +420,12 @@ public class EllaneApp {
     }
 
 
-
-
-
   /*  public void readingGenerateTestBedroom() throws FileNotFoundException {
         Gson gson = new Gson();
         Object object = gson.fromJson(new FileReader("testRooms.json"), PlayerLocationsAndItems.class);
-
         System.out.println(object);
     }
 */
-
-
-
 
     //this is to run the main game music...after the intro.
     public static void runMusic(String path) {
@@ -434,18 +469,12 @@ public class EllaneApp {
                         break;
                     default:
                         System.out.println("not a valid response for music player");
-
-
                 }
             }
-
-
         }
         catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public static void introMusic(String path) {
