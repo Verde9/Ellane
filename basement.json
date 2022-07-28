@@ -1,0 +1,12 @@
+{
+  "name": "basement",
+  "north": "na",
+  "south": "open area",
+  "east": "office_1",
+  "west": "kitchen",
+  "desc": "it stinks down here, in the basement",
+  "item": "sword",
+  "item_status": " inside of a display case. It is unlocked",
+  "item2": "bazooka",
+  "item_status2": "big shit"
+}

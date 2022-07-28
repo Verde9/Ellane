@@ -8,11 +8,14 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
+
         EllaneApp app = new EllaneApp();
         app.initialize();
         //app.run();
-        //app.generateLocation();
+        //app.generateLocation2();
 
-        //TODO: need to test all items...
+        //TODO: move logic to SRC
+
+        //TODO: need to test all items...//main shouldn't throw exceptions
     }
 }

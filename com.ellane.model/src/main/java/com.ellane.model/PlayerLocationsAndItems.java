@@ -7,7 +7,7 @@ public class PlayerLocationsAndItems {
 
 
 
-    //private GsonUserSimple gsonUserSimple;
+
 
     public PlayerLocationsAndItems(String currentRoom, String south,
                                    String item, String item_status,
