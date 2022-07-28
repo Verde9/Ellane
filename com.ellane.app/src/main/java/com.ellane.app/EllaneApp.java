@@ -7,6 +7,8 @@ import com.ellane.model.Player;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ellane.model.PlayerLocationsAndItems;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
@@ -19,6 +21,10 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 
@@ -184,8 +190,6 @@ public class EllaneApp {
 
     }
 
-
-
     private void startGame() throws InterruptedException, IOException {
         displayGameInfo();
         while (!gameOver){
@@ -261,11 +265,118 @@ public class EllaneApp {
         }
     }
 
+    //TODO: MAIN GAME LOGIC
+    private void verifyFirstWord(String firstWord) throws InterruptedException, IOException {
+        String decision;
+        generatePlayerItems();
+        generateLocation();
+        switch (firstWord) {
+            case "look":
+                for (Locations location :playerLocations){
+                    System.out.println("this is in your inventory" + getInventory() +
+                            "this is your current location" +location.getBasement());
+                }
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            case "help":
+                showGameControls();
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            case "go":
+            case "climb":
+                for (Locations locations : playerLocations){
+                    if (locations.getBasement().equals(secondWord)){
+                        System.out.println(" This is your current location" + secondWord);
+                    }
+                    else if (locations.getCommon_Area().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getLobby().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getMechanical_Room().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getOffice_1().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+                    else if (locations.getOffice_Floor_2().equals(secondWord)){
+                        System.out.println("this is your current location" + secondWord);
+                    }
+
+                    else {
+                        System.out.println("not a location");
+                    }
+
+                }
+                verifyRoomMovement(secondWord);
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            case "inventory":
+                System.out.println(getInventory());
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            case "grab":
+                for (Items items: gameItems){
+                    if (items.getItem().equals(secondWord)){
+                        inventory.add(items.getItem());
+
+                    }
+                    if (items.getItem2().equals(secondWord)){
+                        inventory.add(items.getItem2());
+                    }
+                    else {
+                        System.out.println("nothing added to inventory");
+                    }
+                }
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            case "drop":
+                //implement logic
+                break;
+            case "health":
+                //implement logic
+                break;
+            case "use":
+                //implement logic
+                break;
+            case "quit":
+                System.out.println("Thank you for Playing!");
+                TimeUnit.SECONDS.sleep(1);
+                break;
+            case "play":
+                if (secondWord.equals("music")) {
+                    System.out.println("These are the directions for the music player");
+                    runMusic("Music/intro wav 2_1.wav");
+                }
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+            default:
+                System.err.println("INVALID COMMAND...");
+                System.out.println();
     private void verifyRoomMovement (String secondWord) throws InterruptedException, IOException {
        generateLocation();
        generateLocation2();
 
+                System.err.println("ENTER A VALID COMMAND... ");
+                showGameControls();
+                System.out.println();
 
+                decision = player.makeDecision();
+                verifyDecision(decision);
+                break;
+        }
+    }
+
+    //Chris is working on this method, but we may not need it... depending on the Gson to Json
+    //but have him code this still, just in case
+    private void verifyRoomMovement (String secondWord) throws InterruptedException {
         String decision;
             switch (secondWord) {
                 case "east":
@@ -416,6 +527,66 @@ public class EllaneApp {
 
         }
     }
+    //TODO: (Delete this comment later)--- this is the main game info screen
+    private void displayGameInfo () throws InterruptedException {
+            System.out.println("The chaos spreads & the bombs keep exploding around the city");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("The fire is spreading from building to building & most signs of life as gone!");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("you get stuck inside of a building, but it can collapse at any minute & fire is spreading");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("Luckily there id a helicopter on the roof evacuating the survivors that made it to the roof");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("Unfortunately, you have been wounded & are losing blood as more time passes");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println();
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("Time is ticking & you don't have much time!");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println();
+            System.out.println("A dying woman tells you her sick daughter Ellane is stuck somewhere inside & asked you to save & escape together");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("The objectives you have are simple:");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("- collect the 3 items needed for a cure to save Ellane");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("- Find Ellane");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println("- Safely make it to the roof to escape by helicopter before 50 turns pass");
+            TimeUnit.SECONDS.sleep(1);
+            System.out.println();
+        }
+
+    //TODO: get the Gson working... this code needs modifying
+    public void GsonParsing() {
+        String bedroom2 = "{\n" +
+                "  \"currentRoom\": \"BEDROOM\",\n" +
+                "  \"south\": \"OPEN AREA\",\n" +
+                "  \"item\": \"sword\",\n" +
+                "  \"item_status\": \" inside of a display case. It is unlocked\",\n" +
+                "  \"item2\": \"gun\",\n" +
+                "  \"item_status2\": \"its a MF gun..but it doesnt do anything with out bullets\",\n" +
+                "  \"randenc\": \"20\",\n" +
+                "  \"desc\": \"You are in a bedroom. There is nothing of use in this room. It stinks and everything looks crappy, but you see, to the SOUTH; an ugly OPEN AREA\"\n" +
+                "\n" +
+                "}";
+        Gson json = new Gson();
+        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
+        System.out.println(bedroom3.getItem2());
+    }
+
+
+
+
+
+  /*  public void readingGenerateTestBedroom() throws FileNotFoundException {
+        Gson gson = new Gson();
+        Object object = gson.fromJson(new FileReader("testRooms.json"), PlayerLocationsAndItems.class);
+
+        System.out.println(object);
+    }
+*/
+
 
 
 
