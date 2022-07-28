@@ -1,23 +1,31 @@
 package com.ellane.app;
 
+import com.ellane.model.LocationsAndDirections;
 import com.ellane.model.Locations;
-import com.ellane.model.PlayerLocationsAndItems;
-import com.ellane.model.Items;
 import com.ellane.model.Json;
 import com.ellane.model.Player;
-import com.ellane.model.ActionCommands;
 import com.ellane.model.Characters;
-import com.ellane.model.Player;
 import com.ellane.model.PlayerLocationsAndItems;
+import com.ellane.model.Locations;
+import com.ellane.model.Items;
+import com.ellane.model.ActionCommands;
+import com.ellane.model.Directions;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
-import org.jetbrains.annotations.NotNull;
+import com.google.gson.JsonElement;
+import com.google.gson.reflect.TypeToken;
 
 import javax.sound.sampled.*;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,29 +36,18 @@ import java.util.concurrent.TimeUnit;
 public class EllaneApp {
     private String firstWord;
     private String secondWord;
-   // private com.ellane.model.PlayerLocationsAndItems  playerCurrentRoom;
+    private String currentRoom;
+    private String newLocation;
     private int roundCount = 50;
     Boolean gameOver = false;
     ArrayList<String> inventory = new ArrayList<>();
-    private com.ellane.model.ActionCommands ActionCommands;
-    private com.ellane.model.Characters Characters;
     List<Items> gameItems = new ArrayList<>();
-    List<Locations> playerLocations = new ArrayList<>();
+    List<LocationsAndDirections> playerLocations = new ArrayList<>();
+    Map<String, String> playerlocations3;
 
 
     Scanner scan = new Scanner(System.in);
     Player player = new Player("LB", com.ellane.model.Characters.MALE_SOLDIER);
-
-
-    //change player locations to GSON Json soon.
-    com.ellane.model.PlayerLocationsAndItems bedroom = new com.ellane.model.PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
-            "inside of display case. It is Unlocked",
-            "gun", "its a MF gun, but it doesnt do anything without bullets",
-            "20", "This room is dope");
-    com.ellane.model.PlayerLocationsAndItems open_area = new com.ellane.model.PlayerLocationsAndItems("'BEDROOM'","OPEN AREA", "sword",
-            "inside of display case. It is Unlocked",
-            "gun", "its a MF gun, but it doesnt do anything without bullets",
-            "20", "This room is dope");
 
 
     //this will run the app in the main class
@@ -59,22 +56,6 @@ public class EllaneApp {
         promptToStartGame();
     }
 
-    public void generatePlayerItems() throws IOException {
-        JsonNode bedroomNode = Json.parse(new File("bedroomItems.json"));
-        Items items = Json.fromJson(bedroomNode, Items.class);
-        gameItems.add(items);
-
-    }
-
-    public void generateLocation() throws IOException {
-        JsonNode locationNode = Json.parse(new File("AlLLLLLLLROOMS.json"));
-        Locations locations = Json.fromJson(locationNode, Locations.class);
-        playerLocations.add(locations);
-
-    }
-
-    //after initialize is called, the "ellane" picture will show
-    //the image is pretty big now.... should we make it smaller?
     private void gameWelcomeMessage() {
         String banner = null;
         if (Files.exists(Path.of("com.ellane.app/resources/gameArt.txt"))) {
@@ -114,27 +95,149 @@ public class EllaneApp {
         }
     }
 
-    public void run() throws IOException {
-        generatePlayerItems();
+    public void generatePlayerItems() throws IOException {
+        JsonNode bedroomNode = Json.parse(new File("basementItems.json"));
+        Items bedroomItems = Json.fromJson(bedroomNode, Items.class);
+        gameItems.add(bedroomItems);
+
+        JsonNode office_1_Node = Json.parse(new File("office_1_Items.json"));
+        Items office_1_Items = Json.fromJson(office_1_Node, Items.class);
+        gameItems.add(office_1_Items);
+
+        JsonNode mechanical_Room_Node = Json.parse(new File("mechanicalRoomItems.json"));
+        Items mechanical_Room_Node_Items = Json.fromJson(mechanical_Room_Node, Items.class);
+        gameItems.add(mechanical_Room_Node_Items);
+
+        JsonNode common_Area_Node = Json.parse(new File("common_areaItems.json"));
+        Items common_Area_Node_Items = Json.fromJson(common_Area_Node, Items.class);
+        gameItems.add(common_Area_Node_Items);
+
+        JsonNode lobby_Node = Json.parse(new File("lobbyItems.json"));
+        Items lobby_Items = Json.fromJson(lobby_Node, Items.class);
+        gameItems.add(lobby_Items);
+
+        JsonNode office_Floor_1_Node = Json.parse(new File("office_floor_1_Items.json"));
+        Items office_Floor_1_Items = Json.fromJson(office_Floor_1_Node, Items.class);
+        gameItems.add(office_Floor_1_Items);
+
+
+        JsonNode office_Floor_2_Node = Json.parse(new File("office_floor_2_Items.json"));
+        Items office_Floor_2_Items = Json.fromJson(office_Floor_2_Node, Items.class);
+        gameItems.add(office_Floor_2_Items);
+
+        JsonNode office_Floor_3_Node = Json.parse(new File("office_floor_3_Items.json"));
+        Items office_Floor_3_Items = Json.fromJson(office_Floor_3_Node, Items.class);
+        gameItems.add(office_Floor_3_Items);
+
+
+        JsonNode office_Floor_4_Node = Json.parse(new File("office_floor_4_Items.json"));
+        Items office_Floor_4_Items = Json.fromJson(office_Floor_4_Node, Items.class);
+        gameItems.add(office_Floor_4_Items);
+
+        JsonNode rooftop_Node = Json.parse(new File("rooftop_items.json"));
+        Items rooftop_Items = Json.fromJson(rooftop_Node, Items.class);
+        gameItems.add(rooftop_Items);
+
 
     }
 
 
+    public void generateLocation() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<LocationsAndDirections> objects = objectMapper.readValue(new File("AlLLLLLLLROOMS.json"),
+                new TypeReference<List<LocationsAndDirections>>() {
+                });
+        playerLocations = objects;
+        playerLocations.addAll(objects);
+    }
+
+    public void generateLocation2() throws IOException {
+        Gson gson = new Gson();
+        Type basementLocation = new TypeToken<Map<String, String>>() {
+        }.getType();
+        playerlocations3 = gson.fromJson(new FileReader("basement.json"),
+                basementLocation);
+
+        Type office_1_Location = new TypeToken<Map<String, String>>() {
+        }.getType();
+        playerlocations3 = gson.fromJson(new FileReader("office_1.json"),
+                office_1_Location);
+
+        Type mechanical_Room_Location = new TypeToken<Map<String, String>>() {
+        }.getType();
+        playerlocations3 = gson.fromJson(new FileReader("mechanicalRoom.json"),
+                mechanical_Room_Location);
+
+        Type common_Area_Location = new TypeToken<Map<String, String>>() {
+        }.getType();
+        playerlocations3 = gson.fromJson(new FileReader("common_area.json"),
+                common_Area_Location);
+
+        Type lobby_Location = new TypeToken<Map<String, String>>() {
+        }.getType();
+        playerlocations3 = gson.fromJson(new FileReader("lobby.json"),
+                lobby_Location);
+
+        Type office_Floor_1_Location = new TypeToken<Map<String, String>>() {
+        }.getType();
+        playerlocations3 = gson.fromJson(new FileReader("office_Floor_1.json"),
+                office_Floor_1_Location);
+
+        Type office_Floor_2_Location = new TypeToken<Map<String, String>>() {
+        }.getType();
+        playerlocations3 = gson.fromJson(new FileReader("office_Floor_2.json"),
+                office_Floor_2_Location);
+
+        Type office_Floor_3_Location = new TypeToken<Map<String, String>>() {
+        }.getType();
+        playerlocations3 = gson.fromJson(new FileReader("office_Floor_3.json"),
+                office_Floor_3_Location);
+
+        Type office_Floor_4_Location = new TypeToken<Map<String, String>>() {
+        }.getType();
+        playerlocations3 = gson.fromJson(new FileReader("office_Floor_4.json"),
+                office_Floor_4_Location);
+
+
+    }
+
     private void startGame() throws InterruptedException, IOException {
         displayGameInfo();
-        while (!gameOver){
+        while (!gameOver) {
             String answer = player.makeDecision();
             verifyDecision(answer);
         }
 
     }
 
-    private void displayGameLevelOneInfo() throws InterruptedException {
+    //TODO: (Delete this comment later)--- this is the main game info screen
+    private void displayGameInfo() throws InterruptedException {
+        System.out.println("The chaos spreads & the bombs keep exploding around the city");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("The fire is spreading from building to building & most signs of life as gone!");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("you get stuck inside of a building, but it can collapse at any minute & fire is spreading");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("Luckily there id a helicopter on the roof evacuating the survivors that made it to the roof");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("Unfortunately, you have been wounded & are losing blood as more time passes");
+        TimeUnit.SECONDS.sleep(1);
         System.out.println();
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("Time is ticking & you don't have much time!");
+        TimeUnit.SECONDS.sleep(1);
         System.out.println();
+        System.out.println("A dying woman tells you her sick daughter Ellane is stuck somewhere inside & asked you to save & escape together");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("The objectives you have are simple:");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("- collect the 3 items needed for a cure to save Ellane");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("- Find Ellane");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("- Safely make it to the roof to escape by helicopter before 50 turns pass");
+        TimeUnit.SECONDS.sleep(1);
         System.out.println();
-        String decision = player.makeDecision();
-        verifyDecision(decision);
     }
 
     private void showGameControls() throws InterruptedException {
@@ -157,32 +260,32 @@ public class EllaneApp {
         firstWord = stringArr[0].toLowerCase();
 
         try {
-            if(stringArr.length < 1) {
+            if (stringArr.length < 1) {
                 System.err.println("MUST ENTER A COMMAND TO CONTINUE...");
                 player.makeDecision();
-            }
-            else if (stringArr.length == 1){
+            } else if (stringArr.length == 1) {
                 verifyFirstWord(firstWord);
-            }
-            else {
+            } else {
                 secondWord = stringArr[1].toLowerCase();
                 verifyFirstWord(firstWord);
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
     //TODO: MAIN GAME LOGIC
     private void verifyFirstWord(String firstWord) throws InterruptedException, IOException {
-        String decision;
-        generatePlayerItems();
         generateLocation();
+        generateLocation2();
+
+        String decision;
         switch (firstWord) {
             case "look":
-                for (Locations location :playerLocations){
-                    System.out.println("this is in your inventory" + getInventory() +
-                            "this is your current location" +location.getBasement());
+                for (LocationsAndDirections locationsAndDirections : playerLocations) {
+                    System.out.println("this is in your inventory " + getInventory() +
+                            "\n and you are in the " + locationsAndDirections.getName());
+                    break;
                 }
                 decision = player.makeDecision();
                 verifyDecision(decision);
@@ -194,31 +297,7 @@ public class EllaneApp {
                 break;
             case "go":
             case "climb":
-                for (Locations locations : playerLocations){
-                    if (locations.getBasement().equals(secondWord)){
-                        System.out.println(" This is your current location" + secondWord);
-                    }
-                    else if (locations.getCommon_Area().equals(secondWord)){
-                        System.out.println("this is your current location" + secondWord);
-                    }
-                    else if (locations.getLobby().equals(secondWord)){
-                        System.out.println("this is your current location" + secondWord);
-                    }
-                    else if (locations.getMechanical_Room().equals(secondWord)){
-                        System.out.println("this is your current location" + secondWord);
-                    }
-                    else if (locations.getOffice_1().equals(secondWord)){
-                        System.out.println("this is your current location" + secondWord);
-                    }
-                    else if (locations.getOffice_Floor_2().equals(secondWord)){
-                        System.out.println("this is your current location" + secondWord);
-                    }
-
-                    else {
-                        System.out.println("not a location");
-                    }
-
-                }
+                System.out.println();
                 verifyRoomMovement(secondWord);
                 decision = player.makeDecision();
                 verifyDecision(decision);
@@ -229,16 +308,31 @@ public class EllaneApp {
                 verifyDecision(decision);
                 break;
             case "grab":
-                for (Items items: gameItems){
-                    if (items.getItem().equals(secondWord)){
-                        inventory.add(items.getItem());
+                for (LocationsAndDirections andDirections : playerLocations) {
+                    if (andDirections.getItem().equals(secondWord) || andDirections.getItem2().equals(secondWord)) {
+                        System.out.println("you now have this item " + secondWord);
+                        break;
+                    } else {
+                        System.out.println("you cant get this");
+                    }
+                    break;
 
+                }
+                for (LocationsAndDirections items : playerLocations) {
+                    if (items.getItem().equals(secondWord)) {
+                        inventory.add(items.getItem());
+                        System.out.println(items.getItem_status());
+                        System.out.println();
+                        break;
                     }
-                    if (items.getItem2().equals(secondWord)){
+                    if (items.getItem2().equals(secondWord)) {
                         inventory.add(items.getItem2());
-                    }
-                    else {
-                        System.out.println("nothing added to inventory");
+                        System.out.println(items.getItem_status2());
+                        System.out.println();
+                        break;
+                    } else {
+                        System.out.println("nothing to add to inventory");
+                        break;
                     }
                 }
                 decision = player.makeDecision();
@@ -268,128 +362,72 @@ public class EllaneApp {
             default:
                 System.err.println("INVALID COMMAND...");
                 System.out.println();
+        }
 
-                System.err.println("ENTER A VALID COMMAND... ");
-                showGameControls();
+        //Chris is working on this method, but we may not need it... depending on the Gson to Json
+        //but have him code this still, just in case
+    }
+
+    private void verifyRoomMovement (String secondWord) throws InterruptedException, IOException {
+        generateLocation();
+        generateLocation2();
+        String decision;
+        switch (secondWord) {
+            case "east":
                 System.out.println();
+                currentRoom = secondWord;
+                if (playerlocations3.containsKey(currentRoom)){
+                    System.out.println(playerlocations3.get("east"));
+                }
+                //verify there is an east room to move to
+                //update currentroom property
+                //display currentRoom description
+                //display currentRoom items by looping over them all
+                //call player.makeDecision()
+                //If not valid, throw ERROR MESSAGE
+                //makeDecision();
 
+
+                break;
+            case "west":
+                System.out.println();
+                if (playerlocations3.containsKey(currentRoom)){
+                    System.out.println(playerlocations3.get("west"));
+                }
+                break;
+            case "north":
+                System.out.println();
+                if (playerlocations3.containsKey(currentRoom))
+                    System.out.println(playerlocations3.get("north"));
+                break;
+            case "south":
+                System.out.println();
+                if (playerlocations3.containsKey(currentRoom))
+                    System.out.println(playerlocations3.get("south"));
+                break;
+            case "up":
+                System.out.println();
+                //Implement logic
+                break;
+            case "down":
+                System.out.println();
+                //Implement logic
+                break;
+            default:
+                System.err.println("INVALID COMMAND. \n MOVING TO DIRECTION " + secondWord + " FROM CURRENT ROOM NOT POSSIBLE");
+                System.out.println();
+                System.err.println("MAKE ANOTHER DECISION");
+
+                showGameControls();
                 decision = player.makeDecision();
                 verifyDecision(decision);
                 break;
         }
     }
 
-    //Chris is working on this method, but we may not need it... depending on the Gson to Json
-    //but have him code this still, just in case
-    private void verifyRoomMovement (String secondWord) throws InterruptedException {
-        String decision;
-
-            switch (secondWord) {
-                case "east":
-                    System.out.println();
-                    //verify there is an east room to move to
-                    //update currentroom property
-                    //display currentRoom description
-                    //display currentRoom items by looping over them all
-                    //call player.makeDecision()
-                    //If not valid, throw ERROR MESSAGE
-                    //makeDecision();
-
-                    break;
-                case "west":
-                    System.out.println();
-                    //Implement logic
-                    break;
-                case "north":
-                    System.out.println();
-                    //Implement logic
-                    break;
-                case "south":
-                    System.out.println();
-                    //Implement logic
-                    //create method to verifyDirectionIs Possible from current room
-                    break;
-                case "up":
-                    System.out.println();
-                    //Implement logic
-                    break;
-                case "down":
-                    System.out.println();
-                    //Implement logic
-                    break;
-                default:
-                    System.err.println("INVALID COMMAND. \n MOVING TO DIRECTION " + secondWord + " FROM CURRENT ROOM NOT POSSIBLE");
-                    System.out.println();
-                    System.err.println("MAKE ANOTHER DECISION");
-
-                    showGameControls();
-                    decision = player.makeDecision();
-                    verifyDecision(decision);
-                    break;
-            }
-        }
-
-    //TODO: (Delete this comment later)--- this is the main game info screen
-    private void displayGameInfo () throws InterruptedException {
-            System.out.println("The chaos spreads & the bombs keep exploding around the city");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("The fire is spreading from building to building & most signs of life as gone!");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("you get stuck inside of a building, but it can collapse at any minute & fire is spreading");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("Luckily there id a helicopter on the roof evacuating the survivors that made it to the roof");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("Unfortunately, you have been wounded & are losing blood as more time passes");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println();
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("Time is ticking & you don't have much time!");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println();
-            System.out.println("A dying woman tells you her sick daughter Ellane is stuck somewhere inside & asked you to save & escape together");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("The objectives you have are simple:");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("- collect the 3 items needed for a cure to save Ellane");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("- Find Ellane");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println("- Safely make it to the roof to escape by helicopter before 50 turns pass");
-            TimeUnit.SECONDS.sleep(1);
-            System.out.println();
-        }
-
-    //TODO: get the Gson working... this code needs modifying
-    public void GsonParsing() {
-        String bedroom2 = "{\n" +
-                "  \"currentRoom\": \"BEDROOM\",\n" +
-                "  \"south\": \"OPEN AREA\",\n" +
-                "  \"item\": \"sword\",\n" +
-                "  \"item_status\": \" inside of a display case. It is unlocked\",\n" +
-                "  \"item2\": \"gun\",\n" +
-                "  \"item_status2\": \"its a MF gun..but it doesnt do anything with out bullets\",\n" +
-                "  \"randenc\": \"20\",\n" +
-                "  \"desc\": \"You are in a bedroom. There is nothing of use in this room. It stinks and everything looks crappy, but you see, to the SOUTH; an ugly OPEN AREA\"\n" +
-                "\n" +
-                "}";
-        Gson json = new Gson();
-        PlayerLocationsAndItems bedroom3 = json.fromJson(bedroom2, PlayerLocationsAndItems.class);
-        System.out.println(bedroom3.getItem2());
-    }
-
-
-
-
-
-  /*  public void readingGenerateTestBedroom() throws FileNotFoundException {
-        Gson gson = new Gson();
-        Object object = gson.fromJson(new FileReader("testRooms.json"), PlayerLocationsAndItems.class);
-
-        System.out.println(object);
-    }
-*/
-
-
+    //TODO: need to make a GameControllerClass--for MVC
+    //TODO: View---- the player types in "look"
+    //TODO: Controller -this is the response to the command--- responds as a method call
 
 
     //this is to run the main game music...after the intro.
