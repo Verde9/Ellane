@@ -313,8 +313,6 @@ public class EllaneApp {
                 TimeUnit.SECONDS.sleep(2);
                 showGameControls();
 
-            System.out.println("What should you do?");
-
                 String decision = player1.makeDecision();
                 verifyDecision(decision);
         }
@@ -351,11 +349,11 @@ public class EllaneApp {
                             System.out.println(" you are in the: " + locationsAndDirections.getName().toUpperCase() +
                                     "\n and this is in your inventory: " + getInventory());
                         }
+                        System.out.println();
                         roundCount--;
                         player1.decreaseHealth(2);
                         displayRemainingPlayerHealth();
                         displayRemainingRounds();
-                        displayRemainingPlayerHealth();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
@@ -369,6 +367,7 @@ public class EllaneApp {
                     case "climb":
                         System.out.println();
                         verifyRoomMovement(secondWord);
+                        System.out.println();
                         roundCount--;
                         player1.decreaseHealth(2);
                         displayRemainingPlayerHealth();
@@ -386,6 +385,7 @@ public class EllaneApp {
                         for (LocationsAndDirections andDirections : playerLocations) {
                             if (andDirections.getItem().equals(secondWord) || andDirections.getItem2().equals(secondWord)) {
                                 System.out.println("you now have this item " + secondWord);
+                                System.out.println();
                                 roundCount--;
                                 player1.decreaseHealth(2);
                                 displayRemainingPlayerHealth();
@@ -425,6 +425,7 @@ public class EllaneApp {
                         break;
                     case "drop":
                         //implement logic
+                        System.out.println();
                         roundCount--;
                         player1.decreaseHealth(2);
                         displayRemainingPlayerHealth();
@@ -441,6 +442,7 @@ public class EllaneApp {
                         break;
                     case "use":
                         //implement logic
+                        System.out.println();
                         roundCount--;
                         player1.decreaseHealth(2);
                         displayRemainingPlayerHealth();
@@ -479,6 +481,7 @@ public class EllaneApp {
         }
 
     private void displayRemainingPlayerHealth() {
+        System.out.println("You lose blood from your wound & health drops..");
         System.out.println("Player Health: " + player1.getHealth());
     }
 
