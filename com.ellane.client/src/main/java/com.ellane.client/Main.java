@@ -10,9 +10,9 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
 
         EllaneApp app = new EllaneApp();
-        //app.initialize();
+        app.initialize();
         //app.run();
-        app.randomizeEllaneLocation();
+
 
         //TODO: move logic to SRC
 
