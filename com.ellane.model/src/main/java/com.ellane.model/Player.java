@@ -18,6 +18,8 @@ public class Player {
 
     // Make constructor for properties
     public Player(String name,  Characters character) {
+        setName(name);
+        setCharacterType(character);
     }
 
 
@@ -27,7 +29,7 @@ public class Player {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
 
@@ -49,17 +51,14 @@ public class Player {
 
      //--------------METHODS------------------//
     public String makeDecision() throws InterruptedException {
+        System.out.println("What should you do?");
 
         Scanner in = new Scanner(System.in);
-        System.out.println("What do you want to do: ");
-        System.out.println("Enter CONTROLS to get game controls");
         System.out.println();
         TimeUnit.SECONDS.sleep(1);
         String decision = in.nextLine();
         return  decision;
     }
-
-
 
     private void dropItemFromInventory() {
 
