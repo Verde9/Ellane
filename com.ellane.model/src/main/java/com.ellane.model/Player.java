@@ -60,7 +60,7 @@ public class Player {
         return  decision;
     }
 
-    private void dropItemFromInventory() {
+    public void dropItemFromInventory() {
 
     }
 

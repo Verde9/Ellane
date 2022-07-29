@@ -1,21 +1,14 @@
 package com.ellane.app;
 
 import com.ellane.model.LocationsAndDirections;
-import com.ellane.model.Locations;
 import com.ellane.model.Json;
 import com.ellane.model.Player;
 import com.ellane.model.Characters;
-import com.ellane.model.PlayerLocationsAndItems;
-import com.ellane.model.Locations;
 import com.ellane.model.Items;
-import com.ellane.model.ActionCommands;
-import com.ellane.model.Directions;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 import javax.sound.sampled.*;
 import java.io.File;
@@ -26,7 +19,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -54,6 +46,10 @@ public class EllaneApp {
     Map<String, String> generateOffice_Floor_4_location;
     Map<String, String> generateRooftop_location;
     Player player1;
+    Boolean ellaneFound = false;
+    Boolean ellaneCured = false;
+    String ellaneLocation = "";
+
 
     Scanner scan = new Scanner(System.in);
     Player player = new Player("LB", com.ellane.model.Characters.MALE_SOLDIER);
@@ -62,7 +58,15 @@ public class EllaneApp {
     public void initialize() throws InterruptedException, IOException {
         gameWelcomeMessage();
         promptToStartGame();
+        randomizeEllaneLocation();
     }
+
+    private void randomizeEllaneLocation() {
+        Random ran = new Random();
+        int randomLocation = ran.nextInt(9) + 1;
+
+    }
+
 
     //after initialize is called, the "ellane" picture will show
     //the image is pretty big now.... should we make it smaller?
@@ -105,7 +109,6 @@ public class EllaneApp {
             promptToStartGame();
         }
     }
-
 
     public void generatePlayerItems() throws IOException {
         JsonNode bedroomNode = Json.parse(new File("basementItems.json"));
@@ -259,7 +262,7 @@ public class EllaneApp {
     }
 
             //TODO: (Delete this comment later)--- this is the main game info screen
-        private void displayGameInfo () throws InterruptedException {
+    private void displayGameInfo () throws InterruptedException {
                 System.out.println("The chaos spreads & the bombs keep exploding around the city");
                 TimeUnit.SECONDS.sleep(1);
                 System.out.println("The fire is spreading from building to building & most signs of life as gone!");
@@ -481,12 +484,12 @@ public class EllaneApp {
         }
 
     private void displayRemainingPlayerHealth() {
-        System.out.println("You lose blood from your wound & health drops..");
+        System.out.println("You lost blood from your wound & your health drops..");
         System.out.println("Player Health: " + player1.getHealth());
     }
 
     private void displayRemainingRounds() {
-        System.out.println(roundCount + " remaining...");
+        System.out.println(roundCount + " rounds remaining...");
     }
 
     private void verifyRoomMovement (String secondWord) throws InterruptedException, IOException {
