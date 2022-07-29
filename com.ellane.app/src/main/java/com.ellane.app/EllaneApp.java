@@ -66,6 +66,7 @@ public class EllaneApp {
         promptToStartGame();
     }
 
+
     private void gameWelcomeMessage() {
         String banner = null;
         if (Files.exists(Path.of("com.ellane.app/resources/gameArt.txt"))) {
