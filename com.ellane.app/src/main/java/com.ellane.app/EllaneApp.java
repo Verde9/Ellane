@@ -29,9 +29,12 @@ public class EllaneApp {
     private String firstWord;
     private String secondWord;
     private String currentRoom = "basement";
-    private String newLocation;
     private int roundCount = 50;
     Boolean gameOver = false;
+    Player player1;
+    Boolean ellaneFound = false;
+    Boolean ellaneCured = false;
+    String ellaneLocation = "";
     ArrayList<String> inventory = new ArrayList<>();
     List<Items> gameItems = new ArrayList<>();
     List<LocationsAndDirections> playerLocations = new ArrayList<>();
@@ -46,19 +49,22 @@ public class EllaneApp {
     Map<String, String> generateOffice_Floor_3_location;
     Map<String, String> generateOffice_Floor_4_location;
     Map<String, String> generateRooftop_location;
-    Player player1;
-    Boolean ellaneFound = false;
-    Boolean ellaneCured = false;
-    String ellaneLocation = "";
 
     Scanner scan = new Scanner(System.in);
-    Player player = new Player("LB", com.ellane.model.Characters.MALE_SOLDIER);
 
     //this will run the app in the main class
     public void initialize() throws InterruptedException, IOException {
        gameWelcomeMessage();
         promptToStartGame();
         randomizeEllaneLocation();
+        checkEndGameConditions();
+    }
+
+    private void checkEndGameConditions() {
+        if(roundCount <= 0 || player1.getHealth() <= 0) {
+            gameOver = true;
+            endGame();
+        }
     }
 
     private void checkIfEllaneIsHere() {
@@ -114,7 +120,6 @@ public class EllaneApp {
             System.out.println(e.getMessage());
         }
     }
-
 
     //after initialize is called, the "ellane" picture will show
     //the image is pretty big now.... should we make it smaller?
@@ -407,12 +412,14 @@ public class EllaneApp {
                         player1.decreaseHealth(2);
                         displayRemainingPlayerHealth();
                         displayRemainingRounds();
+                        checkEndGameConditions();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
                     case "help":
                         showGameControls();
 
+                        checkEndGameConditions();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
@@ -425,11 +432,13 @@ public class EllaneApp {
                         player1.decreaseHealth(2);
                         displayRemainingPlayerHealth();
                         displayRemainingRounds();
+                        checkEndGameConditions();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
                     case "inventory":
                         System.out.println(getInventory());
+                        checkEndGameConditions();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
@@ -443,6 +452,7 @@ public class EllaneApp {
                                 player1.decreaseHealth(2);
                                 displayRemainingPlayerHealth();
                                 displayRemainingRounds();
+                                checkEndGameConditions();
                                 decision = player1.makeDecision();
                                 verifyDecision(decision);
                                 break;
@@ -473,6 +483,7 @@ public class EllaneApp {
                         player1.decreaseHealth(2);
                         displayRemainingPlayerHealth();
                         displayRemainingRounds();
+                        checkEndGameConditions();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
@@ -483,6 +494,7 @@ public class EllaneApp {
                         player1.decreaseHealth(2);
                         displayRemainingPlayerHealth();
                         displayRemainingRounds();
+                        checkEndGameConditions();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
@@ -490,6 +502,7 @@ public class EllaneApp {
                         //implement logic
                         System.out.println(player1.getHealth());
                         System.out.println();
+                        checkEndGameConditions();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
@@ -500,12 +513,13 @@ public class EllaneApp {
                         player1.decreaseHealth(2);
                         displayRemainingPlayerHealth();
                         displayRemainingRounds();
+                        checkEndGameConditions();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
                     case "quit":
-                        System.out.println("Thank you for Playing!");
                         gameOver = true;
+                        endGame();
                         TimeUnit.SECONDS.sleep(1);
                         break;
                     case "play":
@@ -513,6 +527,7 @@ public class EllaneApp {
                             System.out.println("These are the directions for the music player");
                             runMusic("Music/intro wav 2_1.wav");
                         }
+                        checkEndGameConditions();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
@@ -524,6 +539,7 @@ public class EllaneApp {
                         showGameControls();
                         System.out.println();
 
+                        checkEndGameConditions();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
@@ -727,8 +743,10 @@ public class EllaneApp {
                 return inventory;
             }
 
-            public Boolean getGameOver () {
-                return gameOver;
+            public void endGame() {
+                System.out.println("GAME HAS ENDED...");
+                System.out.println("You ended the game with " + roundCount + " round remaining and \n Players Health was: " + player1.getHealth());
+                System.out.println("Thanks for playing!");
             }
 
         }
