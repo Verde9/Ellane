@@ -20,6 +20,7 @@ import com.google.gson.reflect.TypeToken;
 
 import javax.sound.sampled.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -54,10 +55,7 @@ public class EllaneApp {
     Map<String, String> generateOffice_Floor_3_location;
     Map<String, String> generateOffice_Floor_4_location;
     Map<String, String> generateRooftop_location;
-
-
-
-
+    Player player1;
     Scanner scan = new Scanner(System.in);
     Player player = new Player("LB", com.ellane.model.Characters.MALE_SOLDIER);
 
@@ -91,15 +89,17 @@ public class EllaneApp {
         introMusic("Music/For Work 2_1.wav");
         System.out.println("Do you wish to play? type 'yes' or type 'quit game'");
         String userInput = scan.nextLine().toLowerCase();
-        System.out.println("user input: " + userInput);
 
         if (userInput.equals("quit game")) {
             System.out.println("...Thanks for playing! Goodbye!");
+            gameOver =true;
         }
 
         if (userInput.equals("yes")) {
+            System.out.println();
             System.out.println("Let's Play!");
-            startGame();
+            createPlayerOneCharacter();
+
         } else {
             System.err.println("INVALID INPUT");
             System.out.println();
@@ -153,7 +153,6 @@ public class EllaneApp {
 
     }
 
-
     public void generateLocation() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         List<LocationsAndDirections> objects = objectMapper.readValue(new File("AlLLLLLLLROOMS.json"),
@@ -161,6 +160,49 @@ public class EllaneApp {
                 });
         playerLocations = objects;
         playerLocations.addAll(objects);
+    }
+
+    private void createPlayerOneCharacter() throws IOException, InterruptedException {
+        boolean valid = false;
+        String playerName = "";
+        while (playerName.length() <= 0) {
+            System.out.println();
+            System.out.println("Enter your name:");
+            playerName = scan.nextLine().toLowerCase();
+            if (playerName.length() <= 0) {
+                System.err.println("YOU MUST ENTER A NAME");
+            }
+        }
+
+        System.out.println();
+
+
+        while (!valid) {
+            System.out.println("Select character to play as:");
+
+            for (Characters character : Characters.values()) {
+                System.out.println(character.getCharacterType());
+            }
+
+            System.out.println();
+            String characterChoice = scan.nextLine().toLowerCase();
+
+            for (Characters character : Characters.values()) {
+                if (characterChoice.equals(character.getCharacterType())) {
+                    System.out.println();
+                    player1 = new Player(playerName, character);
+                    System.out.println("New Player Created!");
+                    startGame();
+                    valid = true;
+                    break;
+                }
+            }
+
+            if (!valid) {
+                System.out.println();
+                System.err.println("INVALID CHARACTER SELECTED");
+            }
+        }
     }
 
     public void generateLocation2() throws IOException {
@@ -213,7 +255,21 @@ public class EllaneApp {
         Type rooftop_Location = new TypeToken<Map<String, String>>() {
         }.getType();
         generateRooftop_location = gson.fromJson(new FileReader("rooftop.json"),
-                office_Floor_4_Location);
+                rooftop_Location);
+
+
+    }
+
+    public void generateLocation3() throws FileNotFoundException {
+        Gson gson = new Gson();
+        Type basementLocation = new TypeToken<HashMap<String, String>>(){}.getType();;
+        HashMap<String, String> clonedMap = gson.fromJson(new FileReader("basement.json"), basementLocation);
+        Type officeLocation = new TypeToken<HashMap<String, String>>(){}.getType();;
+        HashMap<String, String> clonedMap2 = gson.fromJson(new FileReader("basement.json"), officeLocation);
+        clonedMap.get("name");
+
+        System.out.println(clonedMap.keySet());
+
 
 
     }
@@ -221,13 +277,10 @@ public class EllaneApp {
     private void startGame() throws InterruptedException, IOException {
         displayGameInfo();
         while (!gameOver) {
-            String answer = player.makeDecision();
-            verifyDecision(answer);
+            String answer = player1.makeDecision();
         }
-
     }
 
-    //TODO: (Delete this comment later)--- this is the main game info screen
     private void displayGameInfo() throws InterruptedException {
         System.out.println("The chaos spreads & the bombs keep exploding around the city");
         TimeUnit.SECONDS.sleep(1);
@@ -255,9 +308,19 @@ public class EllaneApp {
         System.out.println("- Safely make it to the roof to escape by helicopter before 50 turns pass");
         TimeUnit.SECONDS.sleep(1);
         System.out.println();
+        displayGameLevelOneInfo();
     }
 
-
+    private void displayGameLevelOneInfo() throws InterruptedException {
+        System.out.println("You suddenly awake & realize you were knocked out from the impact of an explosion..");
+        System.out.println("It's dark and find yourself in the basement parking of a building..");
+        System.out.println("");
+        TimeUnit.SECONDS.sleep(2);
+        showGameControls();
+        System.out.println("What should you do?");
+        String decision = player1.makeDecision();
+        verifyDecision(decision);
+    }
 
     private void showGameControls() throws InterruptedException {
         System.out.println("GAME COMMANDS: \n" +
@@ -282,7 +345,7 @@ public class EllaneApp {
             if (stringArr.length < 1) {
                 System.err.println("MUST ENTER A COMMAND TO CONTINUE...");
                 player.makeDecision();
-            } else if (stringArr.length == 1) {
+            }  else if (stringArr.length == 1) {
                 verifyFirstWord(firstWord);
             } else {
                 secondWord = stringArr[1].toLowerCase();
@@ -292,14 +355,14 @@ public class EllaneApp {
             System.out.println(e.getMessage());
         }
     }
-
     //TODO: MAIN GAME LOGIC
+
     private void verifyFirstWord(String firstWord) throws InterruptedException, IOException {
         generateLocation();
         generateLocation2();
         generatePlayerItems();
-
         String decision;
+
         switch (firstWord) {
             case "look":
                 for (LocationsAndDirections locationsAndDirections : playerLocations) {
@@ -307,37 +370,27 @@ public class EllaneApp {
                             "\n and you are in the " + locationsAndDirections.getName());
                     break;
                 }
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             case "help":
                 showGameControls();
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             case "go":
             case "climb":
                 System.out.println();
                 verifyRoomMovement(secondWord);
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             case "inventory":
                 System.out.println(getInventory());
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             case "grab":
-                for (LocationsAndDirections andDirections : playerLocations) {
-                    if (andDirections.getItem().equals(secondWord) || andDirections.getItem2().equals(secondWord)) {
-                        System.out.println("you now have this item " + secondWord);
-                        break;
-                    } else {
-                        System.out.println("you cant get this");
-                    }
-                    break;
-
-                }
                 for (LocationsAndDirections items : playerLocations) {
                     if (items.getItem().equals(secondWord)) {
                         inventory.add(items.getItem());
@@ -355,20 +408,55 @@ public class EllaneApp {
                         break;
                     }
                 }
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             case "drop":
-                //implement logic
+                if(inventory.contains(secondWord)){
+                    inventory.remove(secondWord);
+                    System.out.println("you have removed this item");
+                }
+                decision = player1.makeDecision();
+                verifyDecision(decision);
+
                 break;
             case "health":
                 //implement logic
                 break;
             case "use":
-                //implement logic
+                if (inventory.contains("bazooka")){
+                    if (generateBasementLocation.containsKey("item2") && generateBasementLocation.containsValue("bazooka")){
+                        System.out.println("you used the bazooka the BLOW THE PLACE DOWWWWWWWN");
+                        int Min = 1;
+                        int Max = 20;
+                        int newHealth = player1.setHealth((int)(Math.random() * ((Max - Min) + 1)));
+                        System.out.println(newHealth);
+                        System.out.println("You Fucking hit yourself dummy... the player health is now "
+                                +newHealth);
+                        if (newHealth >= 10){
+                            System.out.println("its dangerous to use the damn bazooka...");
+                        }
+                        if (newHealth < 10 && newHealth > 1){
+                            System.out.println("Im never doing that stupid shit again");
+                        }
+                        if (newHealth <= 0){
+                            System.out.println("...AND you fucking died.... using the bazooka you fucking idiot," +
+                                    "damn that sucks");
+                            System.out.println();
+                            gameOver = true;
+                        }
+
+                    }
+
+                }else {
+                    System.out.println("The world aint ready for that");
+                }
+                decision = player1.makeDecision();
+                verifyDecision(decision);
                 break;
             case "quit":
                 System.out.println("Thank you for Playing!");
+                gameOver = true;
                 TimeUnit.SECONDS.sleep(1);
                 break;
             case "play":
@@ -376,84 +464,86 @@ public class EllaneApp {
                     System.out.println("These are the directions for the music player");
                     runMusic("Music/intro wav 2_1.wav");
                 }
-                decision = player.makeDecision();
+                decision = player1.makeDecision();
                 verifyDecision(decision);
                 break;
             default:
                 System.err.println("INVALID COMMAND...");
                 System.out.println();
+
+                System.err.println("ENTER A VALID COMMAND... ");
+                showGameControls();
+                System.out.println();
+
+                decision = player1.makeDecision();
+                verifyDecision(decision);
+                break;
         }
 
         //Chris is working on this method, but we may not need it... depending on the Gson to Json
         //but have him code this still, just in case
     }
-
     private void verifyRoomMovement (String secondWord) throws InterruptedException, IOException {
-        generateLocation();
-        generateLocation2();
-        generatePlayerItems();
-        String decision;
-        switch (secondWord) {
-            case "east":
-                System.out.println();
-                currentRoom = secondWord;
-                if (playerlocations3.containsKey(currentRoom)){
-                    System.out.println(playerlocations3.get("east"));
-                }
+            generateLocation();
+            generateLocation2();
+            generatePlayerItems();
+            String decision;
+            switch (secondWord) {
+                case "east":
+                    System.out.println();
+                    currentRoom = secondWord;
+                    if (generateBasementLocation.containsKey(currentRoom)) {
+                        System.out.println(playerlocations3.get("east"));
+                    }
 
-                //verify there is an east room to move to
-                //update currentroom property
-                //display currentRoom description
-                //display currentRoom items by looping over them all
-                //call player.makeDecision()
-                //If not valid, throw ERROR MESSAGE
-                //makeDecision();
+                    //verify there is an east room to move to
+                    //update currentroom property
+                    //display currentRoom description
+                    //display currentRoom items by looping over them all
+                    //call player.makeDecision()
+                    //If not valid, throw ERROR MESSAGE
+                    //makeDecision();
 
 
-                break;
-            case "west":
-                System.out.println();
-                if (playerlocations3.containsKey(currentRoom)){
-                    System.out.println(playerlocations3.get("west"));
-                }
-                break;
-            case "north":
-                System.out.println();
-                if (playerlocations3.containsKey(currentRoom))
-                    System.out.println(playerlocations3.get("north"));
-                break;
-            case "south":
-                System.out.println();
-                if (playerlocations3.containsKey(currentRoom))
-                    System.out.println(playerlocations3.get("south"));
-                break;
-            case "up":
-                System.out.println();
-                //Implement logic
-                break;
-            case "down":
-                System.out.println();
-                //Implement logic
-                break;
-            default:
-                System.err.println("INVALID COMMAND. \n MOVING TO DIRECTION " + secondWord + " FROM CURRENT ROOM NOT POSSIBLE");
-                System.out.println();
-                System.err.println("MAKE ANOTHER DECISION");
+                    break;
+                case "west":
+                    System.out.println();
+                    if (playerlocations3.containsKey(currentRoom)) {
+                        System.out.println(playerlocations3.get("west"));
+                    }
+                    break;
+                case "north":
+                    System.out.println();
+                    if (playerlocations3.containsKey(currentRoom)) {
+                        System.out.println(playerlocations3.get("north"));
+                    }
+                    break;
+                case "south":
+                    System.out.println();
+                    if (playerlocations3.containsKey(currentRoom)) {
+                        System.out.println(playerlocations3.get("south"));
+                    }
+                    break;
+                case "up":
+                    System.out.println();
+                    //Implement logic
+                    break;
+                case "down":
+                    System.out.println();
+                    //Implement logic
+                    break;
+                default:
+                    System.err.println("INVALID COMMAND. \n MOVING TO DIRECTION " + secondWord + " FROM CURRENT ROOM NOT POSSIBLE");
+                    System.out.println();
+                    System.err.println("MAKE ANOTHER DECISION");
 
-                showGameControls();
-                decision = player.makeDecision();
-                verifyDecision(decision);
-                break;
-        }
+                    showGameControls();
+                    decision = player1.makeDecision();
+                    verifyDecision(decision);
+                    break;
+            }
     }
-
-    //TODO: need to make a GameControllerClass--for MVC
-    //TODO: View---- the player types in "look"
-    //TODO: Controller -this is the response to the command--- responds as a method call
-
-
-    //this is to run the main game music...after the intro.
-    public static void runMusic(String path) {
+    public static void runMusic (String path){
         try {
             Scanner scanner = new Scanner(System.in);
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
@@ -466,13 +556,13 @@ public class EllaneApp {
             String response = "";
 
 
-            while (!response.equals("Q")){
+            while (!response.equals("Q")) {
                 System.out.println("P = Play Music, S= Stop Music, R=Reset, V =Volume, Q= quit music player");
                 System.out.println("Enter your choice: ");
                 response = scanner.next();
                 response = response.toUpperCase();
 
-                switch (response){
+                switch (response) {
                     case ("P"):
                         clip.start();
                         break;
@@ -482,7 +572,7 @@ public class EllaneApp {
                     case ("R"):
                         clip.setMicrosecondPosition(0);
                         break;
-                    case ("V") :
+                    case ("V"):
                         System.out.println("what do you want the level to be? :  (-17 is lower volume " +
                                 "and 0.0 is higher volume)");
                         String setVolume = scanner.next();
@@ -494,21 +584,13 @@ public class EllaneApp {
                         break;
                     default:
                         System.out.println("not a valid response for music player");
-
-
                 }
             }
-
-
-        }
-        catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
-
-
     }
-
-    public static void introMusic(String path) {
+    public static void introMusic (String path){
         try {
             Scanner scanner = new Scanner(System.in);
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
@@ -521,13 +603,13 @@ public class EllaneApp {
             String response = "";
 
 
-            while (!response.equals("Q")){
+            while (!response.equals("Q")) {
                 System.out.println("P = Play Music, S= Stop Music, R=Reset, V =Volume Q= STOP MUSIC.. and Begin Game");
                 System.out.println("Enter your choice: ");
                 response = scanner.next();
                 response = response.toUpperCase();
 
-                switch (response){
+                switch (response) {
                     case ("P"):
                         clip.start();
                         break;
@@ -537,7 +619,7 @@ public class EllaneApp {
                     case ("R"):
                         clip.setMicrosecondPosition(0);
                         break;
-                    case ("V") :
+                    case ("V"):
                         System.out.println("what do you want the level to be? :  (-17 is lower)");
                         String setVolume = scanner.next();
                         gainControl.setValue(Float.parseFloat(String.valueOf(setVolume)));
@@ -555,22 +637,17 @@ public class EllaneApp {
             }
 
 
-        }
-        catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
 
 
     }
-
-    public ArrayList<String> getInventory() {
+    public ArrayList<String> getInventory () {
         return inventory;
     }
-
-    public Boolean getGameOver() {
-        return gameOver;
-    }
-
+    public Boolean getGameOver () {
+        return gameOver;}
 }
 
 

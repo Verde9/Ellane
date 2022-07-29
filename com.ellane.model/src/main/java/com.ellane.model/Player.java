@@ -1,9 +1,6 @@
 package com.ellane.model;
-import com.google.gson.Gson;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -75,4 +72,8 @@ public class Player {
         this.inventory = inventory;
     }
 
+    public int setHealth(Integer health) {
+        this.health = health;
+        return health;
+    }
 }

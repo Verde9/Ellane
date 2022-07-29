@@ -12,7 +12,7 @@ public class Main {
         EllaneApp app = new EllaneApp();
         app.initialize();
         //app.run();
-        //app.generateLocation2();
+        //app.generateLocation3();
 
         //TODO: move logic to SRC
 
