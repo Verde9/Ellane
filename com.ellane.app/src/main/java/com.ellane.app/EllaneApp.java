@@ -14,6 +14,7 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 public class EllaneApp {
     private String firstWord;
     private String secondWord;
-    private String currentRoom;
+    private String currentRoom = "basement";
     private String newLocation;
     private int roundCount = 50;
     Boolean gameOver = false;
@@ -50,21 +51,68 @@ public class EllaneApp {
     Boolean ellaneCured = false;
     String ellaneLocation = "";
 
-
     Scanner scan = new Scanner(System.in);
     Player player = new Player("LB", com.ellane.model.Characters.MALE_SOLDIER);
 
     //this will run the app in the main class
     public void initialize() throws InterruptedException, IOException {
-        gameWelcomeMessage();
+       gameWelcomeMessage();
         promptToStartGame();
         randomizeEllaneLocation();
     }
 
-    private void randomizeEllaneLocation() {
+    private void checkIfEllaneIsHere() {
+        if (currentRoom.equals(ellaneLocation)) {
+            ellaneFound = true;
+            System.out.println("You've found Ellane!");
+        }
+    }
+
+    public void randomizeEllaneLocation() {
         Random ran = new Random();
+
         int randomLocation = ran.nextInt(9) + 1;
 
+        try {
+            if(randomLocation == 1) {
+                ellaneLocation = "basement";
+                System.out.println("ellane is hiding in the : " + ellaneLocation);
+            }
+            else if(randomLocation == 2) {
+                ellaneLocation = "lobby";
+                System.out.println("ellane is hiding in the : " + ellaneLocation);
+            }
+            else if(randomLocation == 3) {
+                ellaneLocation = "common area";
+                System.out.println("ellane is hiding in the : " + ellaneLocation);
+            }
+            else if(randomLocation == 4) {
+                ellaneLocation = "mechanical room";
+                System.out.println("ellane is hiding in the : " + ellaneLocation);
+            }
+            else if(randomLocation == 5) {
+                ellaneLocation = "office_1";
+                System.out.println("ellane is hiding in the : " + ellaneLocation);
+            }
+            else if(randomLocation == 6) {
+                ellaneLocation = "office_floor1";
+                System.out.println("ellane is hiding in the : " + ellaneLocation);
+            }
+            else if(randomLocation == 7) {
+                ellaneLocation = "office_floor2";
+                System.out.println("ellane is hiding in the : " + ellaneLocation);
+            }
+            else if(randomLocation == 8) {
+                ellaneLocation = "office_floor3";
+                System.out.println("ellane is hiding in the : " + ellaneLocation);
+            }
+            else if(randomLocation == 9) {
+                ellaneLocation = "office_floor4";
+                System.out.println("ellane is hiding in the : " + ellaneLocation);
+            }
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 
@@ -315,6 +363,8 @@ public class EllaneApp {
 
                 TimeUnit.SECONDS.sleep(2);
                 showGameControls();
+
+                checkIfEllaneIsHere();
 
                 String decision = player1.makeDecision();
                 verifyDecision(decision);
