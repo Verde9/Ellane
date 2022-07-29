@@ -352,7 +352,10 @@ public class EllaneApp {
                                     "\n and this is in your inventory: " + getInventory());
                         }
                         roundCount--;
+                        player1.decreaseHealth(2);
+                        displayRemainingPlayerHealth();
                         displayRemainingRounds();
+                        displayRemainingPlayerHealth();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
                         break;
@@ -366,6 +369,9 @@ public class EllaneApp {
                     case "climb":
                         System.out.println();
                         verifyRoomMovement(secondWord);
+                        roundCount--;
+                        player1.decreaseHealth(2);
+                        displayRemainingPlayerHealth();
                         displayRemainingRounds();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
@@ -376,10 +382,13 @@ public class EllaneApp {
                         verifyDecision(decision);
                         break;
                     case "grab":
+                    case "get":
                         for (LocationsAndDirections andDirections : playerLocations) {
                             if (andDirections.getItem().equals(secondWord) || andDirections.getItem2().equals(secondWord)) {
                                 System.out.println("you now have this item " + secondWord);
                                 roundCount--;
+                                player1.decreaseHealth(2);
+                                displayRemainingPlayerHealth();
                                 displayRemainingRounds();
                                 decision = player1.makeDecision();
                                 verifyDecision(decision);
@@ -408,6 +417,8 @@ public class EllaneApp {
                             }
                         }
                         roundCount--;
+                        player1.decreaseHealth(2);
+                        displayRemainingPlayerHealth();
                         displayRemainingRounds();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
@@ -415,6 +426,8 @@ public class EllaneApp {
                     case "drop":
                         //implement logic
                         roundCount--;
+                        player1.decreaseHealth(2);
+                        displayRemainingPlayerHealth();
                         displayRemainingRounds();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
@@ -429,6 +442,8 @@ public class EllaneApp {
                     case "use":
                         //implement logic
                         roundCount--;
+                        player1.decreaseHealth(2);
+                        displayRemainingPlayerHealth();
                         displayRemainingRounds();
                         decision = player1.makeDecision();
                         verifyDecision(decision);
@@ -463,6 +478,10 @@ public class EllaneApp {
                 //but have him code this still, just in case
         }
 
+    private void displayRemainingPlayerHealth() {
+        System.out.println("Player Health: " + player1.getHealth());
+    }
+
     private void displayRemainingRounds() {
         System.out.println(roundCount + " remaining...");
     }
@@ -471,57 +490,74 @@ public class EllaneApp {
                 generateLocation();
                 generateLocation2();
                 String decision;
-                switch (secondWord) {
-                    case "east":
-                        System.out.println();
-                        currentRoom = secondWord;
-                        if (playerlocations3.containsKey(currentRoom)) {
-                            System.out.println(playerlocations3.get("east"));
-                        }
-                        //verify there is an east room to move to
-                        //update currentroom property
-                        //display currentRoom description
-                        //display currentRoom items by looping over them all
-                        //call player.makeDecision()
-                        //If not valid, throw ERROR MESSAGE
-                        //makeDecision();
 
+                if(firstWord.equals("go")) {
+                    switch (secondWord) {
+                        case "east":
+                            System.out.println();
+                            currentRoom = secondWord;
+                            if (playerlocations3.containsKey(currentRoom)) {
+                                System.out.println(playerlocations3.get("east"));
+                            }
+                            //verify there is an east room to move to
+                            //update currentroom property
+                            //display currentRoom description
+                            //display currentRoom items by looping over them all
+                            //call player.makeDecision()
+                            //If not valid, throw ERROR MESSAGE
+                            //makeDecision();
 
-                        break;
-                    case "west":
-                        System.out.println();
-                        if (playerlocations3.containsKey(currentRoom)) {
-                            System.out.println(playerlocations3.get("west"));
-                        }
-                        break;
-                    case "north":
-                        System.out.println();
-                        if (playerlocations3.containsKey(currentRoom))
-                            System.out.println(playerlocations3.get("north"));
-                        break;
-                    case "south":
-                        System.out.println();
-                        if (playerlocations3.containsKey(currentRoom))
-                            System.out.println(playerlocations3.get("south"));
-                        break;
-                    case "up":
-                        System.out.println();
-                        //Implement logic
-                        break;
-                    case "down":
-                        System.out.println();
-                        //Implement logic
-                        break;
-                    default:
-                        System.err.println("INVALID COMMAND. \n MOVING TO DIRECTION " + secondWord + " FROM CURRENT ROOM NOT POSSIBLE");
-                        System.out.println();
-                        System.err.println("MAKE ANOTHER DECISION");
+                            break;
+                        case "west":
+                            System.out.println();
+                            if (playerlocations3.containsKey(currentRoom)) {
+                                System.out.println(playerlocations3.get("west"));
+                            }
+                            break;
+                        case "north":
+                            System.out.println();
+                            if (playerlocations3.containsKey(currentRoom))
+                                System.out.println(playerlocations3.get("north"));
+                            break;
+                        case "south":
+                            System.out.println();
+                            if (playerlocations3.containsKey(currentRoom))
+                                System.out.println(playerlocations3.get("south"));
+                            break;
+                        default:
+                            System.err.println("INVALID COMMAND. \n MOVING TO DIRECTION " + secondWord + " FROM CURRENT ROOM NOT POSSIBLE");
+                            System.out.println();
+                            System.err.println("MAKE ANOTHER DECISION");
 
-                        showGameControls();
-                        decision = player1.makeDecision();
-                        verifyDecision(decision);
-                        break;
+                            showGameControls();
+                            decision = player1.makeDecision();
+                            verifyDecision(decision);
+                            break;
+                    }
                 }
+
+                if(firstWord.equals("climb")) {
+                    switch (secondWord) {
+                        case "up":
+                            System.out.println();
+                            //Implement logic
+                            break;
+                        case "down":
+                            System.out.println();
+                            //Implement logic
+                            break;
+                        default:
+                            System.err.println("INVALID COMMAND. \n MOVING TO DIRECTION " + secondWord + " FROM CURRENT ROOM NOT POSSIBLE");
+                            System.out.println();
+                            System.err.println("MAKE ANOTHER DECISION");
+
+                            showGameControls();
+                            decision = player1.makeDecision();
+                            verifyDecision(decision);
+                            break;
+                    }
+                }
+
             }
 
             //TODO: need to make a GameControllerClass--for MVC

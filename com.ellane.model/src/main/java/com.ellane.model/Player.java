@@ -64,11 +64,11 @@ public class Player {
 
     }
 
-    private void decreaseHealth(int decreaseAmount) {
+    public void decreaseHealth(int decreaseAmount) {
         health -= decreaseAmount;
     }
 
-    private void increaseHealth(int increaseAmount) {
+    public void increaseHealth(int increaseAmount) {
         health += increaseAmount;
     }
 
