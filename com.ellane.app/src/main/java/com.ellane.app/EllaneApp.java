@@ -44,6 +44,18 @@ public class EllaneApp {
     List<Items> gameItems = new ArrayList<>();
     List<LocationsAndDirections> playerLocations = new ArrayList<>();
     Map<String, String> playerlocations3;
+    Map<String, String> generateBasementLocation;
+    Map<String, String> generateCommon_Area_Location;
+    Map<String, String> generateLobbyLocation;
+    Map<String, String> generateMechanicalRoomLocation;
+    Map<String, String> generateOffice_1_Location;
+    Map<String, String> generateOffice_Floor_1_location;
+    Map<String, String> generateOffice_Floor_2_location;
+    Map<String, String> generateOffice_Floor_3_location;
+    Map<String, String> generateOffice_Floor_4_location;
+    Map<String, String> generateRooftop_location;
+
+
 
 
     Scanner scan = new Scanner(System.in);
@@ -155,47 +167,52 @@ public class EllaneApp {
         Gson gson = new Gson();
         Type basementLocation = new TypeToken<Map<String, String>>() {
         }.getType();
-        playerlocations3 = gson.fromJson(new FileReader("basement.json"),
+        generateBasementLocation = gson.fromJson(new FileReader("basement.json"),
                 basementLocation);
 
         Type office_1_Location = new TypeToken<Map<String, String>>() {
         }.getType();
-        playerlocations3 = gson.fromJson(new FileReader("office_1.json"),
+        generateOffice_1_Location = gson.fromJson(new FileReader("office_1.json"),
                 office_1_Location);
 
         Type mechanical_Room_Location = new TypeToken<Map<String, String>>() {
         }.getType();
-        playerlocations3 = gson.fromJson(new FileReader("mechanicalRoom.json"),
+        generateMechanicalRoomLocation = gson.fromJson(new FileReader("mechanicalRoom.json"),
                 mechanical_Room_Location);
 
         Type common_Area_Location = new TypeToken<Map<String, String>>() {
         }.getType();
-        playerlocations3 = gson.fromJson(new FileReader("common_area.json"),
+        generateCommon_Area_Location = gson.fromJson(new FileReader("common_area.json"),
                 common_Area_Location);
 
         Type lobby_Location = new TypeToken<Map<String, String>>() {
         }.getType();
-        playerlocations3 = gson.fromJson(new FileReader("lobby.json"),
+        generateLobbyLocation = gson.fromJson(new FileReader("lobby.json"),
                 lobby_Location);
 
         Type office_Floor_1_Location = new TypeToken<Map<String, String>>() {
         }.getType();
-        playerlocations3 = gson.fromJson(new FileReader("office_Floor_1.json"),
+        generateOffice_Floor_1_location = gson.fromJson(new FileReader("office_Floor_1.json"),
                 office_Floor_1_Location);
 
         Type office_Floor_2_Location = new TypeToken<Map<String, String>>() {
         }.getType();
-        playerlocations3 = gson.fromJson(new FileReader("office_Floor_2.json"),
+        generateOffice_Floor_2_location = gson.fromJson(new FileReader("office_Floor_2.json"),
                 office_Floor_2_Location);
 
         Type office_Floor_3_Location = new TypeToken<Map<String, String>>() {
         }.getType();
-        playerlocations3 = gson.fromJson(new FileReader("office_Floor_3.json"),
+        generateOffice_Floor_3_location = gson.fromJson(new FileReader("office_Floor_3.json"),
                 office_Floor_3_Location);
 
         Type office_Floor_4_Location = new TypeToken<Map<String, String>>() {
         }.getType();
-        playerlocations3 = gson.fromJson(new FileReader("office_Floor_4.json"),
+        generateOffice_Floor_4_location = gson.fromJson(new FileReader("office_Floor_4.json"),
+                office_Floor_4_Location);
+
+        Type rooftop_Location = new TypeToken<Map<String, String>>() {
+        }.getType();
+        generateRooftop_location = gson.fromJson(new FileReader("rooftop.json"),
                 office_Floor_4_Location);
 
 
@@ -240,6 +257,8 @@ public class EllaneApp {
         System.out.println();
     }
 
+
+
     private void showGameControls() throws InterruptedException {
         System.out.println("GAME COMMANDS: \n" +
                 "    GO + [north, south, east, west]\n" +
@@ -278,6 +297,7 @@ public class EllaneApp {
     private void verifyFirstWord(String firstWord) throws InterruptedException, IOException {
         generateLocation();
         generateLocation2();
+        generatePlayerItems();
 
         String decision;
         switch (firstWord) {
@@ -371,6 +391,7 @@ public class EllaneApp {
     private void verifyRoomMovement (String secondWord) throws InterruptedException, IOException {
         generateLocation();
         generateLocation2();
+        generatePlayerItems();
         String decision;
         switch (secondWord) {
             case "east":
