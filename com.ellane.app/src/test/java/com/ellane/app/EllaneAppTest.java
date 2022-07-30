@@ -13,7 +13,6 @@ private EllaneApp app;
     void init() {
         app = new EllaneApp();
         app.ellaneLocation = "";
-
     }
 
     @Test
