@@ -28,6 +28,15 @@ import java.util.concurrent.TimeUnit;
 public class EllaneApp {
     private String firstWord;
     private String secondWord;
+
+    public String getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public void setCurrentRoom(String currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
     private String currentRoom = "basement";
     private int roundCount = 50;
     Boolean gameOver = false;
@@ -36,6 +45,7 @@ public class EllaneApp {
     Boolean ellaneCured = false;
     String ellaneLocation = "";
     String bombLocation = "";
+    Boolean bombFound = false;
     ArrayList<String> inventory = new ArrayList<>();
     List<Items> gameItems = new ArrayList<>();
     List<LocationsAndDirections> playerLocations = new ArrayList<>();
@@ -61,7 +71,7 @@ public class EllaneApp {
         randomizeBombLocation();
     }
 
-    private void checkEndGameConditions() {
+    public void checkEndGameConditions() {
         if(roundCount <= 0 || player1.getHealth() <= 0) {
             gameOver = true;
             endGame();
@@ -115,14 +125,14 @@ public class EllaneApp {
         }
     }
 
-    private void checkIfEllaneIsHere() {
+    public void checkIfEllaneIsHere() {
         if (currentRoom.equals(ellaneLocation)) {
             ellaneFound = true;
             System.out.println("You've found Ellane!");
         }
     }
 
-    private void randomizeBombLocation() {
+    public void randomizeBombLocation() {
         Random ran = new Random();
 
         int randomLocation = ran.nextInt(9) + 1;
@@ -169,13 +179,14 @@ public class EllaneApp {
         }
     }
 
-    private void checkForBombInRoom() {
+    public void checkForBombInRoom() {
+        bombFound = true;
         if (currentRoom.equals(bombLocation)) {
 
+            bombFound = true;
             gameOver = true;
             System.err.println("KABOOOM!!");
             System.out.println("A bomb exploded when you enter the room");
-            endGame();
         }
     }
 
@@ -322,7 +333,7 @@ public class EllaneApp {
 
     }
 
-     private void createPlayerOneCharacter() throws IOException, InterruptedException {
+     public void createPlayerOneCharacter() throws IOException, InterruptedException {
             boolean valid = false;
             String playerName = "";
             while (playerName.length() <= 0) {
@@ -370,6 +381,7 @@ public class EllaneApp {
             while (!gameOver) {
                 String answer = player1.makeDecision();
             }
+            endGame();
     }
 
     //TODO: (Delete this comment later)--- this is the main game info screen
@@ -804,6 +816,15 @@ public class EllaneApp {
         System.out.println("GAME HAS ENDED...");
         System.out.println("You ended the game with " + roundCount + " round remaining and \n Players Health was: " + player1.getHealth());
         System.out.println("Thanks for playing!");
+    }
+
+
+    public int getRoundCount() {
+        return roundCount;
+    }
+
+    public void setRoundCount(int roundCount) {
+        this.roundCount -= roundCount;
     }
 
 }

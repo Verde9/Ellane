@@ -11,6 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/test/java/com/ellane/app/EllaneAppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/test/java/com/ellane/app/EllaneAppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +24,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -83,6 +86,7 @@
       <recent name="com.ellane.jsonparsing" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.ellane.app" />
       <recent name="com.ellane.gsonparsing" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -92,80 +96,94 @@
       <recent name="com.pleaseletthiswork" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="JsonTestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.model.JsonTestMain" />
-      <module name="com.ellane.model" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ellane.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
-      <module name="com.ellane.client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ellane.client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.EllaneAppTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true" />
-    <configuration name="PlayGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.PlayGame" />
-      <module name="ellane_game" />
+    <configuration name="EllaneAppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.ellane.app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.gsonparsing.*" />
+          <option name="PATTERN" value="com.ellane.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestMainCasdfasdfa" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.TestMainCasdfasdfa" />
-      <module name="ellane_game" />
+    <configuration name="EllaneAppTest.checkForBombInRoom_shouldSetBombFoundVarToTrue_whenBombIsInCurrentRoom" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.ellane.app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.gsonparsing.*" />
+          <option name="PATTERN" value="com.ellane.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
+      <option name="METHOD_NAME" value="checkForBombInRoom_shouldSetBombFoundVarToTrue_whenBombIsInCurrentRoom" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="roomTestMAIN" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.gsonparsing.roomTestMAIN" />
-      <module name="ellane_game" />
+    <configuration name="EllaneAppTest.checkIfEllaneIsHere_shouldSetEllaneFoundVarToTrue_whenEllaneIsInCurrentRoom" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.ellane.app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.gsonparsing.*" />
+          <option name="PATTERN" value="com.ellane.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
+      <option name="METHOD_NAME" value="checkIfEllaneIsHere_shouldSetEllaneFoundVarToTrue_whenEllaneIsInCurrentRoom" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EllaneAppTest.createPlayerOneCharacter_shouldCreatePlayerOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.ellane.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ellane.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
+      <option name="METHOD_NAME" value="createPlayerOneCharacter_shouldCreatePlayerOne" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EllaneAppTest.equals_shouldReturnFalse_ForEllaneLocationLengthBeingLessThanZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="com.ellane.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ellane.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
+      <option name="METHOD_NAME" value="equals_shouldReturnFalse_ForEllaneLocationLengthBeingLessThanZero" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.JsonTestMain" />
-        <item itemvalue="Application.TestMainCasdfasdfa" />
-        <item itemvalue="Application.roomTestMAIN" />
-        <item itemvalue="Application.PlayGame" />
+        <item itemvalue="JUnit.EllaneAppTest" />
+        <item itemvalue="JUnit.EllaneAppTest.equals_shouldReturnFalse_ForEllaneLocationLengthBeingLessThanZero" />
+        <item itemvalue="JUnit.EllaneAppTest.createPlayerOneCharacter_shouldCreatePlayerOne" />
+        <item itemvalue="JUnit.EllaneAppTest.checkForBombInRoom_shouldSetBombFoundVarToTrue_whenBombIsInCurrentRoom" />
+        <item itemvalue="JUnit.EllaneAppTest.checkIfEllaneIsHere_shouldSetEllaneFoundVarToTrue_whenEllaneIsInCurrentRoom" />
       </list>
     </recent_temporary>
   </component>
