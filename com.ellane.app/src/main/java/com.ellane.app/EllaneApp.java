@@ -76,39 +76,39 @@ public class EllaneApp {
         try {
             if(randomLocation == 1) {
                 ellaneLocation = "basement";
-                System.out.println("ellane is hiding in the : " + ellaneLocation);
+                //System.out.println("ellane is hiding in the : " + ellaneLocation);
             }
             else if(randomLocation == 2) {
                 ellaneLocation = "lobby";
-                System.out.println("ellane is hiding in the : " + ellaneLocation);
+                //System.out.println("ellane is hiding in the : " + ellaneLocation);
             }
             else if(randomLocation == 3) {
                 ellaneLocation = "common area";
-                System.out.println("ellane is hiding in the : " + ellaneLocation);
+                //System.out.println("ellane is hiding in the : " + ellaneLocation);
             }
             else if(randomLocation == 4) {
                 ellaneLocation = "mechanical room";
-                System.out.println("ellane is hiding in the : " + ellaneLocation);
+               //System.out.println("ellane is hiding in the : " + ellaneLocation);
             }
             else if(randomLocation == 5) {
                 ellaneLocation = "office_1";
-                System.out.println("ellane is hiding in the : " + ellaneLocation);
+                //System.out.println("ellane is hiding in the : " + ellaneLocation);
             }
             else if(randomLocation == 6) {
                 ellaneLocation = "office_floor1";
-                System.out.println("ellane is hiding in the : " + ellaneLocation);
+                //System.out.println("ellane is hiding in the : " + ellaneLocation);
             }
             else if(randomLocation == 7) {
                 ellaneLocation = "office_floor2";
-                System.out.println("ellane is hiding in the : " + ellaneLocation);
+                //System.out.println("ellane is hiding in the : " + ellaneLocation);
             }
             else if(randomLocation == 8) {
                 ellaneLocation = "office_floor3";
-                System.out.println("ellane is hiding in the : " + ellaneLocation);
+                //System.out.println("ellane is hiding in the : " + ellaneLocation);
             }
             else if(randomLocation == 9) {
                 ellaneLocation = "office_floor4";
-                System.out.println("ellane is hiding in the : " + ellaneLocation);
+                //System.out.println("ellane is hiding in the : " + ellaneLocation);
             }
         } catch(Exception e) {
             System.out.println(e.getMessage());
@@ -806,6 +806,6 @@ public class EllaneApp {
         System.out.println("Thanks for playing!");
     }
 
-        }
+}
 
 
