@@ -9,8 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44d7a898-9ecf-48de-8515-532efdf73027" name="Changes" comment="">
+    <list default="true" id="feabe70e-a0c4-408f-a024-ec83635a7622" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allRooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/allRooms.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basementItems.json" beforeDir="false" afterPath="$PROJECT_DIR$/basementItems.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +55,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -62,7 +68,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ellaneJar" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.51839083" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
@@ -172,7 +178,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="" />
+      <changelist id="feabe70e-a0c4-408f-a024-ec83635a7622" name="Changes" comment="" />
       <created>1658355527730</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -190,6 +196,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
