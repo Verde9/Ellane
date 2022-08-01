@@ -1,48 +1,31 @@
 package com.ellane.app;
 
 import com.ellane.model.LocationsAndDirections;
-import com.ellane.model.Locations;
 import com.ellane.model.Json;
 import com.ellane.model.Player;
 import com.ellane.model.Characters;
-import com.ellane.model.PlayerLocationsAndItems;
-import com.ellane.model.Locations;
 import com.ellane.model.Items;
 import com.ellane.view.EllaneView;
-import com.ellane.model.ActionCommands;
-import com.ellane.model.Directions;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
-import org.apache.maven.surefire.shade.org.apache.commons.lang3.ObjectUtils;
-
 import javax.sound.sampled.*;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
-
-import static java.lang.System.exit;
 
 public class EllaneApp {
     private String firstWord;
     private String secondWord;
     private String currentRoom = "basement";
-    private int roundCount = 3;
+    private int roundCount = 50;
     Boolean gameOver = false;
     ArrayList<String> inventory = new ArrayList<>(3);
     Boolean ellaneFound = false;

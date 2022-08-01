@@ -11,9 +11,7 @@ public class EllaneView {
     }
 
     public void renderWelcomeGameMessage() {
-        //app.displayGameWelcomeMessage();
         String banner = null;
-        System.out.println("testing from view..");
         if (Files.exists(Path.of("com.ellane.app/resources/gameArt.txt"))) {
             try {
                 banner = Files.readString(Path.of("com.ellane.app/resources/gameArt.txt"));
@@ -100,7 +98,7 @@ public class EllaneView {
     }
 
     public void renderImmediateQuitGameMessage() {
-        System.out.println("...Thanks abandoning Ellane! Goodbye!");
+        System.out.println("...Thanks for abandoning Ellane! Goodbye!");
     }
 
     public void renderBeginningPlayGameMessage() {

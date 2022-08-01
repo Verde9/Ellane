@@ -2,99 +2,108 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="com.ellane.client:jar" />
+      <artifact name="ellane_game:jar" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="503784c0-e772-4cef-882a-121e01fe3d6e" name="Changes" comment="" />
+    <list default="true" id="42bc536a-b324-492b-a549-58b0eec619a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ellane_game_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com.ellane.model/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/com_ellane_client_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_9_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_20030203_000550.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javazoom_jlayer_1_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_surefire_surefire_api_2_22_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_surefire_surefire_booter_2_22_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_maven_surefire_surefire_logger_api_2_22_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_23_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_util_6_1_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__top_jfunc_json_Json_jackson_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/com.ellane.app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/test/java/com/ellane/app/EllaneAppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/test/java/com/ellane/app/EllaneAppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.client/com.ellane.client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/com.ellane.model.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/JsonTestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/JsonTestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.view/com.ellane.view.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com.ellane.view/src/main/java/com.ellane.view/EllaneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.view/src/main/java/com.ellane.view/EllaneView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ellane_game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ellane_game.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="JUnit5 Test Class" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="Dev-Shon" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2CE6il09rKzTxvaE3fxepCUywk2" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="2ClyvibgMFRII7OKqDvdtMoWqhI" />
   <component name="ProjectViewState">
     <option name="flattenPackages" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ellaneJar" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.51839083" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\StudentWork(DSA)\Ellane\NLC-Ellane" />
-      <recent name="C:\StudentWork(DSA)\Ellane\NLC-Ellane\src\main\java\com\pleaseletthiswork" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\StudentWork(DSA)\Ellane\NLC-Ellane" />
-      <recent name="C:\StudentWork(DSA)\Ellane\NLC-Ellane\src\Music" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.ellane.jsonparsing" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.ellane.app" />
-      <recent name="com.ellane.gsonparsing" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.ellane.app" />
-      <recent name="com.backupfiles" />
-      <recent name="com.ellane.gsonparsing" />
-      <recent name="com.pleaseletthiswork" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Main (1)">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
       <module name="com.ellane.client" />
       <extension name="coverage">
@@ -107,87 +116,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EllaneAppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="com.ellane.app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ellane.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ellane.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EllaneAppTest.checkForBombInRoom_shouldSetBombFoundVarToTrue_whenBombIsInCurrentRoom" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="com.ellane.app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ellane.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ellane.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
-      <option name="METHOD_NAME" value="checkForBombInRoom_shouldSetBombFoundVarToTrue_whenBombIsInCurrentRoom" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EllaneAppTest.createPlayerOneCharacter_shouldCreatePlayerOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="com.ellane.app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ellane.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ellane.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
-      <option name="METHOD_NAME" value="createPlayerOneCharacter_shouldCreatePlayerOne" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EllaneAppTest.equals_shouldReturnFalse_ForEllaneLocationLengthBeingLessThanZero" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="com.ellane.app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.ellane.app.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.ellane.app" />
-      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
-      <option name="METHOD_NAME" value="equals_shouldReturnFalse_ForEllaneLocationLengthBeingLessThanZero" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
-        <item itemvalue="JUnit.EllaneAppTest" />
-        <item itemvalue="JUnit.EllaneAppTest.equals_shouldReturnFalse_ForEllaneLocationLengthBeingLessThanZero" />
-        <item itemvalue="JUnit.EllaneAppTest.createPlayerOneCharacter_shouldCreatePlayerOne" />
-        <item itemvalue="JUnit.EllaneAppTest.checkForBombInRoom_shouldSetBombFoundVarToTrue_whenBombIsInCurrentRoom" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="feabe70e-a0c4-408f-a024-ec83635a7622" name="Changes" comment="" />
-      <created>1658355527730</created>
+      <changelist id="42bc536a-b324-492b-a549-58b0eec619a7" name="Changes" comment="" />
+      <created>1659391705027</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1658355527730</updated>
+      <updated>1659391705027</updated>
     </task>
     <servers />
   </component>
@@ -201,35 +143,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="2" />
-        </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
-          <line>357</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
-          <line>535</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java</url>
-          <line>537</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/NLC_Ellane$roomTestMAIN.ic" NAME="roomTestMAIN Coverage Results" MODIFIED="1658467801639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>com.ellane.gsonparsing.*</FILTER>
-    </SUITE>
   </component>
 </project>
