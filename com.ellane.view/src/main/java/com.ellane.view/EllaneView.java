@@ -31,6 +31,7 @@ public class EllaneView {
 
     public void renderRemainingRounds(int rounds) {
         System.out.println(rounds + " rounds remaining...");
+        System.out.println();
     }
 
     public void renderRemainingPlayerHealth(int health) {
@@ -120,9 +121,11 @@ public class EllaneView {
     }
 
     public void renderEndGameMessageAndResults(int roundCount,int playerHealth) {
+        System.out.println();
         System.out.println("GAME HAS ENDED...");
-        System.out.println("You ended the game with " + roundCount + " round remaining and \n Players Health was: " + playerHealth);
-        System.out.println("Thanks for playing!");
+        System.out.println("You ended the game with: \n " + roundCount + " :remaining rounds \n" + playerHealth + ": Player Health");
+        System.out.println();
+        System.out.println("Thanks for playing Ellane!");
     }
 
     public void renderGrabbedItemMessage(String item) {
@@ -152,6 +155,7 @@ public class EllaneView {
 
     public void renderPlayerNameBeginGameMessage(String playerName) {
         System.out.println(playerName + " lets go save Ellane!");
+        System.out.println();
     }
 
     public void renderPlayerCreatedMessage() {

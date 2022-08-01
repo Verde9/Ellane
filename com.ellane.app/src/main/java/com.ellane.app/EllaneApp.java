@@ -1,39 +1,55 @@
 package com.ellane.app;
 
 import com.ellane.model.LocationsAndDirections;
+import com.ellane.model.Locations;
 import com.ellane.model.Json;
 import com.ellane.model.Player;
 import com.ellane.model.Characters;
+import com.ellane.model.PlayerLocationsAndItems;
+import com.ellane.model.Locations;
 import com.ellane.model.Items;
 import com.ellane.view.EllaneView;
+import com.ellane.model.ActionCommands;
+import com.ellane.model.Directions;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
+import org.apache.maven.surefire.shade.org.apache.commons.lang3.ObjectUtils;
+
 import javax.sound.sampled.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
+
+import static java.lang.System.exit;
 
 public class EllaneApp {
     private String firstWord;
     private String secondWord;
     private String currentRoom = "basement";
-    private int roundCount = 50;
+    private int roundCount = 3;
     Boolean gameOver = false;
+    ArrayList<String> inventory = new ArrayList<>(3);
     Boolean ellaneFound = false;
     Boolean ellaneCured = false;
     String ellaneLocation = "";
     String bombLocation = "";
     Boolean bombFound = false;
-    ArrayList<String> inventory = new ArrayList<>();
     List<Items> gameItems = new ArrayList<>();
     List<LocationsAndDirections> playerLocations = new ArrayList<>();
     Map<String, String> playerlocations3;
@@ -51,6 +67,8 @@ public class EllaneApp {
     Player player1;
     private static EllaneView view = new EllaneView();
     Scanner scan = new Scanner(System.in);
+    Player player = new Player("LB", com.ellane.model.Characters.MALE_SOLDIER);
+
 
     //this will run the app in the main class
     public void initialize() throws InterruptedException, IOException {
@@ -61,10 +79,11 @@ public class EllaneApp {
         randomizeBombLocation();
     }
 
-    public void checkEndGameConditions() {
-        if(roundCount <= 0 || player1.getHealth() <= 0) {
+    public void checkEndGameConditions() throws NullPointerException {
+        if (roundCount <= 0 || player1.getHealth() <= 0 || firstWord.equals("quit") || gameOver == true) {
             gameOver = true;
             view.renderEndGameMessageAndResults(roundCount, player1.getHealth());
+            System.exit(0);
         }
     }
 
@@ -72,34 +91,26 @@ public class EllaneApp {
         Random ran = new Random();
         int randomLocation = ran.nextInt(9) + 1;
         try {
-            if(randomLocation == 1) {
+            if (randomLocation == 1) {
                 ellaneLocation = "basement";
-            }
-            else if(randomLocation == 2) {
+            } else if (randomLocation == 2) {
                 ellaneLocation = "lobby";
-            }
-            else if(randomLocation == 3) {
+            } else if (randomLocation == 3) {
                 ellaneLocation = "common area";
-            }
-            else if(randomLocation == 4) {
+            } else if (randomLocation == 4) {
                 ellaneLocation = "mechanical room";
-            }
-            else if(randomLocation == 5) {
+            } else if (randomLocation == 5) {
                 ellaneLocation = "office_1";
-            }
-            else if(randomLocation == 6) {
+            } else if (randomLocation == 6) {
                 ellaneLocation = "office_floor1";
-            }
-            else if(randomLocation == 7) {
+            } else if (randomLocation == 7) {
                 ellaneLocation = "office_floor2";
-            }
-            else if(randomLocation == 8) {
+            } else if (randomLocation == 8) {
                 ellaneLocation = "office_floor3";
-            }
-            else if(randomLocation == 9) {
+            } else if (randomLocation == 9) {
                 ellaneLocation = "office_floor4";
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -115,34 +126,26 @@ public class EllaneApp {
         Random ran = new Random();
         int randomLocation = ran.nextInt(9) + 1;
         try {
-            if(randomLocation == 1) {
+            if (randomLocation == 1) {
                 bombLocation = "basement";
-            }
-            else if(randomLocation == 2) {
+            } else if (randomLocation == 2) {
                 bombLocation = "lobby";
-            }
-            else if(randomLocation == 3) {
+            } else if (randomLocation == 3) {
                 bombLocation = "common area";
-            }
-            else if(randomLocation == 4) {
+            } else if (randomLocation == 4) {
                 bombLocation = "mechanical room";
-            }
-            else if(randomLocation == 5) {
+            } else if (randomLocation == 5) {
                 bombLocation = "office_1";
-            }
-            else if(randomLocation == 6) {
+            } else if (randomLocation == 6) {
                 bombLocation = "office_floor1";
-            }
-            else if(randomLocation == 7) {
+            } else if (randomLocation == 7) {
                 bombLocation = "office_floor2";
-            }
-            else if(randomLocation == 8) {
+            } else if (randomLocation == 8) {
                 bombLocation = "office_floor3";
-            }
-            else if(randomLocation == 9) {
+            } else if (randomLocation == 9) {
                 bombLocation = "office_floor4";
             }
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -156,18 +159,18 @@ public class EllaneApp {
         }
     }
 
-    //this would be one of the first things asked... Needs to make a introGame function again to call before
-    //the sout line to play music
     private void promptToStartGame() throws InterruptedException, IOException {
         introMusic("Music/For Work 2_1.wav");
         view.renderPromptToPlayOrQuitGame();
         String userInput = scan.nextLine().toLowerCase();
         if (userInput.equals("quit game")) {
+            gameOver = true;
             view.renderImmediateQuitGameMessage();
+            System.exit(0);
         }
         if (userInput.equals("yes")) {
             System.out.println();
-           view.renderBeginningPlayGameMessage();
+            view.renderBeginningPlayGameMessage();
             createPlayerOneCharacter();
         } else {
             view.renderInvalidCommandMessage();
@@ -240,6 +243,7 @@ public class EllaneApp {
                 office_1_Location);
         Type mechanical_Room_Location = new TypeToken<Map<String, String>>() {
         }.getType();
+
         generateMechanicalRoomLocation = gson.fromJson(new FileReader("mechanicalRoom.json"),
                 mechanical_Room_Location);
         Type common_Area_Location = new TypeToken<Map<String, String>>() {
@@ -272,50 +276,50 @@ public class EllaneApp {
                 rooftop_Location);
     }
 
-     public void createPlayerOneCharacter() throws IOException, InterruptedException {
-            boolean valid = false;
-            String playerName = "";
-            while (playerName.length() <= 0) {
-                System.out.println();
-                view.renderEnterNameMessage();
-                playerName = scan.nextLine();
-                if (playerName.length() <= 0) {
-                    view.renderEnterNameEnforceMessage();
-                }
-            }
+    public void createPlayerOneCharacter() throws IOException, InterruptedException {
+        boolean valid = false;
+        String playerName = "";
+        while (playerName.length() <= 0) {
             System.out.println();
-            while (!valid) {
-                view.renderSelectCharacterMessage();
-                for (Characters character : Characters.values()) {
-                    System.out.println(character.getCharacterType());
-                }
-                System.out.println();
-                String characterChoice = scan.nextLine().toLowerCase();
-                for (Characters character : Characters.values()) {
-                    if (characterChoice.equals(character.getCharacterType())) {
-                        System.out.println();
-                        player1 = new Player(playerName, character);
-                        view.renderPlayerCreatedMessage();
-                        view.renderPlayerNameBeginGameMessage(player1.getName());
-                        startGame();
-                        valid = true;
-                        break;
-                    }
-                }
-                if (!valid) {
-                    System.out.println();
-                    view.renderInvalidCharacterSelectedMessage();
-                }
+            view.renderEnterNameMessage();
+            playerName = scan.nextLine();
+            if (playerName.length() <= 0) {
+                view.renderEnterNameEnforceMessage();
             }
         }
+        System.out.println();
+        while (!valid) {
+            view.renderSelectCharacterMessage();
+            for (Characters character : Characters.values()) {
+                System.out.println(character.getCharacterType());
+            }
+            System.out.println();
+            String characterChoice = scan.nextLine().toLowerCase();
+            for (Characters character : Characters.values()) {
+                if (characterChoice.equals(character.getCharacterType())) {
+                    System.out.println();
+                    player1 = new Player(playerName, character);
+                    view.renderPlayerCreatedMessage();
+                    view.renderPlayerNameBeginGameMessage(player1.getName());
+                    startGame();
+                    valid = true;
+                    break;
+                }
+            }
+            if (!valid) {
+                System.out.println();
+                view.renderInvalidCharacterSelectedMessage();
+            }
+        }
+    }
 
-    private void startGame () throws InterruptedException, IOException {
+    private void startGame() throws InterruptedException, IOException {
         view.renderDisplayGameInfo();
         checkIfEllaneIsHere();
         checkForBombInRoom();
-            while (!gameOver) {
-                promptPlayerForDecision();
-            }
+        while (!gameOver) {
+            promptPlayerForDecision();
+        }
         view.renderEndGameMessageAndResults(roundCount, player1.getHealth());
     }
 
@@ -326,22 +330,22 @@ public class EllaneApp {
 
     //TODO: (delete this comment later),this is making a String Array of our words so like ["john", "doe"]
     private void verifyDecision(String decision) throws InterruptedException {
-                String[] stringArr = decision.split(" ");
-                firstWord = stringArr[0].toLowerCase();
-                try {
-                    if (stringArr.length < 1) {
-                        view.renderCommandIsRequiredMessage();
-                        verifyDecision(player1.makeDecision());
-                    }  else if (stringArr.length == 1) {
-                        verifyFirstWord(firstWord);
-                    } else {
-                        secondWord = stringArr[1].toLowerCase();
-                        verifyFirstWord(firstWord);
-                    }
-                } catch (Exception e) {
-                    view.renderInvalidCommandMessage();
-                }
+        String[] stringArr = decision.split(" ");
+        firstWord = stringArr[0].toLowerCase();
+        try {
+            if (stringArr.length < 1) {
+                view.renderCommandIsRequiredMessage();
+                promptPlayerForDecision();
+            } else if (stringArr.length == 1) {
+                verifyFirstWord(firstWord);
+            } else {
+                secondWord = stringArr[1].toLowerCase();
+                verifyFirstWord(firstWord);
+            }
+        } catch (Exception e) {
+            view.renderInvalidCommandMessage();
         }
+    }
 
     //TODO: MAIN GAME LOGIC
     private void verifyFirstWord(String firstWord) throws InterruptedException, IOException {
@@ -350,10 +354,9 @@ public class EllaneApp {
 
         switch (firstWord) {
             case "look":
-                for (LocationsAndDirections locationsAndDirections : playerLocations) {
-                    System.out.println(" you are in the: " + locationsAndDirections.getName().toUpperCase() +
-                            "\n and this is in your inventory: " + getInventory());
-                }
+                System.out.println(currentRoom);
+                verifyRoomMovement();
+                System.out.println("you are in " + currentRoom+ "\nthis is in your inventory \n " + getInventory());
                 System.out.println();
                 decreaseRoundCount(1);
                 player1.decreaseHealth(2);
@@ -370,7 +373,7 @@ public class EllaneApp {
             case "go":
             case "climb":
                 System.out.println();
-                verifyRoomMovement(secondWord);
+                verifyRoomMovement();
                 System.out.println();
                 decreaseRoundCount(1);
                 player1.decreaseHealth(2);
@@ -386,33 +389,25 @@ public class EllaneApp {
                 break;
             case "grab":
             case "get":
-                for (LocationsAndDirections andDirections : playerLocations) {
-                    if (andDirections.getItem().equals(secondWord) || andDirections.getItem2().equals(secondWord)) {
-                        System.out.println("you now have this item " + secondWord);
-                        System.out.println();
-                        decreaseRoundCount(1);
-                        player1.decreaseHealth(2);
-                        view.renderRemainingPlayerHealth(player1.getHealth());
-                        view.renderRemainingRounds(roundCount);
-                        checkEndGameConditions();
-                        promptPlayerForDecision();
-                        break;
-                    } else {
-                        System.out.println("you cant get this");
-                    }
-                }
-                for (LocationsAndDirections items : playerLocations) {
+            case "take":
+            case "pick":
+                for (LocationsAndDirections items: playerLocations){
+                    verifyRoomMovement();
                     if (items.getItem().equals(secondWord)) {
                         inventory.add(items.getItem());
                         System.out.println(items.getItem_status());
                         System.out.println();
+                        break;
                     }
                     if (items.getItem2().equals(secondWord)) {
                         inventory.add(items.getItem2());
                         System.out.println(items.getItem_status2());
                         System.out.println();
-                    } else {
-                        System.out.println("nothing to add to inventory");
+                        break;
+                    }
+                    else {
+                        System.out.println();
+                        System.out.println("you should probably check your inventory...");
                     }
                 }
                 decreaseRoundCount(1);
@@ -423,7 +418,10 @@ public class EllaneApp {
                 promptPlayerForDecision();
                 break;
             case "drop":
-                //implement logic
+                if (inventory.contains(secondWord)) {
+                    inventory.remove(secondWord);
+                    System.out.println("you have removed this item");
+                }
                 System.out.println();
                 decreaseRoundCount(1);
                 player1.decreaseHealth(2);
@@ -433,14 +431,37 @@ public class EllaneApp {
                 promptPlayerForDecision();
                 break;
             case "health":
-                //implement logic
                 System.out.println(player1.getHealth());
                 System.out.println();
                 checkEndGameConditions();
                 promptPlayerForDecision();
                 break;
             case "use":
-                //implement logic
+                if (inventory.contains("bazooka")) {
+                    if (generateBasementLocation.containsKey("item2") && generateBasementLocation.containsValue("bazooka")) {
+                        System.out.println("you used the bazooka the BLOW THE PLACE DOWWWWWWWN");
+                        int Min = 1;
+                        int Max = 20;
+                        int newHealth = (int) (Math.random() * ((Max - Min) + 1));
+                        player.decreaseHealth(newHealth);
+                        System.out.println("You Fucking hit yourself dummy... the player health is now "
+                                + newHealth);
+                        if (newHealth >= 10) {
+                            System.out.println("its dangerous to use the damn bazooka...");
+                        }
+                        if (newHealth < 10 && newHealth > 1) {
+                            System.out.println("Im never doing that stupid shit again");
+                        }
+                        if (newHealth <= 0) {
+                            System.out.println("...AND you fucking died.... using the bazooka you fucking idiot," +
+                                    "damn that sucks");
+                            System.out.println();
+                            gameOver = true;
+                        }
+                    }
+                } else {
+                    System.out.println("The world aint ready for that");
+                }
                 System.out.println();
                 decreaseRoundCount(1);
                 player1.decreaseHealth(2);
@@ -450,9 +471,8 @@ public class EllaneApp {
                 promptPlayerForDecision();
                 break;
             case "quit":
-                gameOver = true;
-                view.renderEndGameMessageAndResults(roundCount, player1.getHealth());
-                TimeUnit.SECONDS.sleep(1);
+                //gameOver = true;
+                checkEndGameConditions();
                 break;
             case "play":
                 if (secondWord.equals("music")) {
@@ -465,74 +485,133 @@ public class EllaneApp {
             default:
                 view.renderInvalidCommandMessage();
                 view.renderShowGameControls();
-                //showGameControls();
-                System.out.println();
-
-                checkEndGameConditions();
                 promptPlayerForDecision();
-                break;
+                System.out.println();
         }
     }
 
-    private void verifyRoomMovement (String secondWord) throws InterruptedException, IOException {
-                generateLocation();
-                generateLocation2();
-                String decision;
-                if(firstWord.equals("go")) {
-                    switch (secondWord) {
-                        case "east":
-                            System.out.println();
-                            currentRoom = secondWord;
-                            if (playerlocations3.containsKey(currentRoom)) {
-                                System.out.println(playerlocations3.get("east"));
-                            }
-                            break;
-                        case "west":
-                            System.out.println();
-                            if (playerlocations3.containsKey(currentRoom)) {
-                                System.out.println(playerlocations3.get("west"));
-                            }
-                            break;
-                        case "north":
-                            System.out.println();
-                            if (playerlocations3.containsKey(currentRoom))
-                                System.out.println(playerlocations3.get("north"));
-                            break;
-                        case "south":
-                            System.out.println();
-                            if (playerlocations3.containsKey(currentRoom))
-                                System.out.println(playerlocations3.get("south"));
-                            break;
-                        default:
-                            view.renderInvalidMovementCommandMessage(secondWord);
-                            view.renderShowGameControls();
-                            promptPlayerForDecision();
-                            break;
-                    }
-                }
-                if(firstWord.equals("climb")) {
-                    switch (secondWord) {
-                        case "up":
-                            System.out.println();
-                            //Implement logic
-                            break;
-                        case "down":
-                            System.out.println();
-                            //Implement logic
-                            break;
-                        default:
-                            view.renderInvalidMovementCommandMessage(secondWord);
-                            view.renderShowGameControls();
-                            promptPlayerForDecision();
-                            break;
-                    }
-                }
-            }
+    private void verifyRoomMovement() throws InterruptedException, IOException {
+        generateLocation();
+        generateLocation2();
+        generatePlayerItems();
+        String decision;
 
-    //TODO: need to make a GameControllerClass--for MVC
-    //TODO: View---- the player types in "look"
-    //this is to run the main game music...after the intro.
-    public static void runMusic (String path){
+        if (firstWord.equals("go")) {
+            switch (secondWord) {
+                case "east":
+                case "west":
+                case "north":
+                case "south":
+                    verifyLocation();
+                    break;
+                default:
+                    System.out.println("testing from go..");
+                    //view.renderInvalidMovementCommandMessage(secondWord);
+                    view.renderShowGameControls();
+                    decision = player1.makeDecision();
+                    verifyDecision(decision);
+                    break;
+            }
+        }
+
+        if (firstWord.equals("climb")) {
+            switch (secondWord) {
+                case "up":
+                case "down":
+                    System.out.println();
+                    verifyLocation();
+                    break;
+                default:
+                    System.out.println("testing..");
+                   // view.renderInvalidMovementCommandMessage(secondWord);
+                    view.renderShowGameControls();
+                    decision = player1.makeDecision();
+                    verifyDecision(decision);
+                    break;
+            }
+        }
+    }
+
+    private void verifyLocation() {
+        if(generateBasementLocation.containsKey(secondWord) && secondWord.equals("east")){
+            System.out.println(generateBasementLocation.get("east"));
+            currentRoom = generateOffice_1_Location.get("name");
+        }
+        else if(generateBasementLocation.containsKey(secondWord) && secondWord.equals("west")){
+            System.out.println(generateBasementLocation.get("west"));
+            currentRoom = generateOffice_1_Location.get("name");
+        }
+        else if(generateBasementLocation.containsKey(secondWord) && secondWord.equals("south")) {
+            System.out.println(generateBasementLocation.get("south"));
+            currentRoom = generateOffice_1_Location.get("name");
+        }
+        else if(generateBasementLocation.containsKey(secondWord) && secondWord.equals("north")) {
+            System.out.println(generateBasementLocation.get("north"));
+            currentRoom = generateOffice_1_Location.get("name");
+        }
+
+        else if (generateCommon_Area_Location.containsKey(secondWord) && secondWord.equals("east")){
+            System.out.println(generateCommon_Area_Location.get("east"));
+            currentRoom = generateCommon_Area_Location.get("name");
+        }
+        else if (generateCommon_Area_Location.containsKey(secondWord) && secondWord.equals("west")) {
+            System.out.println(generateCommon_Area_Location.get("west"));
+            currentRoom = generateCommon_Area_Location.get("name");
+        }
+        else if (generateCommon_Area_Location.containsKey(secondWord) && secondWord.equals("south")) {
+            System.out.println(generateCommon_Area_Location.get("south"));
+            currentRoom = generateCommon_Area_Location.get("name");
+        }
+        else if (generateCommon_Area_Location.containsKey(secondWord) && secondWord.equals("north")) {
+            System.out.println(generateCommon_Area_Location.get("north"));
+            currentRoom = generateCommon_Area_Location.get("name");
+        }
+
+        else if (generateLobbyLocation.containsKey(secondWord) && secondWord.equals("east")) {
+            System.out.println(generateLobbyLocation.get("east"));
+            currentRoom = generateLobbyLocation.get("name");
+        }
+        else if (generateLobbyLocation.containsKey(secondWord) && secondWord.equals("west")) {
+            System.out.println(generateLobbyLocation.get("west"));
+            currentRoom = generateLobbyLocation.get("name");
+        }
+        else if (generateLobbyLocation.containsKey(secondWord) && secondWord.equals("south")) {
+            System.out.println(generateLobbyLocation.get("south"));
+            currentRoom = generateLobbyLocation.get("name");
+        }
+        else if (generateLobbyLocation.containsKey(secondWord) && secondWord.equals("north")) {
+            System.out.println(generateLobbyLocation.get("north"));
+            currentRoom = generateLobbyLocation.get("name");
+        }
+
+        else if (generateMechanicalRoomLocation.containsKey(secondWord) && secondWord.equals("east")) {
+            System.out.println(generateMechanicalRoomLocation.get("east"));
+            currentRoom = generateMechanicalRoomLocation.get("name");
+        }
+        else if (generateMechanicalRoomLocation.containsKey(secondWord) && secondWord.equals("west")) {
+            System.out.println(generateMechanicalRoomLocation.get("west"));
+            currentRoom = generateMechanicalRoomLocation.get("name");
+        }
+        else if (generateMechanicalRoomLocation.containsKey(secondWord) && secondWord.equals("south")) {
+            System.out.println(generateMechanicalRoomLocation.get("south"));
+            currentRoom = generateMechanicalRoomLocation.get("name");
+        }
+        else if (generateMechanicalRoomLocation.containsKey(secondWord) && secondWord.equals("north")) {
+            System.out.println(generateMechanicalRoomLocation.get("north"));
+            currentRoom = generateMechanicalRoomLocation.get("name");
+        }
+
+        else {
+            System.out.println("This location does not exist on floor");
+        }
+
+    }
+
+    private void displayRemainingRounds() {
+        System.out.println(roundCount + " rounds remaining...");
+    }
+
+    public static void runMusic(String path) {
         try {
             Scanner scanner = new Scanner(System.in);
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
@@ -543,10 +622,14 @@ public class EllaneApp {
                     (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             gainControl.setValue(-15.0f); // Reduce volume by 10 decibels.
             String response = "";
+
+
             while (!response.equals("Q")) {
+                System.out.println("P = Play Music, S= Stop Music, R=Reset, V =Volume, Q= quit music player");
+                System.out.println("Enter your choice: ");
                 response = scanner.next();
                 response = response.toUpperCase();
-                view.renderMusicCommandsAndPromptMessage();
+
                 switch (response) {
                     case ("P"):
                         clip.start();
@@ -576,7 +659,7 @@ public class EllaneApp {
         }
     }
 
-    public static void introMusic (String path){
+    public static void introMusic(String path) {
         try {
             Scanner scanner = new Scanner(System.in);
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(path));
@@ -587,6 +670,8 @@ public class EllaneApp {
                     (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
             gainControl.setValue(-3.0f); // Reduce volume by 10 decibels.
             String response = "";
+
+
             while (!response.equals("Q")) {
                 System.out.println("P = Play Music, S= Stop Music, R=Reset, V =Volume Q= STOP MUSIC.. and Begin Game");
                 System.out.println("Enter your choice: ");
@@ -609,25 +694,29 @@ public class EllaneApp {
                         gainControl.setValue(Float.parseFloat(String.valueOf(setVolume)));
                         break;
                     case ("Q"):
-                        System.out.println("Thank you for quitting the player... Now Let's PLAY!");
+                        System.out.println("Thank you for quitting the music player... Now Let's PLAY!");
                         clip.close();
                         System.out.println();
                         break;
                     default:
                         System.out.println("not a valid response for music player");
+                        break;
                 }
             }
+
         } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
+
+
     }
 
     public ArrayList<String> getInventory () {
         return inventory;
     }
 
-    public int getRoundCount() {
-        return roundCount;
+    public Boolean getGameOver () {
+        return gameOver;
     }
 
     private void decreaseRoundCount(int decreaseAmount) {
@@ -644,5 +733,9 @@ public class EllaneApp {
 
     public void setCurrentRoom(String currentRoom) {
         this.currentRoom = currentRoom;
+    }
+
+    public int getRoundCount() {
+        return roundCount;
     }
 }
