@@ -506,8 +506,7 @@ public class EllaneApp {
                         default:
                             view.renderInvalidMovementCommandMessage(secondWord);
                             view.renderShowGameControls();
-                            decision = player1.makeDecision();
-                            verifyDecision(decision);
+                            promptPlayerForDecision();
                             break;
                     }
                 }
@@ -524,8 +523,7 @@ public class EllaneApp {
                         default:
                             view.renderInvalidMovementCommandMessage(secondWord);
                             view.renderShowGameControls();
-                            decision = player1.makeDecision();
-                            verifyDecision(decision);
+                            promptPlayerForDecision();
                             break;
                     }
                 }
