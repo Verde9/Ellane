@@ -11,11 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="feabe70e-a0c4-408f-a024-ec83635a7622" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allRooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/allRooms.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basementItems.json" beforeDir="false" afterPath="$PROJECT_DIR$/basementItems.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +192,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
