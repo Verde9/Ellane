@@ -1,9 +1,6 @@
 package com.ellane.model;
-import com.google.gson.Gson;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -12,20 +9,24 @@ public class Player {
     private Integer health = 100;
     private com.ellane.model.Characters CHARACTERTYPE;
     ArrayList<String> inventory = new ArrayList<>();
+    private LocationsAndDirections locationsAndDirections;
 
     Scanner in = new Scanner(System.in);
 
     // Make constructor for properties
     public Player(String name,  Characters character) {
-
+        setName(name);
+        setCharacterType(character);
     }
+
+
 
     public void setName(String name) {
         this.name = name;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
 
@@ -47,31 +48,33 @@ public class Player {
 
      //--------------METHODS------------------//
     public String makeDecision() throws InterruptedException {
+        System.out.println("What should you do?");
 
         Scanner in = new Scanner(System.in);
-        System.out.println("What do you want to do: ");
-        System.out.println("Enter CONTROLS to get game controls");
         System.out.println();
         TimeUnit.SECONDS.sleep(1);
         String decision = in.nextLine();
         return  decision;
     }
 
-
-
-    private void dropItemFromInventory() {
+    public void dropItemFromInventory() {
 
     }
 
-    private void decreaseHealth(int decreaseAmount) {
+    public void decreaseHealth(int decreaseAmount) {
         health -= decreaseAmount;
     }
 
-    private void increaseHealth(int increaseAmount) {
+    public void increaseHealth(int increaseAmount) {
         health += increaseAmount;
     }
 
     public void setInventory(ArrayList<String> inventory) {
         this.inventory = inventory;
+    }
+
+    public int setHealth(Integer health) {
+        this.health = health;
+        return health;
     }
 }
