@@ -1,0 +1,84 @@
+[
+  {
+      "item": "gun",
+      "description": "it stinks down here, in the basement",
+      "west": "Kitchen",
+      "south": "open area",
+      "north": "na",
+      "itemDescription": "it's a gun.",
+      "east": "Office 1",
+      "name": "Basement"
+  },
+  {
+      "description": "im in the office",
+      "west": "Kitchen",
+      "south": "open area",
+      "north": "na",
+      "east": "Living Room",
+      "name": "Office 1"
+  },
+  {
+      "description": "This is a Mechanical Office",
+      "west": "Kitchen",
+      "south": "open area",
+      "north": "na",
+      "east": "Living Room",
+      "name": "Mechanical Room"
+  },
+  {
+      "description": "someone stop me",
+      "west": "Kitchen",
+      "south": "open area",
+      "north": "na",
+      "east": "Living Room",
+      "name": "Common Area"
+  },
+  {
+      "description": "about fucking time",
+      "west": "Kitchen",
+      "south": "open area",
+      "north": "na",
+      "east": "Living Room",
+      "name": "Lobby"
+  },
+  {
+      "description": "did i do it",
+      "west": "Kitchen",
+      "south": "open area",
+      "north": "na",
+      "east": "Living Room",
+      "name": "Floor 1 Office"
+  },
+  {
+      "description": "fuck yes",
+      "west": "Kitchen",
+      "south": "open area",
+      "north": "na",
+      "east": "Living Room",
+      "name": "Floor 2 Office"
+  },
+  {
+      "description": "Jame Dolan",
+      "west": "Kitchen",
+      "south": "open area",
+      "north": "na",
+      "east": "Living Room",
+      "name": "Floor 3 Office"
+  },
+  {
+      "description": "fuck you",
+      "west": "Kitchen",
+      "south": "open area",
+      "north": "na",
+      "east": "Living Room",
+      "name": "Floor 4 Office"
+  },
+  {
+      "description": "deez nuts",
+      "west": "Kitchen",
+      "south": "open area",
+      "north": "na",
+      "east": "Living Room",
+      "name": "Roof Top"
+  }
+]

@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="com.ellane.client" />
-        <module name="com.ellane.model" />
-        <module name="com.ellane.view" />
-        <module name="com.ellane.app" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.ellane.app" target="11" />
+      <module name="com.ellane.client" target="11" />
+      <module name="com.ellane.model" target="11" />
+      <module name="com.ellane.view" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
