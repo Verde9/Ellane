@@ -12,9 +12,9 @@ public class EllaneView {
 
     public void renderWelcomeGameMessage() {
         String banner = null;
-        if (Files.exists(Path.of("com.ellane.app/resources/gameArt.txt"))) {
+        if (Files.exists(Path.of("resources/gameArt.txt"))) {
             try {
-                banner = Files.readString(Path.of("com.ellane.app/resources/gameArt.txt"));
+                banner = Files.readString(Path.of("resources/gameArt.txt"));
                 System.out.println(banner);
                 System.out.println("\n");
                 System.out.println("Ellane Needs your Help!");
