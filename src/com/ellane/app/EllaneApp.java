@@ -457,7 +457,7 @@ public class EllaneApp {
 
         switch (secondWord) {
             case "north":
-              if(currentRoom.getNorth().equals("na")) {
+              if(currentRoom.getNorth().equals(null)) {
                   System.out.println("You can't go that way.");
               } else {
                   for (Locations room : location) {
@@ -469,7 +469,7 @@ public class EllaneApp {
               }
             break;
             case "south":
-                if(currentRoom.getSouth().equals("na")) {
+                if(currentRoom.getSouth().equals(null)) {
                     System.out.println("You can't go that way.");
                 } else {
                     for (Locations room : location) {
@@ -481,7 +481,7 @@ public class EllaneApp {
                 }
             break;
             case "east":
-                if(currentRoom.getEast().equals("na")) {
+                if(currentRoom.getEast().equals(null)) {
                     System.out.println("You can't go that way.");
                 } else {
                     for (Locations room : location) {
@@ -493,7 +493,7 @@ public class EllaneApp {
                 }
             break;
             case "west":
-                if(currentRoom.getWest().equals("na")) {
+                if(currentRoom.getWest().equals(null)) {
                     System.out.println("You can't go that way.");
                 } else {
                     for (Locations room : location) {
