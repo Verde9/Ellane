@@ -88,10 +88,6 @@ public class EllaneView {
                 "    QUIT\n");
     }
 
-    public void renderPromptToPlayOrQuitGame() {
-        System.out.println("Do you wish to play? type 'yes' or type 'quit game'");
-    }
-
     public void renderImmediateQuitGameMessage() {
         System.out.println("...Thanks for abandoning Ellane! Goodbye!");
     }

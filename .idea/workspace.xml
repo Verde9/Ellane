@@ -10,33 +10,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42bc536a-b324-492b-a549-58b0eec619a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AlLLLLLLLROOMS.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/allRooms.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basement.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basementItems.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common_area.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common_areaItems.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lobby.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lobbyItems.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mechanicalRoom.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mechanicalRoomItems.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_1_Items.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_Floor_4.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_floor_1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_floor_1_Items.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_floor_2.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_floor_2_Items.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_floor_3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_floor_3_Items.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_floor_4_Items.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rooftop.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/rooftop_items.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/rooms.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testRooms.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/ActionCommands.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/Characters.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/Directions.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/Json.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/JsonTestMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/LocationsAndDirections.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/PlayerLocationsAndItems.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/floors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/view/EllaneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/view/EllaneView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,9 +156,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.RoomsJSONMaker" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.JsonTestMain" />
         <item itemvalue="Application.test" />
       </list>
@@ -210,5 +197,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
