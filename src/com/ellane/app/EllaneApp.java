@@ -58,8 +58,6 @@ public class EllaneApp {
         view = new EllaneView();
         view.renderWelcomeGameMessage();
         promptToStartGame();
-        randomizeEllaneLocation();
-        randomizeBombLocation();
     }
 
     public void checkEndGameConditions() throws NullPointerException {
@@ -70,33 +68,6 @@ public class EllaneApp {
         }
     }
 
-    public void randomizeEllaneLocation() {
-        Random ran = new Random();
-        int randomLocation = ran.nextInt(9) + 1;
-        try {
-            if (randomLocation == 1) {
-                ellaneLocation = "basement";
-            } else if (randomLocation == 2) {
-                ellaneLocation = "lobby";
-            } else if (randomLocation == 3) {
-                ellaneLocation = "common area";
-            } else if (randomLocation == 4) {
-                ellaneLocation = "mechanical room";
-            } else if (randomLocation == 5) {
-                ellaneLocation = "office_1";
-            } else if (randomLocation == 6) {
-                ellaneLocation = "office_floor1";
-            } else if (randomLocation == 7) {
-                ellaneLocation = "office_floor2";
-            } else if (randomLocation == 8) {
-                ellaneLocation = "office_floor3";
-            } else if (randomLocation == 9) {
-                ellaneLocation = "office_floor4";
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public void checkIfEllaneIsHere() {
         if (currentRoom.equals(ellaneLocation)) {
@@ -105,33 +76,6 @@ public class EllaneApp {
         }
     }
 
-    public void randomizeBombLocation() {
-        Random ran = new Random();
-        int randomLocation = ran.nextInt(9) + 1;
-        try {
-            if (randomLocation == 1) {
-                bombLocation = "basement";
-            } else if (randomLocation == 2) {
-                bombLocation = "lobby";
-            } else if (randomLocation == 3) {
-                bombLocation = "common area";
-            } else if (randomLocation == 4) {
-                bombLocation = "mechanical room";
-            } else if (randomLocation == 5) {
-                bombLocation = "office_1";
-            } else if (randomLocation == 6) {
-                bombLocation = "office_floor1";
-            } else if (randomLocation == 7) {
-                bombLocation = "office_floor2";
-            } else if (randomLocation == 8) {
-                bombLocation = "office_floor3";
-            } else if (randomLocation == 9) {
-                bombLocation = "office_floor4";
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
 
     public void checkForBombInRoom() {
         bombFound = true;
@@ -162,48 +106,6 @@ public class EllaneApp {
         }
     }
 
-    public void generatePlayerItems() throws IOException {
-        JsonNode bedroomNode = Json.parse(new File("basementItems.json"));
-        Items bedroomItems = Json.fromJson(bedroomNode, Items.class);
-        gameItems.add(bedroomItems);
-
-        JsonNode office_1_Node = Json.parse(new File("office_1_Items.json"));
-        Items office_1_Items = Json.fromJson(office_1_Node, Items.class);
-        gameItems.add(office_1_Items);
-
-        JsonNode mechanical_Room_Node = Json.parse(new File("mechanicalRoomItems.json"));
-        Items mechanical_Room_Node_Items = Json.fromJson(mechanical_Room_Node, Items.class);
-        gameItems.add(mechanical_Room_Node_Items);
-
-        JsonNode common_Area_Node = Json.parse(new File("common_areaItems.json"));
-        Items common_Area_Node_Items = Json.fromJson(common_Area_Node, Items.class);
-        gameItems.add(common_Area_Node_Items);
-
-        JsonNode lobby_Node = Json.parse(new File("lobbyItems.json"));
-        Items lobby_Items = Json.fromJson(lobby_Node, Items.class);
-        gameItems.add(lobby_Items);
-
-        JsonNode office_Floor_1_Node = Json.parse(new File("office_floor_1_Items.json"));
-        Items office_Floor_1_Items = Json.fromJson(office_Floor_1_Node, Items.class);
-        gameItems.add(office_Floor_1_Items);
-
-        JsonNode office_Floor_2_Node = Json.parse(new File("office_floor_2_Items.json"));
-        Items office_Floor_2_Items = Json.fromJson(office_Floor_2_Node, Items.class);
-        gameItems.add(office_Floor_2_Items);
-
-        JsonNode office_Floor_3_Node = Json.parse(new File("office_floor_3_Items.json"));
-        Items office_Floor_3_Items = Json.fromJson(office_Floor_3_Node, Items.class);
-        gameItems.add(office_Floor_3_Items);
-
-
-        JsonNode office_Floor_4_Node = Json.parse(new File("office_floor_4_Items.json"));
-        Items office_Floor_4_Items = Json.fromJson(office_Floor_4_Node, Items.class);
-        gameItems.add(office_Floor_4_Items);
-
-        JsonNode rooftop_Node = Json.parse(new File("rooftop_items.json"));
-        Items rooftop_Items = Json.fromJson(rooftop_Node, Items.class);
-        gameItems.add(rooftop_Items);
-    }
 
     public void generateLocation() {
         try {
@@ -508,173 +410,6 @@ public class EllaneApp {
                 System.out.println("You can't go that way.");
         }
 
-
-//        if(generateBasementLocation.containsKey(secondWord) && secondWord.equals("east")){
-//            System.out.println(generateBasementLocation.get("east"));
-//            currentRoom = generateOffice_1_Location.get("name");
-//        }
-//        else if(generateBasementLocation.containsKey(secondWord) && secondWord.equals("west")){
-//            System.out.println(generateBasementLocation.get("west"));
-//            currentRoom = generateOffice_1_Location.get("name");
-//        }
-//        else if(generateBasementLocation.containsKey(secondWord) && secondWord.equals("south")) {
-//            System.out.println(generateBasementLocation.get("south"));
-//            currentRoom = generateOffice_1_Location.get("name");
-//        }
-//        else if(generateBasementLocation.containsKey(secondWord) && secondWord.equals("north")) {
-//            System.out.println(generateBasementLocation.get("north"));
-//            currentRoom = generateOffice_1_Location.get("name");
-//        }
-//
-//        else if (generateCommon_Area_Location.containsKey(secondWord) && secondWord.equals("east")){
-//            System.out.println(generateCommon_Area_Location.get("east"));
-//            currentRoom = generateCommon_Area_Location.get("name");
-//        }
-//        else if (generateCommon_Area_Location.containsKey(secondWord) && secondWord.equals("west")) {
-//            System.out.println(generateCommon_Area_Location.get("west"));
-//            currentRoom = generateCommon_Area_Location.get("name");
-//        }
-//        else if (generateCommon_Area_Location.containsKey(secondWord) && secondWord.equals("south")) {
-//            System.out.println(generateCommon_Area_Location.get("south"));
-//            currentRoom = generateCommon_Area_Location.get("name");
-//        }
-//        else if (generateCommon_Area_Location.containsKey(secondWord) && secondWord.equals("north")) {
-//            System.out.println(generateCommon_Area_Location.get("north"));
-//            currentRoom = generateCommon_Area_Location.get("name");
-//        }
-//
-//        else if (generateLobbyLocation.containsKey(secondWord) && secondWord.equals("east")) {
-//            System.out.println(generateLobbyLocation.get("east"));
-//            currentRoom = generateLobbyLocation.get("name");
-//        }
-//        else if (generateLobbyLocation.containsKey(secondWord) && secondWord.equals("west")) {
-//            System.out.println(generateLobbyLocation.get("west"));
-//            currentRoom = generateLobbyLocation.get("name");
-//        }
-//        else if (generateLobbyLocation.containsKey(secondWord) && secondWord.equals("south")) {
-//            System.out.println(generateLobbyLocation.get("south"));
-//            currentRoom = generateLobbyLocation.get("name");
-//        }
-//        else if (generateLobbyLocation.containsKey(secondWord) && secondWord.equals("north")) {
-//            System.out.println(generateLobbyLocation.get("north"));
-//            currentRoom = generateLobbyLocation.get("name");
-//        }
-//
-//        else if (generateMechanicalRoomLocation.containsKey(secondWord) && secondWord.equals("east")) {
-//            System.out.println(generateMechanicalRoomLocation.get("east"));
-//            currentRoom = generateMechanicalRoomLocation.get("name");
-//        }
-//        else if (generateMechanicalRoomLocation.containsKey(secondWord) && secondWord.equals("west")) {
-//            System.out.println(generateMechanicalRoomLocation.get("west"));
-//            currentRoom = generateMechanicalRoomLocation.get("name");
-//        }
-//        else if (generateMechanicalRoomLocation.containsKey(secondWord) && secondWord.equals("south")) {
-//            System.out.println(generateMechanicalRoomLocation.get("south"));
-//            currentRoom = generateMechanicalRoomLocation.get("name");
-//        }
-//        else if (generateMechanicalRoomLocation.containsKey(secondWord) && secondWord.equals("north")) {
-//            System.out.println(generateMechanicalRoomLocation.get("north"));
-//            currentRoom = generateMechanicalRoomLocation.get("name");
-//        }
-//        else if (generateOffice_1_Location.containsKey(secondWord) && secondWord.equals("east")) {
-//            System.out.println(generateOffice_1_Location.get("east"));
-//            currentRoom = generateOffice_1_Location.get("name");
-//        }
-//        else if (generateOffice_1_Location.containsKey(secondWord) && secondWord.equals("south")) {
-//            System.out.println(generateOffice_1_Location.get("south"));
-//            currentRoom = generateOffice_1_Location.get("name");
-//        }
-//        else if (generateOffice_1_Location.containsKey(secondWord) && secondWord.equals("west")) {
-//            System.out.println(generateOffice_1_Location.get("west"));
-//            currentRoom = generateOffice_1_Location.get("name");
-//        }
-//        else if (generateOffice_1_Location.containsKey(secondWord) && secondWord.equals("north")) {
-//            System.out.println(generateOffice_1_Location.get("north"));
-//            currentRoom = generateOffice_1_Location.get("name");
-//        }
-//        else if (generateOffice_Floor_1_location.containsKey(secondWord) && secondWord.equals("east")) {
-//            System.out.println(generateOffice_Floor_1_location.get("east"));
-//            currentRoom = generateOffice_Floor_1_location.get("name");
-//        }
-//        else if (generateOffice_Floor_1_location.containsKey(secondWord) && secondWord.equals("north")) {
-//            System.out.println(generateOffice_Floor_1_location.get("north"));
-//            currentRoom = generateOffice_Floor_1_location.get("name");
-//        }
-//        else if (generateOffice_Floor_1_location.containsKey(secondWord) && secondWord.equals("south")) {
-//            System.out.println(generateOffice_Floor_1_location.get("south"));
-//            currentRoom = generateOffice_Floor_1_location.get("name");
-//        }
-//        else if (generateOffice_Floor_1_location.containsKey(secondWord) && secondWord.equals("west")) {
-//            System.out.println(generateOffice_Floor_1_location.get("west"));
-//            currentRoom = generateOffice_Floor_1_location.get("name");
-//        }
-//        else if (generateOffice_Floor_2_location.containsKey(secondWord) && secondWord.equals("east")) {
-//            System.out.println(generateOffice_Floor_2_location.get("east"));
-//            currentRoom = generateOffice_Floor_2_location.get("name");
-//        }
-//        else if (generateOffice_Floor_2_location.containsKey(secondWord) && secondWord.equals("south")) {
-//            System.out.println(generateOffice_Floor_2_location.get("south"));
-//            currentRoom = generateOffice_Floor_2_location.get("name");
-//        }
-//        else if (generateOffice_Floor_2_location.containsKey(secondWord) && secondWord.equals("west")) {
-//            System.out.println(generateOffice_Floor_2_location.get("west"));
-//            currentRoom = generateOffice_Floor_2_location.get("name");
-//        }
-//        else if (generateOffice_Floor_2_location.containsKey(secondWord) && secondWord.equals("north")) {
-//            System.out.println(generateOffice_Floor_2_location.get("north"));
-//            currentRoom = generateOffice_Floor_2_location.get("name");
-//        }
-//        else if (generateOffice_Floor_3_location.containsKey(secondWord) && secondWord.equals("east")) {
-//            System.out.println(generateOffice_Floor_3_location.get("east"));
-//            currentRoom = generateOffice_Floor_3_location.get("name");
-//        }
-//        else if (generateOffice_Floor_3_location.containsKey(secondWord) && secondWord.equals("south")) {
-//            System.out.println(generateOffice_Floor_3_location.get("south"));
-//            currentRoom = generateOffice_Floor_3_location.get("name");
-//        }
-//        else if (generateOffice_Floor_3_location.containsKey(secondWord) && secondWord.equals("west")) {
-//            System.out.println(generateOffice_Floor_3_location.get("west"));
-//            currentRoom = generateOffice_Floor_3_location.get("name");
-//        }
-//        else if (generateOffice_Floor_3_location.containsKey(secondWord) && secondWord.equals("north")) {
-//            System.out.println(generateOffice_Floor_3_location.get("north"));
-//            currentRoom = generateOffice_Floor_3_location.get("name");
-//        }
-//        else if (generateOffice_Floor_4_location.containsKey(secondWord) && secondWord.equals("east")) {
-//            System.out.println(generateOffice_Floor_4_location.get("east"));
-//            currentRoom = generateOffice_Floor_4_location.get("name");
-//        }
-//        else if (generateOffice_Floor_4_location.containsKey(secondWord) && secondWord.equals("south")) {
-//            System.out.println(generateOffice_Floor_4_location.get("south"));
-//            currentRoom = generateOffice_Floor_4_location.get("name");
-//        }else if (generateOffice_Floor_4_location.containsKey(secondWord) && secondWord.equals("west")) {
-//            System.out.println(generateOffice_Floor_4_location.get("west"));
-//            currentRoom = generateOffice_Floor_4_location.get("name");
-//        }else if (generateOffice_Floor_4_location.containsKey(secondWord) && secondWord.equals("north")) {
-//            System.out.println(generateOffice_Floor_4_location.get("north"));
-//            currentRoom = generateOffice_Floor_4_location.get("name");
-//        }
-//        else if (generateRooftop_location.containsKey(secondWord) && secondWord.equals("east")) {
-//            System.out.println(generateRooftop_location.get("east"));
-//            currentRoom = generateRooftop_location.get("name");
-//        }
-//        else if (generateRooftop_location.containsKey(secondWord) && secondWord.equals("south")) {
-//            System.out.println(generateRooftop_location.get("south"));
-//            currentRoom = generateRooftop_location.get("name");
-//        }
-//        else if (generateRooftop_location.containsKey(secondWord) && secondWord.equals("west")) {
-//            System.out.println(generateRooftop_location.get("west"));
-//            currentRoom = generateRooftop_location.get("name");
-//        }
-//        else if (generateRooftop_location.containsKey(secondWord) && secondWord.equals("north")) {
-//            System.out.println(generateRooftop_location.get("north"));
-//            currentRoom = generateRooftop_location.get("name");
-//        }
-//
-//        else {
-//            System.out.println("This location does not exist on floor");
-//        }
-
     }
 
     public static void runMusic(String path) {
@@ -783,14 +518,6 @@ public class EllaneApp {
 
     public Boolean getGameOver () {
         return gameOver;
-    }
-
-    public Locations getCurrentRoom() {
-        return currentRoom;
-    }
-
-    public void setCurrentRoom(Locations currentRoom) {
-        this.currentRoom = currentRoom;
     }
 
 }
