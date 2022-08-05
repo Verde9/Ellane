@@ -1,84 +1,93 @@
 [
   {
-      "item": "gun",
-      "description": "it stinks down here, in the basement",
-      "west": "Kitchen",
-      "south": "open area",
-      "north": "Office 1",
-      "itemDescription": "it's a gun.",
-      "east": "Office 1",
-      "name": "Basement"
+    "item": "gun",
+    "description": "it stinks down here, in the Lobby",
+    "west": "null",
+    "south": "null",
+    "north": "floor 2 staircase",
+    "itemDescription": "it's a gun.",
+    "east": "null",
+    "name": "test"
   },
   {
-      "description": "im in the office",
-      "west": "Kitchen",
-      "south": "open area",
-      "north": "na",
-      "east": "Living Room",
-      "name": "Office 1"
+    "description": "I am in the Floor 2 Staircase",
+    "west": "room 200",
+    "south": "lobby",
+    "north": "Floor 3 Staircase",
+    "east": "null",
+    "name": "floor 2 staircase"
   },
   {
-      "description": "This is a Mechanical Office",
-      "west": "Kitchen",
-      "south": "open area",
-      "north": "na",
-      "east": "Living Room",
-      "name": "Mechanical Room"
+    "description": "I am in the Floor 3 Staircase",
+    "west": "room 300",
+    "south": "floor 2 staircase",
+    "north": "floor 4 staircase",
+    "east": "null",
+    "name": "floor 3 staircase"
   },
   {
-      "description": "someone stop me",
-      "west": "Kitchen",
-      "south": "open area",
-      "north": "na",
-      "east": "Living Room",
-      "name": "Common Area"
+    "description": "I am in the Floor 4 Staircase",
+    "west": "room 410",
+    "south": "floor 3 staircase",
+    "north": "null",
+    "east": "null",
+    "name": "floor 4 staircase"
   },
   {
-      "description": "about fucking time",
-      "west": "Kitchen",
-      "south": "open area",
-      "north": "na",
-      "east": "Living Room",
-      "name": "Lobby"
+    "description": "Im In Room 200",
+    "west": "room 205",
+    "south": "null",
+    "north": "null",
+    "east": "floor 2 staircase",
+    "name": "room 200"
   },
   {
-      "description": "did i do it",
-      "west": "Kitchen",
-      "south": "open area",
-      "north": "na",
-      "east": "Living Room",
-      "name": "Floor 1 Office"
+    "description": "What Am I Doing Here",
+    "west": "room 310",
+    "south": "null",
+    "north": "null",
+    "east": "floor 3 staircase",
+    "name": "room 300"
   },
   {
-      "description": "fuck yes",
-      "west": "Kitchen",
-      "south": "open area",
-      "north": "na",
-      "east": "Living Room",
-      "name": "Floor 2 Office"
+    "description": "Someone Stop Me",
+    "west": "roof staircase",
+    "south": "null",
+    "north": "null",
+    "east": "floor 4 staircase",
+    "name": "room 410"
   },
   {
-      "description": "Jame Dolan",
-      "west": "Kitchen",
-      "south": "open area",
-      "north": "na",
-      "east": "Living Room",
-      "name": "Floor 3 Office"
+    "description": "about fucking time",
+    "west": "null",
+    "south": "null",
+    "north": "null",
+    "east": "room 200",
+    "name": "room 205"
   },
   {
-      "description": "fuck you",
-      "west": "Kitchen",
-      "south": "open area",
-      "north": "na",
-      "east": "Living Room",
-      "name": "Floor 4 Office"
+    "description": "did i do it",
+    "west": "null",
+    "south": "null",
+    "north": "null",
+    "east": "room 300",
+    "name": "room 310"
   },
   {
-      "description": "deez nuts",
-      "west": "Kitchen",
-      "south": "open area",
-      "north": "na",
-      "east": "Living Room",
-      "name": "Roof Top"
+    "description": "fuck yes",
+    "west": "null",
+    "south": "null",
+    "north": "roof",
+    "east": "room 410",
+    "name": "roof staircase"
+  },
+  {
+    "description": "Save",
+    "west": "null",
+    "south": "roof staircase",
+    "north": "null",
+    "east": "null",
+    "name": "roof"
   }
+
 ]
