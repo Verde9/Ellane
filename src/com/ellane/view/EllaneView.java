@@ -27,11 +27,6 @@ public class EllaneView {
         }
     }
 
-    public void renderRemainingRounds(int rounds) {
-        System.out.println(rounds + " rounds remaining...");
-        System.out.println();
-    }
-
     public void renderRemainingPlayerHealth(int health) {
         System.out.println("You lost blood from your wound & your health drops..");
         System.out.println(health + "% health remaining...");
@@ -118,10 +113,10 @@ public class EllaneView {
         System.err.println("MAKE ANOTHER DECISION");
     }
 
-    public void renderEndGameMessageAndResults(int roundCount,int playerHealth) {
+    public void renderEndGameMessageAndResults(int playerHealth) {
         System.out.println();
         System.out.println("GAME HAS ENDED...");
-        System.out.println("You ended the game with: \n " + roundCount + " :remaining rounds \n" + playerHealth + ": Player Health");
+        System.out.println("You ended the game with: \n " + playerHealth + ": Player Health");
         System.out.println();
         System.out.println("Thanks for playing Ellane!");
     }

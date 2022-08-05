@@ -24,7 +24,6 @@ public class EllaneApp {
     private String firstWord;
     private String secondWord;
     private Locations currentRoom;
-    private int roundCount = 50;
     Boolean gameOver = false;
     ArrayList<String> inventory = new ArrayList<>(3);
     Boolean ellaneFound = false;
@@ -64,9 +63,9 @@ public class EllaneApp {
     }
 
     public void checkEndGameConditions() throws NullPointerException {
-        if (roundCount <= 0 || player1.getHealth() <= 0 || firstWord.equals("quit") || gameOver == true) {
+        if (player1.getHealth() <= 0 || firstWord.equals("quit") || gameOver == true) {
             gameOver = true;
-            view.renderEndGameMessageAndResults(roundCount, player1.getHealth());
+            view.renderEndGameMessageAndResults(player1.getHealth());
             System.exit(0);
         }
     }
@@ -206,18 +205,7 @@ public class EllaneApp {
         gameItems.add(rooftop_Items);
     }
 
-    public void generateLocation() throws IOException {
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        List<LocationsAndDirections> objects = objectMapper.readValue(new File("AlLLLLLLLROOMS.json"),
-//                new TypeReference<List<LocationsAndDirections>>() {
-//                });
-//        playerLocations = objects;
-//        playerLocations.addAll(objects);
-//
-
-    }
-
-    public void generateLocation2() {
+    public void generateLocation() {
         try {
             Gson gson = new Gson();
 
@@ -234,50 +222,6 @@ public class EllaneApp {
         }
 
     }
-
-//        Gson gson = new Gson();
-//        Type basementLocation = new TypeToken<Map<String, String>>() {
-//        }.getType();
-//        generateBasementLocation = gson.fromJson(new FileReader("basement.json"),
-//                basementLocation);
-//        Type office_1_Location = new TypeToken<Map<String, String>>() {
-//        }.getType();
-//        generateOffice_1_Location = gson.fromJson(new FileReader("office_1.json"),
-//                office_1_Location);
-//        Type mechanical_Room_Location = new TypeToken<Map<String, String>>() {
-//        }.getType();
-//
-//        generateMechanicalRoomLocation = gson.fromJson(new FileReader("mechanicalRoom.json"),
-//                mechanical_Room_Location);
-//        Type common_Area_Location = new TypeToken<Map<String, String>>() {
-//        }.getType();
-//        generateCommon_Area_Location = gson.fromJson(new FileReader("common_area.json"),
-//                common_Area_Location);
-//        Type lobby_Location = new TypeToken<Map<String, String>>() {
-//        }.getType();
-//        generateLobbyLocation = gson.fromJson(new FileReader("lobby.json"),
-//                lobby_Location);
-//        Type office_Floor_1_Location = new TypeToken<Map<String, String>>() {
-//        }.getType();
-//        generateOffice_Floor_1_location = gson.fromJson(new FileReader("office_Floor_1.json"),
-//                office_Floor_1_Location);
-//        Type office_Floor_2_Location = new TypeToken<Map<String, String>>() {
-//        }.getType();
-//        generateOffice_Floor_2_location = gson.fromJson(new FileReader("office_Floor_2.json"),
-//                office_Floor_2_Location);
-//        Type office_Floor_3_Location = new TypeToken<Map<String, String>>() {
-//        }.getType();
-//        generateOffice_Floor_3_location = gson.fromJson(new FileReader("office_Floor_3.json"),
-//                office_Floor_3_Location);
-//        Type office_Floor_4_Location = new TypeToken<Map<String, String>>() {
-//        }.getType();
-//        generateOffice_Floor_4_location = gson.fromJson(new FileReader("office_Floor_4.json"),
-//                office_Floor_4_Location);
-//        Type rooftop_Location = new TypeToken<Map<String, String>>() {
-//        }.getType();
-//        generateRooftop_location = gson.fromJson(new FileReader("rooftop.json"),
-//                rooftop_Location);
-//    }
 
     public void createPlayerOneCharacter() throws IOException, InterruptedException {
         boolean valid = false;
@@ -318,13 +262,13 @@ public class EllaneApp {
 
     private void startGame() throws InterruptedException, IOException {
         view.renderDisplayGameInfo();
-        generateLocation2();
+        generateLocation();
         checkIfEllaneIsHere();
         checkForBombInRoom();
         while (!gameOver) {
             promptPlayerForDecision();
         }
-        view.renderEndGameMessageAndResults(roundCount, player1.getHealth());
+        view.renderEndGameMessageAndResults(player1.getHealth());
     }
 
     private void promptPlayerForDecision() throws InterruptedException {
@@ -356,20 +300,14 @@ public class EllaneApp {
 
         switch (firstWord) {
             case "look":
-                System.out.println(currentRoom);
-                verifyRoomMovement();
-                System.out.println("you are in " + currentRoom+ "\nthis is in your inventory \n " + getInventory());
+                System.out.println("You are in " + currentRoom.getName()+ "\nYour inventory is: " + getInventory());
                 System.out.println();
-                decreaseRoundCount(1);
                 player1.decreaseHealth(2);
                 view.renderRemainingPlayerHealth(player1.getHealth());
-                view.renderRemainingRounds(roundCount);
-                checkEndGameConditions();
                 promptPlayerForDecision();
                 break;
             case "help":
                 view.renderShowGameControls();
-                checkEndGameConditions();
                 promptPlayerForDecision();
                 break;
             case "go":
@@ -377,17 +315,13 @@ public class EllaneApp {
                 System.out.println();
                 verifyRoomMovement();
                 System.out.println();
-                decreaseRoundCount(1);
                 player1.decreaseHealth(2);
                 view.renderRemainingPlayerHealth(player1.getHealth());
-                view.renderRemainingRounds(roundCount);
                 checkEndGameConditions();
                 promptPlayerForDecision();
                 break;
             case "inventory":
-                System.out.println(getInventory());
-                checkEndGameConditions();
-                promptPlayerForDecision();
+                System.out.println("Your inventory is: " + getInventory());
                 break;
             case "grab":
             case "get":
@@ -412,10 +346,8 @@ public class EllaneApp {
                         System.out.println("you should probably check your inventory...");
                     }
                 }
-                decreaseRoundCount(1);
                 player1.decreaseHealth(2);
                 view.renderRemainingPlayerHealth(player1.getHealth());
-                view.renderRemainingRounds(roundCount);
                 checkEndGameConditions();
                 promptPlayerForDecision();
                 break;
@@ -425,18 +357,14 @@ public class EllaneApp {
                     System.out.println("you have removed this item");
                 }
                 System.out.println();
-                decreaseRoundCount(1);
                 player1.decreaseHealth(2);
                 view.renderRemainingPlayerHealth(player1.getHealth());
-                view.renderRemainingRounds(roundCount);
                 checkEndGameConditions();
                 promptPlayerForDecision();
                 break;
             case "health":
-                System.out.println(player1.getHealth());
+                System.out.println("Your current health is: " + player1.getHealth());
                 System.out.println();
-                checkEndGameConditions();
-                promptPlayerForDecision();
                 break;
             case "use":
                 if (inventory.contains("bazooka")) {
@@ -465,15 +393,12 @@ public class EllaneApp {
                     System.out.println("The world aint ready for that");
                 }
                 System.out.println();
-                decreaseRoundCount(1);
                 player1.decreaseHealth(2);
                 view.renderRemainingPlayerHealth(player1.getHealth());
-                view.renderRemainingRounds(roundCount);
                 checkEndGameConditions();
                 promptPlayerForDecision();
                 break;
             case "quit":
-                //gameOver = true;
                 checkEndGameConditions();
                 break;
             case "play":
@@ -505,9 +430,7 @@ public class EllaneApp {
                     verifyLocation();
                     break;
                 default:
-                    System.out.println("testing from go..");
-                    //view.renderInvalidMovementCommandMessage(secondWord);
-                    view.renderShowGameControls();
+                    System.out.println("You can't go that way.");
                     decision = player1.makeDecision();
                     verifyDecision(decision);
                     break;
@@ -522,9 +445,7 @@ public class EllaneApp {
                     verifyLocation();
                     break;
                 default:
-                    System.out.println("testing..");
-                   // view.renderInvalidMovementCommandMessage(secondWord);
-                    view.renderShowGameControls();
+                    System.out.println("You can't do that.");
                     decision = player1.makeDecision();
                     verifyDecision(decision);
                     break;
@@ -536,6 +457,55 @@ public class EllaneApp {
 
         switch (secondWord) {
             case "north":
+              if(currentRoom.getNorth().equals("na")) {
+                  System.out.println("You can't go that way.");
+              } else {
+                  for (Locations room : location) {
+                      if (room.getName().equals(currentRoom.getNorth())) {
+                          currentRoom = room;
+                          System.out.println("You are now in the " + currentRoom.getName());
+                      }
+                  }
+              }
+            break;
+            case "south":
+                if(currentRoom.getSouth().equals("na")) {
+                    System.out.println("You can't go that way.");
+                } else {
+                    for (Locations room : location) {
+                        if (room.getName().equals(currentRoom.getSouth())) {
+                            currentRoom = room;
+                            System.out.println("You are now in the " + currentRoom.getName());
+                        }
+                    }
+                }
+            break;
+            case "east":
+                if(currentRoom.getEast().equals("na")) {
+                    System.out.println("You can't go that way.");
+                } else {
+                    for (Locations room : location) {
+                        if (room.getName().equals(currentRoom.getEast())) {
+                            currentRoom = room;
+                            System.out.println("You are now in the " + currentRoom.getName());
+                        }
+                    }
+                }
+            break;
+            case "west":
+                if(currentRoom.getWest().equals("na")) {
+                    System.out.println("You can't go that way.");
+                } else {
+                    for (Locations room : location) {
+                        if (room.getName().equals(currentRoom.getWest())) {
+                            currentRoom = room;
+                            System.out.println("You are now in the " + currentRoom.getName());
+                        }
+                    }
+                }
+                break;
+            default:
+                System.out.println("You can't go that way.");
         }
 
 
@@ -707,10 +677,6 @@ public class EllaneApp {
 
     }
 
-    private void displayRemainingRounds() {
-        System.out.println(roundCount + " rounds remaining...");
-    }
-
     public static void runMusic(String path) {
         try {
             Scanner scanner = new Scanner(System.in);
@@ -819,14 +785,6 @@ public class EllaneApp {
         return gameOver;
     }
 
-    private void decreaseRoundCount(int decreaseAmount) {
-        this.roundCount -= decreaseAmount;
-    }
-
-    public void setRoundCount(int roundCount) {
-        this.roundCount -= roundCount;
-    }
-
     public Locations getCurrentRoom() {
         return currentRoom;
     }
@@ -835,7 +793,4 @@ public class EllaneApp {
         this.currentRoom = currentRoom;
     }
 
-    public int getRoundCount() {
-        return roundCount;
-    }
 }
