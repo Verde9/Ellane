@@ -10,50 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42bc536a-b324-492b-a549-58b0eec619a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rooms.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/ActionCommands.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/Characters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/Directions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/Items.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/Json.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/JsonTestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/Locations.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/LocationsAndDirections.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/PlayerLocationsAndItems.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/ellane/model/floors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music/For Work 2_1.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/Music/For Work 2_1.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Music/intro wav 2_1.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/Music/intro wav 2_1.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allRooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/allRooms.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/resources/gameArt.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/main/java/com.ellane.app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.app/src/test/java/com/ellane/app/EllaneAppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.client/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.client/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.client/src/main/java/com.ellane.client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/ActionCommands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Characters.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Directions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Items.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Json.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/JsonTestMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Locations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/LocationsAndDirections.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/PlayerLocationsAndItems.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/java/com.ellane.model/floors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.model/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.view/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/com.ellane.view/src/main/java/com.ellane.view/EllaneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/view/EllaneView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ellane_game.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/office_floor_3_Items.json" beforeDir="false" afterPath="$PROJECT_DIR$/office_floor_3_Items.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/rooms.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/view/EllaneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/view/EllaneView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +54,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2ClyvibgMFRII7OKqDvdtMoWqhI" />
   <component name="ProjectViewState">
@@ -201,16 +161,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java</url>
-          <line>227</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

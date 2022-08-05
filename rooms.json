@@ -4,7 +4,7 @@
       "description": "it stinks down here, in the basement",
       "west": "Kitchen",
       "south": "open area",
-      "north": "na",
+      "north": "Office 1",
       "itemDescription": "it's a gun.",
       "east": "Office 1",
       "name": "Basement"
