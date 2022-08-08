@@ -1,0 +1,93 @@
+[
+  {
+    "item": "gun",
+    "description": "it stinks down here, in the Lobby",
+    "west": "N/A",
+    "south": "N/A",
+    "north": "floor 2 staircase",
+    "itemDescription": "it's a gun.",
+    "east": "N/A",
+    "name": "lobby"
+  },
+  {
+    "description": "I am in the Floor 2 Staircase",
+    "west": "room 200",
+    "south": "lobby",
+    "north": "Floor 3 Staircase",
+    "east": "N/A",
+    "name": "floor 2 staircase"
+  },
+  {
+    "description": "I am in the Floor 3 Staircase",
+    "west": "room 300",
+    "south": "floor 2 staircase",
+    "north": "floor 4 staircase",
+    "east": "N/A",
+    "name": "floor 3 staircase"
+  },
+  {
+    "description": "I am in the Floor 4 Staircase",
+    "west": "room 410",
+    "south": "floor 3 staircase",
+    "north": "N/A",
+    "east": "N/A",
+    "name": "floor 4 staircase"
+  },
+  {
+    "description": "Im In Room 200",
+    "west": "room 205",
+    "south": "N/A",
+    "north": "N/A",
+    "east": "floor 2 staircase",
+    "name": "room 200"
+  },
+  {
+    "description": "What Am I Doing Here",
+    "west": "room 310",
+    "south": "N/A",
+    "north": "N/A",
+    "east": "floor 3 staircase",
+    "name": "room 300"
+  },
+  {
+    "description": "Someone Stop Me",
+    "west": "roof staircase",
+    "south": "N/A",
+    "north": "N/A",
+    "east": "floor 4 staircase",
+    "name": "room 410"
+  },
+  {
+    "description": "about fucking time",
+    "west": "N/A",
+    "south": "N/A",
+    "north": "N/A",
+    "east": "room 200",
+    "name": "room 205"
+  },
+  {
+    "description": "did i do it",
+    "west": "N/A",
+    "south": "N/A",
+    "north": "N/A",
+    "east": "room 300",
+    "name": "room 310"
+  },
+  {
+    "description": "fuck yes",
+    "west": "N/A",
+    "south": "N/A",
+    "north": "roof",
+    "east": "room 410",
+    "name": "roof staircase"
+  },
+  {
+    "description": "Save",
+    "west": "N/A",
+    "south": "roof staircase",
+    "north": "N/A",
+    "east": "N/A",
+    "name": "roof"
+  }
+
+]
