@@ -10,19 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42bc536a-b324-492b-a549-58b0eec619a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_5_22__12_34_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_5_22__12_34_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/rooms.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/ActionCommands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/Characters.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/Directions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/Json.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/JsonTestMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/LocationsAndDirections.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/PlayerLocationsAndItems.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/floors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/model/test.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ellane/view/EllaneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/view/EllaneView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,13 +47,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -197,16 +182,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java</url>
-          <line>121</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
