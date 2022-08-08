@@ -130,7 +130,6 @@ public class EllaneApp {
                 promptPlayerForDecision();
                 break;
             case "go":
-            case "climb":
                 System.out.println();
                 verifyRoomMovement();
                 System.out.println();
@@ -146,17 +145,28 @@ public class EllaneApp {
             case "get":
             case "take":
             case "pick":
-                // TODO: way to pick up items.
+                //Todo: logic to grab item
             case "drop":
-                if (player.getInventory().contains(secondWord)) {
-                    player.getInventory().remove(secondWord);
-                    System.out.println("you have removed this item");
+                if (secondWord != null) {
+                    if (player.getInventory().contains(secondWord)) {
+                        player.getInventory().remove(secondWord);
+                        System.out.println("You have removed this " + secondWord);
+                        System.out.println();
+                        player.decreaseHealth(2);
+                        view.renderRemainingPlayerHealth(player.getHealth());
+                        checkEndGameConditions();
+                        promptPlayerForDecision();
+                    } else{
+                        System.out.println("You don't have that item to drop.");
+                        System.out.println();
+                    }
+                    break;
                 }
-                System.out.println();
-                player.decreaseHealth(2);
-                view.renderRemainingPlayerHealth(player.getHealth());
-                checkEndGameConditions();
-                promptPlayerForDecision();
+                else {
+                    System.out.println("What do you want to drop?");
+                    System.out.println("Your inventory is: " + player.getInventory());
+                    System.out.println();
+                }
                 break;
             case "health":
                 System.out.println("Your current health is: " + player.getHealth());
@@ -187,32 +197,27 @@ public class EllaneApp {
         String decision;
 
         if (firstWord.equals("go")) {
-            switch (secondWord) {
-                case "east":
-                case "west":
-                case "north":
-                case "south":
-                    System.out.println();
-                    verifyLocation();
-                    break;
-                default:
-                    System.out.println("You can't go that way.");
-                    break;
+            if (secondWord != null) {
+                switch (secondWord) {
+                    case "east":
+                    case "west":
+                    case "north":
+                    case "south":
+                        System.out.println();
+                        verifyLocation();
+                        break;
+                    default:
+                        System.out.println("You can't go that way.");
+                        break;
+                }
+            }
+            else {
+                System.out.println("Go where?\n[north, south, east, west]");
+                System.out.println();
+                promptPlayerForDecision();
             }
         }
 
-        if (firstWord.equals("climb")) {
-            switch (secondWord) {
-                case "up":
-                case "down":
-                    System.out.println();
-                    verifyLocation();
-                    break;
-                default:
-                    System.out.println("You can't do that.");
-                    break;
-            }
-        }
     }
 
     private void verifyLocation() {

@@ -77,7 +77,6 @@ public class EllaneView {
     public void renderShowGameControls() {
         System.out.println("GAME COMMANDS: \n" +
                 "    GO + [north, south, east, west]\n" +
-                "    CLIMB + [up, down]\n" +
                 "    GRAB + [item_name]\n" +
                 "    DROP + [item_name]\n" +
                 "    USE + [item_name]\n" +
