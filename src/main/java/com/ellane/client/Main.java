@@ -1,6 +1,6 @@
-package client;
+package com.ellane.client;
 
-import app.EllaneApp;
+import com.ellane.app.EllaneApp;
 
 import java.io.IOException;
 

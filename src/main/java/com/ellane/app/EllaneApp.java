@@ -1,21 +1,24 @@
-package app;
+package com.ellane.app;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.ellane.model.Items;
+import com.ellane.model.Locations;
+import com.ellane.model.Player;
+import com.ellane.view.EllaneView;
 
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
+import java.net.CookieHandler;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import model.Locations;
-import model.Player;
-import view.EllaneView;
 
 
 public class EllaneApp {
@@ -23,12 +26,15 @@ public class EllaneApp {
         private String secondWord;
         private Locations currentRoom;
         Boolean gameOver = false;
-        List<Locations> location;
+        List<Locations> locations;
+        List<Items> items = new ArrayList<>();
 
 
         Player player = new Player();
+        Items item = new Items("empty");
         private static EllaneView view = new EllaneView();
         Scanner scan = new Scanner(System.in);
+
 
 
         //this will run the app in the main class
@@ -52,16 +58,54 @@ public class EllaneApp {
             createPlayerOneCharacter();
         }
 
+        public void generateItems() {
+            Items gun = new Items("gun","you see a gun on the ground! You check it and it's fully loaded! May be a good idea to pick it up.");
+            Items pocketKnife = new Items("pocket knife", "you see a pocket knife on the ground! Looks dull, but could help in the future.");
+            Items bat = new Items("bat", "you see a bat in the corner. That could come in handy.");
+            Items gasMask = new Items("gas mask", "you see a gas mask! This could help your breathing with all of this smog!");
+            Items debris = new Items("wooden stake", "you see a wooden stake on the ground among other rubble on the ground as a result of the fires. Could be used as a weapon!");
+            Items keys = new Items("maintenance keys", "you spotted the maintenance keys, these can surely open the door to save Ellane!" );
+            Items blank = new Items("empty");
+            Items blank2 = new Items("empty");
+            Items blank3 = new Items("empty");
+            Items blank4 = new Items("empty");
+            Items blank5 = new Items("empty");
+
+
+            items.add(gun);
+            items.add(pocketKnife);
+            items.add(bat);
+            items.add(gasMask);
+            items.add(debris);
+            items.add(keys);
+            items.add(blank);
+            items.add(blank2);
+            items.add(blank3);
+            items.add(blank4);
+            items.add(blank5);
+
+            Collections.shuffle(items);
+        }
+
 
         public void generateLocation() {
+            List<Integer> num = new ArrayList<>();
+
+            num.add(1);
+            num.add(2);
+            num.add(3);
+            num.add(4);
+
+            generateItems();
+
             try {
                 Gson gson = new Gson();
 
                 Reader reader = Files.newBufferedReader(Paths.get("src/main/resources/RoomsAndContent/rooms.json"));
 
-                location = new Gson().fromJson(reader, new TypeToken<List<Locations>>() {}.getType());
+                locations = new Gson().fromJson(reader, new TypeToken<List<Locations>>() {}.getType());
 
-                currentRoom = location.get(0);
+                currentRoom = locations.get(0);
 
                 reader.close();
 
@@ -69,7 +113,26 @@ public class EllaneApp {
                 e.printStackTrace();
             }
 
+
+            for(int i = 0; i < locations.size() - 4; i++) {
+                Locations currentLocation = locations.get(i);
+
+                currentLocation.setItem(items.get(i));
+
+                Collections.shuffle(num);
+
+                currentLocation.setItemPlacementNorth(num.get(0));
+                currentLocation.setItemPlacementEast(num.get(1));
+                currentLocation.setItemPlacementSouth(num.get(2));
+                currentLocation.setItemPlacementWest(num.get(3));
+
+            }
+
+
+
+
         }
+
 
         public void createPlayerOneCharacter() throws IOException, InterruptedException {
             boolean valid = false;
@@ -97,14 +160,14 @@ public class EllaneApp {
         }
 
         private void promptPlayerForDecision() throws InterruptedException {
-            System.out.println("What should you do?");
+            System.out.println("What should you do? " + player.getName());
 
             Scanner in = new Scanner(System.in);
             System.out.println();
             TimeUnit.SECONDS.sleep(1);
             String decision = in.nextLine();
 
-            String[] stringArr = decision.split(" ");
+            String[] stringArr = decision.split(" ", 2);
             firstWord = stringArr[0].toLowerCase();
 
             if (stringArr.length == 1) {
@@ -121,24 +184,27 @@ public class EllaneApp {
 
             switch (firstWord) {
                 case "look":
-                    System.out.println("You are in " + currentRoom.getName() + "\nYour inventory is: " + player.getInventory());
                     System.out.println();
-                    player.decreaseHealth(2);
-                    view.renderRemainingPlayerHealth(player.getHealth());
+                    verifyRoomMovement();
                     promptPlayerForDecision();
                     break;
                 case "help":
                     view.renderShowGameControls();
                     promptPlayerForDecision();
                     break;
+                case "status":
+                    System.out.println();
+                    System.out.println(currentRoom.getDescription());
+                    System.out.println();
+                    System.out.println("This is what is in your inventory: " + player.getInventory());
+                    System.out.println();
+                    System.out.println("Your current health is: " + player.getHealth());
+                    System.out.println();
+                    promptPlayerForDecision();
+                    break;
                 case "go":
-                case "climb":
                     System.out.println();
                     verifyRoomMovement();
-                    System.out.println();
-                    player.decreaseHealth(2);
-                    view.renderRemainingPlayerHealth(player.getHealth());
-                    checkEndGameConditions();
                     promptPlayerForDecision();
                     break;
                 case "inventory":
@@ -147,35 +213,26 @@ public class EllaneApp {
                 case "grab":
                 case "get":
                 case "take":
-                case "pick":
-                    // TODO: way to pick up items.
+                    if (secondWord.equals(currentRoom.getItem().getName())) {
+                        player.getInventory().add(secondWord);
+                        System.out.println("You added the " + currentRoom.getItem().getName() + " to your inventory! ");
+                        currentRoom.setItem(item);
+                    }
+                    break;
                 case "drop":
                     if (player.getInventory().contains(secondWord)) {
                         player.getInventory().remove(secondWord);
-                        System.out.println("you have removed this item");
+                        System.out.println("You have removed " + secondWord + " from your inventory." );
                     }
                     System.out.println();
-                    player.decreaseHealth(2);
-                    view.renderRemainingPlayerHealth(player.getHealth());
-                    checkEndGameConditions();
                     promptPlayerForDecision();
                     break;
                 case "health":
                     System.out.println("Your current health is: " + player.getHealth());
                     System.out.println();
                     break;
-                case "use":
-                    // TODO: way to use items.
                 case "quit":
                     checkEndGameConditions();
-                    break;
-                case "play":
-                    if (secondWord.equals("Music")) {
-                        System.out.println("These are the directions for the music player");
-                        runMusic("src/main/resources/Music/intro wav 2_1.wav");
-                    }
-                    checkEndGameConditions();
-                    promptPlayerForDecision();
                     break;
                 default:
                     view.renderInvalidCommandMessage();
@@ -186,7 +243,7 @@ public class EllaneApp {
         }
 
         private void verifyRoomMovement() throws InterruptedException {
-            String decision;
+
 
             if (firstWord.equals("go")) {
                 switch (secondWord) {
@@ -203,16 +260,38 @@ public class EllaneApp {
                 }
             }
 
-            if (firstWord.equals("climb")) {
+            if (firstWord.equals("look")) {
                 switch (secondWord) {
-                    case "up":
-                    case "down":
+                    case "east":
+                        System.out.println(currentRoom.getEast());
+                        if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementEast() == 1)) {
+                                System.out.println(currentRoom.getItem().getItem_description());
+                        }
                         System.out.println();
-                        verifyLocation();
+                        break;
+                    case "west":
+                        System.out.println(currentRoom.getWest());
+                        if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementWest() == 1)) {
+                            System.out.println(currentRoom.getItem().getItem_description());
+                        }
+                        System.out.println();
+                        break;
+                    case "south":
+                        System.out.println(currentRoom.getSouth());
+                        if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementSouth() == 1)) {
+                            System.out.println(currentRoom.getItem().getItem_description());
+                        }
+                        System.out.println();
+                        break;
+                    case "north":
+                        System.out.println(currentRoom.getNorth());
+                        if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementNorth() == 1)) {
+                            System.out.println(currentRoom.getItem().getItem_description());
+                        }
+                        System.out.println();
                         break;
                     default:
-                        System.out.println("You can't do that.");
-                        break;
+                        System.out.println("Invalid Commnad: Try 'look' + [north, south, east, west]");
                 }
             }
         }
@@ -224,7 +303,7 @@ public class EllaneApp {
                     if (currentRoom.getNorth().equals("N/A")) {
                         System.out.println("You can't go that way.");
                     } else {
-                        for (Locations room : location) {
+                        for (Locations room : locations) {
                             if (room.getName().equals(currentRoom.getNorth())) {
                                 currentRoom = room;
                                 System.out.println("You are now in the " + currentRoom.getName());
@@ -237,7 +316,7 @@ public class EllaneApp {
                     if (currentRoom.getSouth().equals("N/A")) {
                         System.out.println("You can't go that way.");
                     } else {
-                        for (Locations room : location) {
+                        for (Locations room : locations) {
                             if (room.getName().equals(currentRoom.getSouth())) {
                                 currentRoom = room;
                                 System.out.println("You are now in the " + currentRoom.getName());
@@ -249,7 +328,7 @@ public class EllaneApp {
                     if (currentRoom.getEast().equals("N/A")) {
                         System.out.println("You can't go that way.");
                     } else {
-                        for (Locations room : location) {
+                        for (Locations room : locations) {
                             if (room.getName().equals(currentRoom.getEast())) {
                                 currentRoom = room;
                                 System.out.println("You are now in the " + currentRoom.getName());
@@ -261,7 +340,7 @@ public class EllaneApp {
                     if (currentRoom.getWest().equals("N/A")) {
                         System.out.println("You can't go that way.");
                     } else {
-                        for (Locations room : location) {
+                        for (Locations room : locations) {
                             if (room.getName().equals(currentRoom.getWest())) {
                                 currentRoom = room;
                                 System.out.println("You are now in the " + currentRoom.getName());
@@ -322,6 +401,8 @@ public class EllaneApp {
                 e.printStackTrace();
             }
         }
+
+
 
         public static void introMusic(String path) {
             try {

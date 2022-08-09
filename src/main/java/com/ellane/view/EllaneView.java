@@ -1,4 +1,4 @@
-package view;
+package com.ellane.view;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -77,15 +77,12 @@ public class EllaneView {
     public void renderShowGameControls() {
         System.out.println("GAME COMMANDS: \n" +
                 "    GO + [north, south, east, west]\n" +
-                "    CLIMB + [up, down]\n" +
+                "    LOOK + [north, south, east, west]\n" +
                 "    GRAB + [item_name]\n" +
                 "    DROP + [item_name]\n" +
-                "    USE + [item_name]\n" +
-                "    LOOK\n" +
-                "    INVENTORY\n" +
-                "    HEALTH \n" +
-                "    HELP\n" +
-                "    QUIT\n");
+                "    STATUS - shows current room, inventory, and health.\n" +
+                "    HELP - will display the commands\n" +
+                "    QUIT - will end the game.\n");
     }
 
     public void renderImmediateQuitGameMessage() {
