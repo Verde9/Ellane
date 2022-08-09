@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Ellane-Project" />
+        <module name="ellane_game" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Ellane-Project" target="11" />
+      <module name="ellane_game" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -213,19 +213,30 @@ public class EllaneApp {
                 case "grab":
                 case "get":
                 case "take":
-                    if (secondWord.equals(currentRoom.getItem().getName())) {
-                        player.getInventory().add(secondWord);
-                        System.out.println("You added the " + currentRoom.getItem().getName() + " to your inventory! ");
-                        currentRoom.setItem(item);
+                    if (secondWord != null) {
+                        if (secondWord.equals(currentRoom.getItem().getName())) {
+                            player.getInventory().add(secondWord);
+                            System.out.println("You added the " + currentRoom.getItem().getName() + " to your inventory! ");
+                            currentRoom.setItem(item);
+                        }
+                        else {
+                            System.out.println("Invalid command. Try 'grab' " + currentRoom.getItem().getName());
+                            System.out.println();
+                        }
                     }
                     break;
                 case "drop":
-                    if (player.getInventory().contains(secondWord)) {
-                        player.getInventory().remove(secondWord);
-                        System.out.println("You have removed " + secondWord + " from your inventory." );
+                    if (secondWord != null) {
+                        if (player.getInventory().contains(secondWord)) {
+                            player.getInventory().remove(secondWord);
+                            System.out.println("You have removed " + secondWord + " from your inventory.");
+                        }
+                        System.out.println();
+                        promptPlayerForDecision();
+                    }else {
+                        System.out.println("Invalid command. Try 'drop' + item(from inventory)");
+                        System.out.println();
                     }
-                    System.out.println();
-                    promptPlayerForDecision();
                     break;
                 case "health":
                     System.out.println("Your current health is: " + player.getHealth());
@@ -246,52 +257,63 @@ public class EllaneApp {
 
 
             if (firstWord.equals("go")) {
-                switch (secondWord) {
-                    case "east":
-                    case "west":
-                    case "north":
-                    case "south":
-                        System.out.println();
-                        verifyLocation();
-                        break;
-                    default:
-                        System.out.println("You can't go that way.");
-                        break;
+                if (secondWord != null) {
+                    switch (secondWord) {
+                        case "east":
+                        case "west":
+                        case "north":
+                        case "south":
+                            System.out.println();
+                            verifyLocation();
+                            break;
+                        default:
+                            System.out.println("You can't go that way.");
+                            break;
+                    }
+                } else {
+                    System.out.println("Invalid command. Try 'go' + [North, South, East, West]");
+                    System.out.println();
                 }
             }
 
             if (firstWord.equals("look")) {
-                switch (secondWord) {
-                    case "east":
-                        System.out.println(currentRoom.getEast());
-                        if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementEast() == 1)) {
+                if (secondWord != null) {
+                    switch (secondWord) {
+                        case "east":
+                            System.out.println(currentRoom.getEast());
+                            if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementEast() == 1)) {
                                 System.out.println(currentRoom.getItem().getItem_description());
-                        }
-                        System.out.println();
-                        break;
-                    case "west":
-                        System.out.println(currentRoom.getWest());
-                        if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementWest() == 1)) {
-                            System.out.println(currentRoom.getItem().getItem_description());
-                        }
-                        System.out.println();
-                        break;
-                    case "south":
-                        System.out.println(currentRoom.getSouth());
-                        if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementSouth() == 1)) {
-                            System.out.println(currentRoom.getItem().getItem_description());
-                        }
-                        System.out.println();
-                        break;
-                    case "north":
-                        System.out.println(currentRoom.getNorth());
-                        if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementNorth() == 1)) {
-                            System.out.println(currentRoom.getItem().getItem_description());
-                        }
-                        System.out.println();
-                        break;
-                    default:
-                        System.out.println("Invalid Commnad: Try 'look' + [north, south, east, west]");
+                            }
+                            System.out.println();
+                            break;
+                        case "west":
+                            System.out.println(currentRoom.getWest());
+                            if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementWest() == 1)) {
+                                System.out.println(currentRoom.getItem().getItem_description());
+                            }
+                            System.out.println();
+                            break;
+                        case "south":
+                            System.out.println(currentRoom.getSouth());
+                            if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementSouth() == 1)) {
+                                System.out.println(currentRoom.getItem().getItem_description());
+                            }
+                            System.out.println();
+                            break;
+                        case "north":
+                            System.out.println(currentRoom.getNorth());
+                            if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementNorth() == 1)) {
+                                System.out.println(currentRoom.getItem().getItem_description());
+                            }
+                            System.out.println();
+                            break;
+                        default:
+                            System.out.println("Invalid Commnad: Try 'look' + [north, south, east, west]");
+                    }
+                }
+                else {
+                    System.out.println("Invalid command. Try 'go' + [North, South, East, West]");
+                    System.out.println();
                 }
             }
         }
