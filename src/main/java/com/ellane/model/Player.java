@@ -1,4 +1,4 @@
-package model;
+package com.ellane.model;
 
 import java.util.ArrayList;
 import java.util.Scanner;
