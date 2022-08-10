@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
+
 public class EllaneView {
 
     public EllaneView() {
@@ -33,49 +34,33 @@ public class EllaneView {
     }
 
     public void renderDisplayGameInfo() throws InterruptedException {
-        System.out.println("The chaos spreads & the bombs keep exploding around the city");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("The fire is spreading from building to building & most signs of life as gone!");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("you get stuck inside of a building, but it can collapse at any minute & fire is spreading");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("Luckily there id a helicopter on the roof evacuating the survivors that made it to the roof");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("Unfortunately, you have been wounded & are losing blood as more time passes");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println();
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("Time is ticking & you don't have much time!");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println();
-        System.out.println("A dying woman tells you her sick daughter Ellane is stuck somewhere inside & asked you to save & escape together");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("The objectives you have are simple:");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("- collect the 3 items needed for a cure to save Ellane");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("- Find Ellane");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println("- Safely make it to the roof to escape by helicopter before 50 turns pass");
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println();
-        TimeUnit.SECONDS.sleep(2);
-
-        renderGameLevelOneInfo();
-    }
-
-    public void renderGameLevelOneInfo() throws InterruptedException {
-        System.out.println("You suddenly awake & realize you were knocked out from the impact of an explosion..");
-        System.out.println("It's dark and find yourself in the basement parking of a building..");
-        System.out.println("");
-        TimeUnit.SECONDS.sleep(2);
+        System.out.println("The chaos spreads & and mayhem erupts around the city\n" +
+                "The City of Seattle is under attack by Terrorists!\n" +
+                "Fire is spreading from building to building & most signs of life are gone!\n" +
+                "You're apartment building is on fire and you are injured by falling debris!\n" +
+                "You're bleeding out but can still manage to move but you need to move quickly becuase the fire is rapily growing!\n" +
+                "Luckily there is a helicopter on the roof evacuating the survivors that made it to the roof\n" +
+                "Adding more chaos to the mix, a women who was hit by the same debris as you is now dying and asks you to save her 3 year old daughter that's in her apartment\n" +
+                "To make matters even worse, the women lost the key to her apartment during all the chaos\n" +
+                "The objectives are simple but will be a challenge:\n" +
+                " - Find the keys to get Ellane from her apartment\n" +
+                " - Save Ellane \n" +
+                " - Make it to the roof before the Helicopter leaves\n" +
+                "Keep in mind that you're bleeding out so you have until your health reaches 0 to make it to the roof safely\n" +
+                "Also beware of terrorists while navigating through the building, if you run into one and do not have a weapon you will die.."
+                );
 
         renderShowGameControls();
 
+        System.out.println("Ready? Now let's go save Ellane!");
+
+        System.out.println();
+
     }
 
+
     public void renderShowGameControls() {
-        System.out.println("GAME COMMANDS: \n" +
+        System.out.println("HERE ARE THE GAME COMMANDS: \n" +
                 "    GO + [north, south, east, west]\n" +
                 "    LOOK + [north, south, east, west]\n" +
                 "    GRAB + [item_name]\n" +
@@ -89,26 +74,12 @@ public class EllaneView {
         System.out.println("...Thanks for abandoning Ellane! Goodbye!");
     }
 
-    public void renderBeginningPlayGameMessage() {
-        System.out.println("Let's Play!");
-    }
 
-    public void renderInvalidCommandMessage() {
-        System.err.println("INVALID COMMAND");
-        System.out.println();
-
-        System.err.println("ENTER A VALID COMMAND... ");
-    }
-
-    public void renderInvalidMovementCommandMessage(String direction) {
-        System.err.println("INVALID COMMAND. \n MOVING TO DIRECTION " + direction + " FROM CURRENT ROOM NOT POSSIBLE");
-        System.out.println();
-        System.err.println("MAKE ANOTHER DECISION");
-    }
 
     public void renderEndGameMessageAndResults(int playerHealth) {
         System.out.println();
         System.out.println("GAME HAS ENDED...");
+        System.out.println();
         System.out.println("You ended the game with: \n " + playerHealth + ": Player Health");
         System.out.println();
         System.out.println("Thanks for playing Ellane!");
@@ -123,10 +94,6 @@ public class EllaneView {
         System.out.println("Enter your choice: ");
     }
 
-    public void renderCommandIsRequiredMessage() {
-        System.err.println("MUST ENTER A COMMAND TO CONTINUE...");
-    }
-
     public void renderEnterNameMessage() {
         System.out.println("Enter your name:");
     }
@@ -135,30 +102,4 @@ public class EllaneView {
         System.err.println("YOU MUST ENTER A NAME");
     }
 
-    public void renderInvalidCharacterSelectedMessage() {
-        System.err.println("INVALID CHARACTER SELECTED");
-    }
-
-    public void renderPlayerNameBeginGameMessage(String playerName) {
-        System.out.println(playerName + " lets go save Ellane!");
-        System.out.println();
-    }
-
-    public void renderPlayerCreatedMessage() {
-        System.out.println("New Player Created!");
-    }
-
-    public void renderBombFoundExplosionMessage() {
-        System.err.println("KABOOOM!!");
-        System.out.println("A bomb exploded when you enter the room");
-    }
-
-    public void renderFoundEllaneLocationMessage(String location) {
-        System.out.println("ellane is hiding in the : " + location);
-        System.out.println("You've found Ellane!");
-    }
-
-    public void renderSelectCharacterMessage() {
-        System.out.println("Select character to play as:");
-    }
 }

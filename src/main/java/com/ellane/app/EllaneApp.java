@@ -54,17 +54,16 @@ public class EllaneApp {
 
         private void promptToStartGame() throws InterruptedException, IOException {
             introMusic("src/main/resources/Music/For Work 2_1.wav");
-            view.renderBeginningPlayGameMessage();
             createPlayerOneCharacter();
         }
 
         public void generateItems() {
-            Items gun = new Items("gun","you see a gun on the ground! You check it and it's fully loaded! May be a good idea to pick it up.");
-            Items pocketKnife = new Items("pocket knife", "you see a pocket knife on the ground! Looks dull, but could help in the future.");
-            Items bat = new Items("bat", "you see a bat in the corner. That could come in handy.");
-            Items gasMask = new Items("gas mask", "you see a gas mask! This could help your breathing with all of this smog!");
-            Items debris = new Items("wooden stake", "you see a wooden stake on the ground among other rubble on the ground as a result of the fires. Could be used as a weapon!");
-            Items keys = new Items("maintenance keys", "you spotted the maintenance keys, these can surely open the door to save Ellane!" );
+            Items gun = new Items("gun","I see a gun on the ground! Let me check the mag...... and it's fully loaded! I should probably pick this up.");
+            Items pocketKnife = new Items("pocket knife", "it looks like there is a pocket knife on the ground! It Looks dull, but it could help in the future.");
+            Items bat = new Items("bat", "I think that's a bat in the corner. Should probably take that, it could come in handy.");
+            Items gasMask = new Items("gas mask", "I see a gas mask! This could help me breath through all of this smog!");
+            Items pole = new Items("pole", "Hmm a pole, this could be used as a weapon, should maybe take this with me!");
+            Items keys = new Items("keys", "No... it looks like Ralph the maintenance man didn't make it.. May he rest in peace. I should probaly check if he has his keys on him though." );
             Items blank = new Items("empty");
             Items blank2 = new Items("empty");
             Items blank3 = new Items("empty");
@@ -76,7 +75,7 @@ public class EllaneApp {
             items.add(pocketKnife);
             items.add(bat);
             items.add(gasMask);
-            items.add(debris);
+            items.add(pole);
             items.add(keys);
             items.add(blank);
             items.add(blank2);
@@ -153,6 +152,8 @@ public class EllaneApp {
         private void startGame() throws InterruptedException, IOException {
             view.renderDisplayGameInfo();
             generateLocation();
+            System.out.println("You are currently in the " + currentRoom.getName() + " and you current health is: " + player.getHealth());
+            System.out.println();
             while (!gameOver) {
                 promptPlayerForDecision();
             }
@@ -160,7 +161,7 @@ public class EllaneApp {
         }
 
         private void promptPlayerForDecision() throws InterruptedException {
-            System.out.println("What should you do? " + player.getName());
+            System.out.println("What should you do?");
 
             Scanner in = new Scanner(System.in);
             System.out.println();
@@ -184,8 +185,12 @@ public class EllaneApp {
 
             switch (firstWord) {
                 case "look":
+                case "go":
                     System.out.println();
                     verifyRoomMovement();
+                    player.decreaseHealth(2);
+                    view.renderRemainingPlayerHealth(player.getHealth());
+                    checkEndGameConditions();
                     promptPlayerForDecision();
                     break;
                 case "help":
@@ -196,46 +201,48 @@ public class EllaneApp {
                     System.out.println();
                     System.out.println(currentRoom.getDescription());
                     System.out.println();
-                    System.out.println("This is what is in your inventory: " + player.getInventory());
+                    System.out.println(player.getName() + "'s inventory is: " + player.getInventory());
                     System.out.println();
-                    System.out.println("Your current health is: " + player.getHealth());
+                    System.out.println(player.getName() + "'s current health is: " + player.getHealth());
                     System.out.println();
-                    promptPlayerForDecision();
-                    break;
-                case "go":
-                    System.out.println();
-                    verifyRoomMovement();
                     promptPlayerForDecision();
                     break;
                 case "inventory":
-                    System.out.println("Your inventory is: " + player.getInventory());
+                    System.out.println(player.getName() + "'s inventory is: " + player.getInventory());
                     break;
                 case "grab":
                 case "get":
                 case "take":
                     if (secondWord.equals(currentRoom.getItem().getName())) {
                         player.getInventory().add(secondWord);
-                        System.out.println("You added the " + currentRoom.getItem().getName() + " to your inventory! ");
+                        System.out.println(player.getName() + " added the " + currentRoom.getItem().getName() + " to their inventory! ");
                         currentRoom.setItem(item);
                     }
+                    player.decreaseHealth(2);
+                    view.renderRemainingPlayerHealth(player.getHealth());
+                    checkEndGameConditions();
+                    promptPlayerForDecision();
                     break;
                 case "drop":
                     if (player.getInventory().contains(secondWord)) {
                         player.getInventory().remove(secondWord);
-                        System.out.println("You have removed " + secondWord + " from your inventory." );
+                        System.out.println(player.getName() + "removed " + secondWord + " from your inventory." );
                     }
                     System.out.println();
+                    player.decreaseHealth(2);
+                    view.renderRemainingPlayerHealth(player.getHealth());
+                    checkEndGameConditions();
                     promptPlayerForDecision();
                     break;
                 case "health":
-                    System.out.println("Your current health is: " + player.getHealth());
+                    System.out.println(player.getName() + "'s  current health is: " + player.getHealth());
                     System.out.println();
                     break;
                 case "quit":
                     checkEndGameConditions();
                     break;
                 default:
-                    view.renderInvalidCommandMessage();
+                    System.out.println("Invalid Command");
                     view.renderShowGameControls();
                     promptPlayerForDecision();
                     System.out.println();
@@ -255,7 +262,8 @@ public class EllaneApp {
                         verifyLocation();
                         break;
                     default:
-                        System.out.println("You can't go that way.");
+                        System.out.println(player.getName() + ": " +"I can't go that way.");
+                        System.out.println();
                         break;
                 }
             }
@@ -263,35 +271,36 @@ public class EllaneApp {
             if (firstWord.equals("look")) {
                 switch (secondWord) {
                     case "east":
-                        System.out.println(currentRoom.getEast());
+                        System.out.println(player.getName() + ": " + currentRoom.getEastDescription());
                         if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementEast() == 1)) {
-                                System.out.println(currentRoom.getItem().getItem_description());
+                                System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
                         }
                         System.out.println();
                         break;
                     case "west":
-                        System.out.println(currentRoom.getWest());
+                        System.out.println(player.getName() + ": " + currentRoom.getWestDescription());
                         if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementWest() == 1)) {
-                            System.out.println(currentRoom.getItem().getItem_description());
+                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
                         }
                         System.out.println();
                         break;
                     case "south":
-                        System.out.println(currentRoom.getSouth());
+                        System.out.println(player.getName() + ": " + currentRoom.getSouthDescription());
                         if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementSouth() == 1)) {
-                            System.out.println(currentRoom.getItem().getItem_description());
+                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
                         }
                         System.out.println();
                         break;
                     case "north":
-                        System.out.println(currentRoom.getNorth());
+                        System.out.println(player.getName() + ": " + currentRoom.getNorthDescription());
                         if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementNorth() == 1)) {
-                            System.out.println(currentRoom.getItem().getItem_description());
+                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
                         }
                         System.out.println();
                         break;
                     default:
                         System.out.println("Invalid Commnad: Try 'look' + [north, south, east, west]");
+                        System.out.println();
                 }
             }
         }
@@ -301,55 +310,64 @@ public class EllaneApp {
             switch (secondWord) {
                 case "north":
                     if (currentRoom.getNorth().equals("N/A")) {
-                        System.out.println("You can't go that way.");
+                        System.out.println(player.getName() + ": " + " I can't go that way.");
                     } else {
                         for (Locations room : locations) {
                             if (room.getName().equals(currentRoom.getNorth())) {
                                 currentRoom = room;
-                                System.out.println("You are now in the " + currentRoom.getName());
+                                System.out.println(player.getName() + ": " + currentRoom.getDescription());
+                                break;
                             }
                         }
 
                     }
+                    System.out.println();
                     break;
                 case "south":
                     if (currentRoom.getSouth().equals("N/A")) {
-                        System.out.println("You can't go that way.");
+                        System.out.println("I can't go that way.");
                     } else {
                         for (Locations room : locations) {
                             if (room.getName().equals(currentRoom.getSouth())) {
                                 currentRoom = room;
-                                System.out.println("You are now in the " + currentRoom.getName());
+                                System.out.println(player.getName() + ": " + currentRoom.getDescription());
+                                break;
                             }
                         }
                     }
+                    System.out.println();
                     break;
                 case "east":
                     if (currentRoom.getEast().equals("N/A")) {
-                        System.out.println("You can't go that way.");
+                        System.out.println("I can't go that way.");
                     } else {
                         for (Locations room : locations) {
                             if (room.getName().equals(currentRoom.getEast())) {
                                 currentRoom = room;
-                                System.out.println("You are now in the " + currentRoom.getName());
+                                System.out.println(player.getName() + ": " + currentRoom.getDescription());
+                                break;
                             }
                         }
                     }
+                    System.out.println();
                     break;
                 case "west":
                     if (currentRoom.getWest().equals("N/A")) {
-                        System.out.println("You can't go that way.");
+                        System.out.println("I can't go that way.");
                     } else {
                         for (Locations room : locations) {
                             if (room.getName().equals(currentRoom.getWest())) {
                                 currentRoom = room;
-                                System.out.println("You are now in the " + currentRoom.getName());
+                                System.out.println(player.getName() + ": " + currentRoom.getDescription());
+                                break;
                             }
                         }
                     }
+                    System.out.println();
                     break;
                 default:
-                    System.out.println("You can't go that way.");
+                    System.out.println(player.getName() + ": " + "I can't go that way.");
+                    System.out.println();
             }
 
         }
