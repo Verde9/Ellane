@@ -1,5 +1,8 @@
 package com.ellane.view;
 
+import com.ellane.character.Player;
+import com.ellane.character.Terrorist;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -101,4 +104,16 @@ public class EllaneView {
         System.err.println("YOU MUST ENTER A NAME");
     }
 
+    public void terroristDialogue(Terrorist terrorist, Player player) {
+
+        System.out.println(terrorist.getName() + ":" + "Американец! Иди сюда быстро!...");
+        System.out.println("(Translation: American! Come here now!.. ) ");
+        System.out.println();
+        System.out.println(player.getName() + ":" + "Oh shit! This guy must be part of this invasion.");
+        System.out.println();
+        System.out.println(player.getName() + ":" + "Fuck!! Have to think fast! Now! Or I'm literally going to die.");
+        System.out.println();
+        System.out.println(terrorist.getName() + ":" + "К счастью для тебя, американец, я не беру пленных!!...");
+        System.out.println("(Translation: Lucky for you American, I take no prisoners. ) ");
+    }
 }
