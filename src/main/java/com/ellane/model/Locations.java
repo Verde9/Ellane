@@ -3,122 +3,162 @@ package com.ellane.model;
 
 public class Locations {
 
-        private String name;
-        private String description;
-        private String north;
-        private String west;
-        private String east;
-        private String south;
-        private Items item;
-        private int itemPlacementSouth;
-        private int itemPlacementEast;
-        private int itemPlacementWest;
-        private int itemPlacementNorth;
+    private String name;
+    private String description;
+    private String north;
+    private String northDescription;
+    private String west;
+    private String westDescription;
+    private String east;
+    private String eastDescription;
+    private String south;
+    private String southDescription;
+    private Items item;
+    private int itemPlacementSouth;
+    private int itemPlacementEast;
+    private int itemPlacementWest;
+    private int itemPlacementNorth;
 
-        public Locations () {
-        }
+    public Locations () {
+    }
 
-        public Locations(Items item, String description, String west, String south, String north, String east, String name, int itemPlacementEast, int itemPlacementNorth, int itemPlacementSouth, int itemPlacementWest) {
-            this.item = item;
-            this.description = description;
-            this.west = west;
-            this.south = south;
-            this.north = north;
-            this.east = east;
-            this.name = name;
-            this.itemPlacementEast = itemPlacementEast;
-            this.itemPlacementNorth = itemPlacementNorth;
-            this.itemPlacementWest = itemPlacementWest;
-            this.itemPlacementSouth = itemPlacementSouth;
-        }
+    public Locations(Items item, String description, String west, String westDescription ,String south, String southDescription ,String north, String northDescription, String east, String eastDescription, String name, int itemPlacementEast, int itemPlacementNorth, int itemPlacementSouth, int itemPlacementWest) {
+        this.item = item;
+        this.description = description;
+        this.west = west;
+        this.westDescription = westDescription;
+        this.south = south;
+        this.southDescription = southDescription;
+        this.north = north;
+        this.northDescription = northDescription;
+        this.east = east;
+        this.eastDescription = eastDescription;
+        this.name = name;
+        this.itemPlacementEast = itemPlacementEast;
+        this.itemPlacementNorth = itemPlacementNorth;
+        this.itemPlacementWest = itemPlacementWest;
+        this.itemPlacementSouth = itemPlacementSouth;
+    }
 
-        public String getName() {
-            return name;
-        }
+    public String getName() {
+        return name;
+    }
 
-        public String getDescription() {
-            return description;
-        }
+    public String getDescription() {
+        return description;
+    }
 
-        public String getNorth() {
-            return north;
-        }
+    public String getNorth() {
+        return north;
+    }
 
-        public String getWest() {
-            return west;
-        }
+    public String getWest() {
+        return west;
+    }
 
-        public String getEast() {
-            return east;
-        }
+    public String getEast() {
+        return east;
+    }
 
-        public String getSouth() {
-            return south;
-        }
+    public String getSouth() {
+        return south;
+    }
 
-        public Items getItem() {
-            return item;
-        }
+    public String getNorthDescription() {
+        return northDescription;
+    }
 
-        public int getItemPlacementSouth() {
-            return itemPlacementSouth;
-        }
+    public String getWestDescription() {
+        return westDescription;
+    }
 
-        public int getItemPlacementEast() {
-            return itemPlacementEast;
-        }
+    public String getEastDescription() {
+        return eastDescription;
+    }
 
-        public int getItemPlacementWest() {
-            return itemPlacementWest;
-        }
+    public String getSouthDescription() {
+        return southDescription;
+    }
 
-        public int getItemPlacementNorth() {
-            return itemPlacementNorth;
-        }
+    public Items getItem() {
+        return item;
+    }
 
-        public void setName(String name) {
-                this.name = name;
-            }
+    public int getItemPlacementSouth() {
+        return itemPlacementSouth;
+    }
 
-        public void setDescription(String description) {
-            this.description = description;
-        }
+    public int getItemPlacementEast() {
+        return itemPlacementEast;
+    }
 
-        public void setNorth(String north) {
-            this.north = north;
-        }
+    public int getItemPlacementWest() {
+        return itemPlacementWest;
+    }
 
-        public void setWest(String west) {
-            this.west = west;
-        }
+    public int getItemPlacementNorth() {
+        return itemPlacementNorth;
+    }
 
-        public void setEast(String east) {
-            this.east = east;
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public void setSouth(String south) {
-            this.south = south;
-        }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-        public void setItemPlacementSouth(int itemPlacementSouth) {
-            this.itemPlacementSouth = itemPlacementSouth;
-        }
+    public void setNorth(String north) {
+        this.north = north;
+    }
 
-        public void setItemPlacementEast(int itemPlacementEast) {
-            this.itemPlacementEast = itemPlacementEast;
-        }
+    public void setWest(String west) {
+        this.west = west;
+    }
 
-        public void setItemPlacementWest(int itemPlacementWest) {
-            this.itemPlacementWest = itemPlacementWest;
-        }
+    public void setEast(String east) {
+        this.east = east;
+    }
 
-        public void setItemPlacementNorth(int itemPlacementNorth) {
-            this.itemPlacementNorth = itemPlacementNorth;
-        }
+    public void setSouth(String south) {
+        this.south = south;
+    }
 
-        public void setItem(Items item) {
-            this.item = item;
-        }
+    public void setNorthDescription(String northDescription) {
+        this.northDescription = northDescription;
+    }
+
+    public void setWestDescription(String westDescription) {
+        this.westDescription = westDescription;
+    }
+
+    public void setEastDescription(String eastDescription) {
+        this.eastDescription = eastDescription;
+    }
+
+    public void setSouthDescription(String southDescription) {
+        this.southDescription = southDescription;
+    }
+
+    public void setItemPlacementSouth(int itemPlacementSouth) {
+        this.itemPlacementSouth = itemPlacementSouth;
+    }
+
+    public void setItemPlacementEast(int itemPlacementEast) {
+        this.itemPlacementEast = itemPlacementEast;
+    }
+
+    public void setItemPlacementWest(int itemPlacementWest) {
+        this.itemPlacementWest = itemPlacementWest;
+    }
+
+    public void setItemPlacementNorth(int itemPlacementNorth) {
+        this.itemPlacementNorth = itemPlacementNorth;
+    }
+
+    public void setItem(Items item) {
+        this.item = item;
+    }
 
 
     @Override
@@ -137,5 +177,6 @@ public class Locations {
                 ", itemPlacementNorth=" + itemPlacementNorth +
                 '}';
     }
+
 }
 
