@@ -36,7 +36,6 @@ public class EllaneApp {
     Scanner scan = new Scanner(System.in);
 
 
-
     //this will run the app in the main class
     public void initialize() throws InterruptedException, IOException {
         view = new EllaneView();
@@ -58,14 +57,14 @@ public class EllaneApp {
     }
 
     public void generateItems() {
-        Items gun = new Items("gun","I see a gun on the ground! Let me check the mag...... and it's fully loaded! I should probably pick this up.");
+        Items gun = new Items("gun", "I see a gun on the ground! Let me check the mag...... and it's fully loaded! I should probably pick this up.");
         Items pocketKnife = new Items("pocket knife", "it looks like there is a pocket knife on the ground! It Looks dull, but it could help in the future.");
         Items bat = new Items("bat", "I think that's a bat in the corner. Should probably take that, it could come in handy.");
+        Items pocketKnife2 = new Items("pocket knife", "it looks like there is a pocket knife on the ground! It Looks dull, but it could help in the future.");
+        Items bat2 = new Items("bat", "I think that's a bat in the corner. Should probably take that, it could come in handy.");
         Items gasMask = new Items("gas mask", "I see a gas mask! This could help me breath through all of this smog!");
         Items pole = new Items("pole", "Hmm a pole, this could be used as a weapon, should maybe take this with me!");
-        Items keys = new Items("keys", "No... it looks like Ralph the maintenance man didn't make it.. May he rest in peace. I should probaly check if he has his keys on him though." );
-        Items blank = new Items("empty");
-        Items blank2 = new Items("empty");
+        Items keys = new Items("keys", "No... it looks like Ralph the maintenance man didn't make it.. May he rest in peace. I should probaly check if he has his keys on him though.");
         Items blank3 = new Items("empty");
         Items blank4 = new Items("empty");
         Items blank5 = new Items("empty");
@@ -77,8 +76,8 @@ public class EllaneApp {
         items.add(gasMask);
         items.add(pole);
         items.add(keys);
-        items.add(blank);
-        items.add(blank2);
+        items.add(pocketKnife2);
+        items.add(bat2);
         items.add(blank3);
         items.add(blank4);
         items.add(blank5);
@@ -102,7 +101,8 @@ public class EllaneApp {
 
             Reader reader = Files.newBufferedReader(Paths.get("src/main/resources/RoomsAndContent/rooms.json"));
 
-            locations = new Gson().fromJson(reader, new TypeToken<List<Locations>>() {}.getType());
+            locations = new Gson().fromJson(reader, new TypeToken<List<Locations>>() {
+            }.getType());
 
             currentRoom = locations.get(0);
 
@@ -113,7 +113,7 @@ public class EllaneApp {
         }
 
 
-        for(int i = 0; i < locations.size() - 4; i++) {
+        for (int i = 0; i < locations.size() - 4; i++) {
             Locations currentLocation = locations.get(i);
 
             currentLocation.setItem(items.get(i));
@@ -126,8 +126,6 @@ public class EllaneApp {
             currentLocation.setItemPlacementWest(num.get(3));
 
         }
-
-
 
 
     }
@@ -213,27 +211,40 @@ public class EllaneApp {
             case "grab":
             case "get":
             case "take":
-                if (secondWord.equals(currentRoom.getItem().getName())) {
-                    player.getInventory().add(secondWord);
-                    System.out.println(player.getName() + " added the " + currentRoom.getItem().getName() + " to their inventory! ");
-                    currentRoom.setItem(item);
+                if (secondWord != null) {
+                    if (secondWord.equals(currentRoom.getItem().getName())) {
+                        player.getInventory().add(secondWord);
+                        System.out.println(player.getName() + " added the " + currentRoom.getItem().getName() + " to their inventory! ");
+                        currentRoom.setItem(item);
+                        System.out.println();
+                    }
+                    player.decreaseHealth(2);
+                    view.renderRemainingPlayerHealth(player.getHealth());
+                    checkEndGameConditions();
+                    promptPlayerForDecision();
+                    break;
+                } else {
+                    System.out.println("Invalid Command. Try [grab, get, take] + item.");
+                    System.out.println();
+                    break;
                 }
-                player.decreaseHealth(2);
-                view.renderRemainingPlayerHealth(player.getHealth());
-                checkEndGameConditions();
-                promptPlayerForDecision();
-                break;
             case "drop":
-                if (player.getInventory().contains(secondWord)) {
-                    player.getInventory().remove(secondWord);
-                    System.out.println(player.getName() + "removed " + secondWord + " from your inventory." );
+                if (secondWord != null) {
+                    if (player.getInventory().contains(secondWord)) {
+                        player.getInventory().remove(secondWord);
+                        System.out.println(player.getName() + "removed " + secondWord + " from your inventory.");
+                    }
+                    System.out.println();
+                    player.decreaseHealth(2);
+                    view.renderRemainingPlayerHealth(player.getHealth());
+                    checkEndGameConditions();
+                    promptPlayerForDecision();
+                    break;
+                } else {
+                    System.out.println("Invalid Command. Try drop + item in inventory.");
+                    System.out.println();
+                    break;
                 }
-                System.out.println();
-                player.decreaseHealth(2);
-                view.renderRemainingPlayerHealth(player.getHealth());
-                checkEndGameConditions();
-                promptPlayerForDecision();
-                break;
             case "health":
                 System.out.println(player.getName() + "'s  current health is: " + player.getHealth());
                 System.out.println();
@@ -253,55 +264,66 @@ public class EllaneApp {
 
 
         if (firstWord.equals("go")) {
-            switch (secondWord) {
-                case "east":
-                case "west":
-                case "north":
-                case "south":
-                    System.out.println();
-                    verifyLocation();
-                    break;
-                default:
-                    System.out.println(player.getName() + ": " +"I can't go that way.");
-                    System.out.println();
-                    break;
+            if (secondWord != null) {
+                switch (secondWord) {
+                    case "east":
+                    case "west":
+                    case "north":
+                    case "south":
+                        System.out.println();
+                        verifyLocation();
+                        break;
+                    default:
+                        System.out.println(player.getName() + ": " + "I can't go that way.");
+                        System.out.println();
+                        break;
+                }
+            } else {
+                System.out.println("Invalid Command: Try 'go' + [north, south, east, west]");
+                System.out.println();
             }
         }
 
-        if (firstWord.equals("look")) {
-            switch (secondWord) {
-                case "east":
-                    System.out.println(player.getName() + ": " + currentRoom.getEastDescription());
-                    if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementEast() == 1)) {
-                        System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
-                    }
+            if (firstWord.equals("look")) {
+                if (secondWord != null) {
+                switch (secondWord) {
+                    case "east":
+                        System.out.println(player.getName() + ": " + currentRoom.getEastDescription());
+                        if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementEast() == 1)) {
+                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                        }
+                        System.out.println();
+                        break;
+                    case "west":
+                        System.out.println(player.getName() + ": " + currentRoom.getWestDescription());
+                        if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementWest() == 1)) {
+                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                        }
+                        System.out.println();
+                        break;
+                    case "south":
+                        System.out.println(player.getName() + ": " + currentRoom.getSouthDescription());
+                        if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementSouth() == 1)) {
+                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                        }
+                        System.out.println();
+                        break;
+                    case "north":
+                        System.out.println(player.getName() + ": " + currentRoom.getNorthDescription());
+                        if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementNorth() == 1)) {
+                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                        }
+                        System.out.println();
+                        break;
+                    default:
+                        System.out.println(player.getName() + ": " + "I can't look that way.");
+                        System.out.println();
+                        break;
+                }
+            } else {
+                    System.out.println("Invalid Command: Try 'look' + [north, south, east, west]");
                     System.out.println();
-                    break;
-                case "west":
-                    System.out.println(player.getName() + ": " + currentRoom.getWestDescription());
-                    if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementWest() == 1)) {
-                        System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
-                    }
-                    System.out.println();
-                    break;
-                case "south":
-                    System.out.println(player.getName() + ": " + currentRoom.getSouthDescription());
-                    if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementSouth() == 1)) {
-                        System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
-                    }
-                    System.out.println();
-                    break;
-                case "north":
-                    System.out.println(player.getName() + ": " + currentRoom.getNorthDescription());
-                    if(!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementNorth() == 1)) {
-                        System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
-                    }
-                    System.out.println();
-                    break;
-                default:
-                    System.out.println("Invalid Commnad: Try 'look' + [north, south, east, west]");
-                    System.out.println();
-            }
+                }
         }
     }
 
@@ -421,7 +443,6 @@ public class EllaneApp {
     }
 
 
-
     public static void introMusic(String path) {
         try {
             Scanner scanner = new Scanner(System.in);
@@ -474,7 +495,7 @@ public class EllaneApp {
 
     }
 
-    public Boolean getGameOver () {
+    public Boolean getGameOver() {
         return gameOver;
     }
 
