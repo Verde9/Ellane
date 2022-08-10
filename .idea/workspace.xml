@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d17cdfe-d2b3-4296-af37-e0adf1334ead" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/stash_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/stash_3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/view/EllaneView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/view/EllaneView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ellane-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Ellane-Project.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +46,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -60,9 +63,8 @@
       <recent name="C:\AmazonSDE\Ellane2" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="EllaneApp (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneApp" />
+  <component name="RunManager" selected="JUnit.EllaneAppTest.generateLocation_shouldLocationsAfterItGenerate">
+    <configuration name="EllaneAppTest.checkEndGameConditions_shouldEndTheGameWhenGetHealthGoBelowZeroOrUserInputQuitOrGameOverIsTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Ellane-Project" />
       <extension name="coverage">
         <pattern>
@@ -70,60 +72,74 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
+      <option name="METHOD_NAME" value="checkEndGameConditions_shouldEndTheGameWhenGetHealthGoBelowZeroOrUserInputQuitOrGameOverIsTrue" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EllaneApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.EllaneApp" />
+    <configuration name="EllaneAppTest.createPlayerOneCharacter_shouldPromptUserToTakeNameOfTheUserPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Ellane-Project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.*" />
+          <option name="PATTERN" value="com.ellane.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
+      <option name="METHOD_NAME" value="createPlayerOneCharacter_shouldPromptUserToTakeNameOfTheUserPlayer" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EllaneApp2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="app.EllaneApp2" />
+    <configuration name="EllaneAppTest.generateItems_shouldShuffleItemAddedInTheGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Ellane-Project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="app.*" />
+          <option name="PATTERN" value="com.ellane.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
+      <option name="METHOD_NAME" value="generateItems_shouldShuffleItemAddedInTheGame" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.Main" />
+    <configuration name="EllaneAppTest.generateLocation_shouldLocationsAfterItGenerate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Ellane-Project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="client.*" />
+          <option name="PATTERN" value="com.ellane.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
+      <option name="METHOD_NAME" value="generateLocation_shouldLocationsAfterItGenerate" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
-      <module name="ellane_game" />
+    <configuration name="EllaneAppTest.initialize_shouldPresentAWelcomeMesaggeAndAskUserToStartGame_StopMusic_ManageVolueme" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Ellane-Project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ellane.client.*" />
+          <option name="PATTERN" value="com.ellane.app.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.ellane.app" />
+      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
+      <option name="METHOD_NAME" value="initialize_shouldPresentAWelcomeMesaggeAndAskUserToStartGame_StopMusic_ManageVolueme" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -143,11 +159,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main (1)" />
-        <item itemvalue="Application.EllaneApp2" />
-        <item itemvalue="Application.EllaneApp (1)" />
-        <item itemvalue="Application.EllaneApp" />
+        <item itemvalue="JUnit.EllaneAppTest.generateLocation_shouldLocationsAfterItGenerate" />
+        <item itemvalue="JUnit.EllaneAppTest.createPlayerOneCharacter_shouldPromptUserToTakeNameOfTheUserPlayer" />
+        <item itemvalue="JUnit.EllaneAppTest.generateItems_shouldShuffleItemAddedInTheGame" />
+        <item itemvalue="JUnit.EllaneAppTest.checkEndGameConditions_shouldEndTheGameWhenGetHealthGoBelowZeroOrUserInputQuitOrGameOverIsTrue" />
+        <item itemvalue="JUnit.EllaneAppTest.initialize_shouldPresentAWelcomeMesaggeAndAskUserToStartGame_StopMusic_ManageVolueme" />
       </list>
     </recent_temporary>
   </component>
@@ -172,19 +188,12 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ellane/app/EllaneApp.java</url>
-          <line>184</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Ellane2$Main.ic" NAME="Main Coverage Results" MODIFIED="1660082194209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.ellane.client.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Ellane_Project$EllaneApp.ic" NAME="EllaneApp Coverage Results" MODIFIED="1660055361111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>app.*</FILTER>
     </SUITE>
