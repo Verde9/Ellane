@@ -221,7 +221,11 @@ public class EllaneApp {
             case "go":
                 System.out.println();
                 verifyRoomMovement();
-                player.decreaseHealth(2);
+                if(player.getInventory().contains("gas mask")) {
+                    player.decreaseHealth(1);
+                } else {
+                    player.decreaseHealth(2);
+                }
                 view.renderRemainingPlayerHealth(player.getHealth());
                 checkEndGameConditions();
                 promptPlayerForDecision();
@@ -248,18 +252,33 @@ public class EllaneApp {
             case "take":
                 if (secondWord != null) {
                     if (secondWord.equals(currentRoom.getItem().getName())) {
-                        player.getInventory().add(secondWord);
-                        System.out.println(player.getName() + " added the " + currentRoom.getItem().getName() + " to their inventory! ");
-                        currentRoom.setItem(item);
+                        if (currentRoom.getItem().getName().equals("gas mask")) {
+                            player.getInventory().add(secondWord);
+                            System.out.println(player.getName() + " added the " + currentRoom.getItem().getName() + " to their inventory! ");
+                            System.out.println();
+                            System.out.println("I'm going to put this gas mask on right away so I can breath easier!");
+                            System.out.println();
+                            System.out.println("Player health will now decrease by 1!");
+                            currentRoom.setItem(item);
+                            System.out.println();
+                        } else {
+                            player.getInventory().add(secondWord);
+                            System.out.println(player.getName() + " added the " + currentRoom.getItem().getName() + " to their inventory! ");
+                            currentRoom.setItem(item);
+                            System.out.println();
+                        }
+                        if (player.getInventory().contains("gas mask")) {
+                            player.decreaseHealth(1);
+                        } else {
+                            player.decreaseHealth(2);
+                        }
+                        view.renderRemainingPlayerHealth(player.getHealth());
+                        checkEndGameConditions();
+                        promptPlayerForDecision();
+                    } else {
+                        System.out.println("Invalid Command. Try [grab, get, take] + item.");
                         System.out.println();
                     }
-                    player.decreaseHealth(2);
-                    view.renderRemainingPlayerHealth(player.getHealth());
-                    checkEndGameConditions();
-                    promptPlayerForDecision();
-                } else {
-                    System.out.println("Invalid Command. Try [grab, get, take] + item.");
-                    System.out.println();
                 }
                 break;
             case "drop":
@@ -269,7 +288,11 @@ public class EllaneApp {
                         System.out.println(player.getName() + "removed " + secondWord + " from your inventory.");
                     }
                     System.out.println();
-                    player.decreaseHealth(2);
+                    if(player.getInventory().contains("gas mask")) {
+                        player.decreaseHealth(1);
+                    } else {
+                        player.decreaseHealth(2);
+                    }
                     view.renderRemainingPlayerHealth(player.getHealth());
                     checkEndGameConditions();
                     promptPlayerForDecision();
