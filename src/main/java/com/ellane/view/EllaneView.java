@@ -62,7 +62,7 @@ public class EllaneView {
         System.out.println("HERE ARE THE GAME COMMANDS: \n" +
                 "    GO + [north, south, east, west]\n" +
                 "    LOOK + [north, south, east, west]\n" +
-                "    GRAB + [item_name]\n" +
+                "    GRAB | GET | TAKE + [item_name]\n" +
                 "    DROP + [item_name]\n" +
                 "    STATUS - shows current room, inventory, and health.\n" +
                 "    HELP - will display the commands\n" +
@@ -79,7 +79,7 @@ public class EllaneView {
         System.out.println();
         System.out.println("GAME HAS ENDED...");
         System.out.println();
-        System.out.println("You ended the game with: \n " + playerHealth + ": Player Health");
+        System.out.println("You ended the game with:  " + playerHealth + ": Player Health");
         System.out.println();
         System.out.println("Thanks for playing Ellane!");
     }
