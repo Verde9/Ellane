@@ -1,17 +1,17 @@
 package com.ellane.app;
 
+import com.ellane.character.Terrorist;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ellane.model.Items;
 import com.ellane.model.Locations;
-import com.ellane.model.Player;
+import com.ellane.character.Player;
 import com.ellane.view.EllaneView;
 
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
-import java.net.CookieHandler;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -31,9 +31,12 @@ public class EllaneApp {
 
 
     Player player = new Player();
+    Terrorist terrorist = new Terrorist("Ivan");
+    Terrorist blank = new Terrorist("Empty");
     Items item = new Items("empty");
     private static EllaneView view = new EllaneView();
     Scanner scan = new Scanner(System.in);
+
 
 
     //this will run the app in the main class
@@ -53,7 +56,7 @@ public class EllaneApp {
 
     private void promptToStartGame() throws InterruptedException, IOException {
         introMusic("src/main/resources/Music/For Work 2_1.wav");
-        createPlayerOneCharacter();
+        setPlayerName();
     }
 
     public void generateItems() {
@@ -64,7 +67,7 @@ public class EllaneApp {
         Items bat2 = new Items("bat", "I think that's a bat in the corner. Should probably take that, it could come in handy.");
         Items gasMask = new Items("gas mask", "I see a gas mask! This could help me breath through all of this smog!");
         Items pole = new Items("pole", "Hmm a pole, this could be used as a weapon, should maybe take this with me!");
-        Items keys = new Items("keys", "No... it looks like Ralph the maintenance man didn't make it.. May he rest in peace. I should probaly check if he has his keys on him though.");
+        Items keys = new Items("keys", "No... it looks like Ralph the maintenance man didn't make it.. May he rest in peace. I should probably check if he has his keys on him though.");
         Items blank3 = new Items("empty");
         Items blank4 = new Items("empty");
         Items blank5 = new Items("empty");
@@ -94,8 +97,6 @@ public class EllaneApp {
         num.add(3);
         num.add(4);
 
-        generateItems();
-
         try {
             Gson gson = new Gson();
 
@@ -112,6 +113,8 @@ public class EllaneApp {
             e.printStackTrace();
         }
 
+        generateItems();
+        randomizeTerrorist();
 
         for (int i = 0; i < locations.size() - 4; i++) {
             Locations currentLocation = locations.get(i);
@@ -127,12 +130,44 @@ public class EllaneApp {
 
         }
 
+        for(Locations location: locations) {
+            if(location.getTerroristPlacement() == 3){
+                System.out.println(location.getName() + "has a terrorist.");
+            }
+        }
+
+    }
+
+    public void randomizeTerrorist() {
+        List<Integer> num = new ArrayList<>();
+
+        num.add(0);
+        num.add(1);
+        num.add(2);
+        num.add(3);
+        num.add(4);
+        num.add(5);
+        num.add(6);
+
+        Collections.shuffle(num);
+
+        for (int i = 0; i < locations.size() - 4; i++) {
+            Locations currentLocation = locations.get(i);
+
+            if (i != 0) {
+                currentLocation.setTerroristPlacement(num.get(i));
+
+                if (currentLocation.getTerroristPlacement() == 3) {
+                    currentLocation.setTerrorist(terrorist);
+                }
+            }
+
+        }
 
     }
 
 
-    public void createPlayerOneCharacter() throws IOException, InterruptedException {
-        boolean valid = false;
+    public void setPlayerName() throws IOException, InterruptedException {
         String playerName = "";
         while (playerName.length() <= 0) {
             System.out.println();
@@ -222,12 +257,11 @@ public class EllaneApp {
                     view.renderRemainingPlayerHealth(player.getHealth());
                     checkEndGameConditions();
                     promptPlayerForDecision();
-                    break;
                 } else {
                     System.out.println("Invalid Command. Try [grab, get, take] + item.");
                     System.out.println();
-                    break;
                 }
+                break;
             case "drop":
                 if (secondWord != null) {
                     if (player.getInventory().contains(secondWord)) {
@@ -239,12 +273,11 @@ public class EllaneApp {
                     view.renderRemainingPlayerHealth(player.getHealth());
                     checkEndGameConditions();
                     promptPlayerForDecision();
-                    break;
                 } else {
-                    System.out.println("Invalid Command. Try drop + item in inventory.");
+                    System.out.println("Invalid Command. Try 'drop' + item in inventory.");
                     System.out.println();
-                    break;
                 }
+                break;
             case "health":
                 System.out.println(player.getName() + "'s  current health is: " + player.getHealth());
                 System.out.println();
@@ -337,6 +370,10 @@ public class EllaneApp {
                     for (Locations room : locations) {
                         if (room.getName().equals(currentRoom.getNorth())) {
                             currentRoom = room;
+                            if (currentRoom.getTerrorist() == terrorist) {
+                                terrorist.PlayerDetected(player, this.terrorist);
+                                currentRoom.setTerrorist(blank);
+                            }
                             System.out.println(player.getName() + ": " + currentRoom.getDescription());
                             break;
                         }
@@ -352,6 +389,10 @@ public class EllaneApp {
                     for (Locations room : locations) {
                         if (room.getName().equals(currentRoom.getSouth())) {
                             currentRoom = room;
+                            if (currentRoom.getTerrorist() == terrorist) {
+                                terrorist.PlayerDetected(player, this.terrorist);
+                                currentRoom.setTerrorist(blank);
+                            }
                             System.out.println(player.getName() + ": " + currentRoom.getDescription());
                             break;
                         }
@@ -366,6 +407,10 @@ public class EllaneApp {
                     for (Locations room : locations) {
                         if (room.getName().equals(currentRoom.getEast())) {
                             currentRoom = room;
+                            if (currentRoom.getTerrorist() == terrorist) {
+                                terrorist.PlayerDetected(player, this.terrorist);
+                                currentRoom.setTerrorist(blank);
+                            }
                             System.out.println(player.getName() + ": " + currentRoom.getDescription());
                             break;
                         }
@@ -380,6 +425,10 @@ public class EllaneApp {
                     for (Locations room : locations) {
                         if (room.getName().equals(currentRoom.getWest())) {
                             currentRoom = room;
+                            if (currentRoom.getTerrorist() == terrorist) {
+                                terrorist.PlayerDetected(player, this.terrorist);
+                                currentRoom.setTerrorist(blank);
+                            }
                             System.out.println(player.getName() + ": " + currentRoom.getDescription());
                             break;
                         }

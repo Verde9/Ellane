@@ -1,6 +1,8 @@
 package com.ellane.model;
 
 
+import com.ellane.character.Terrorist;
+
 public class Locations {
 
     private String name;
@@ -18,11 +20,17 @@ public class Locations {
     private int itemPlacementEast;
     private int itemPlacementWest;
     private int itemPlacementNorth;
+    private Terrorist terrorist;
+    private int terroristPlacement;
 
     public Locations () {
     }
 
-    public Locations(Items item, String description, String west, String westDescription ,String south, String southDescription ,String north, String northDescription, String east, String eastDescription, String name, int itemPlacementEast, int itemPlacementNorth, int itemPlacementSouth, int itemPlacementWest) {
+    public Locations(Items item, String description, String west, String westDescription ,String south, String southDescription ,String north,
+                     String northDescription, String east, String eastDescription, String name,
+                     int itemPlacementEast, int itemPlacementNorth, int itemPlacementWest,
+                     int itemPlacementSouth, Terrorist terrorist, int terroristPlacement)
+    {
         this.item = item;
         this.description = description;
         this.west = west;
@@ -38,6 +46,8 @@ public class Locations {
         this.itemPlacementNorth = itemPlacementNorth;
         this.itemPlacementWest = itemPlacementWest;
         this.itemPlacementSouth = itemPlacementSouth;
+        this.terrorist = terrorist;
+        this.terroristPlacement = terroristPlacement;
     }
 
     public String getName() {
@@ -100,6 +110,14 @@ public class Locations {
         return itemPlacementNorth;
     }
 
+    public Terrorist getTerrorist() {
+        return terrorist;
+    }
+
+    public int getTerroristPlacement() {
+        return terroristPlacement;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -160,6 +178,13 @@ public class Locations {
         this.item = item;
     }
 
+    public void setTerrorist(Terrorist terrorist) {
+        this.terrorist = terrorist;
+    }
+
+    public void setTerroristPlacement(int terroristPlacement) {
+        this.terroristPlacement = terroristPlacement;
+    }
 
     @Override
     public String toString() {
