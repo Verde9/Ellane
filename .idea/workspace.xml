@@ -5,26 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2aa1654a-4e87-46ac-93b2-55138bd3322d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Music/For Work 2_1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Music/intro wav 2_1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RoomsAndContent/rooms.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/app/EllaneApp$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/app/EllaneApp.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/app/EllaneApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/client/Main.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/client/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/Items.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/Items.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/Locations.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/Locations.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/Player.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/model/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/view/EllaneView.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/ellane/view/EllaneView.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/Music/For Work 2_1.wav" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/Music/intro wav 2_1.wav" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/RoomsAndContent/rooms.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ellane-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Ellane-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RoomsAndContent/rooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RoomsAndContent/rooms.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/client/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/model/Items.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/model/Locations.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/model/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/view/EllaneView.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +31,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src" />
   </component>
   <component name="MarkdownSettingsMigration">
