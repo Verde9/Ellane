@@ -16,7 +16,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
 
   },
   {
@@ -36,7 +38,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
   },
   {
     "item": null,
@@ -55,7 +59,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
   },
   {
     "item": null,
@@ -74,7 +80,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
   },
   {
     "item": null,
@@ -93,7 +101,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
   },
   {
     "item": null,
@@ -112,7 +122,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
   },
   {
     "item": null,
@@ -131,7 +143,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
   },
   {
     "item": null,
@@ -150,7 +164,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
   },
   {
     "item": null,
@@ -169,7 +185,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
   },
   {
     "item": null,
@@ -188,7 +206,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
   },
   {
     "item": null,
@@ -207,7 +227,9 @@
     "itemPlacementWest": 0,
     "itemPlacementSouth": 0,
     "terrorist": null,
-    "terroristPlacement": 0
+    "terroristPlacement": 0,
+    "ellane": null,
+    "ellanePlacement": 0
   }
 
 ]

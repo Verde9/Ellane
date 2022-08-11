@@ -1,6 +1,7 @@
 package com.ellane.model;
 
 
+import com.ellane.character.Ellane;
 import com.ellane.character.Terrorist;
 
 public class Locations {
@@ -22,6 +23,8 @@ public class Locations {
     private int itemPlacementNorth;
     private Terrorist terrorist;
     private int terroristPlacement;
+    private Ellane ellane;
+    private int ellanePlacement;
 
     public Locations () {
     }
@@ -29,7 +32,7 @@ public class Locations {
     public Locations(Items item, String description, String west, String westDescription ,String south, String southDescription ,String north,
                      String northDescription, String east, String eastDescription, String name,
                      int itemPlacementEast, int itemPlacementNorth, int itemPlacementWest,
-                     int itemPlacementSouth, Terrorist terrorist, int terroristPlacement)
+                     int itemPlacementSouth, Terrorist terrorist, int terroristPlacement, Ellane ellane, int ellanePlacement)
     {
         this.item = item;
         this.description = description;
@@ -48,6 +51,8 @@ public class Locations {
         this.itemPlacementSouth = itemPlacementSouth;
         this.terrorist = terrorist;
         this.terroristPlacement = terroristPlacement;
+        this.ellane = ellane;
+        this.ellanePlacement = ellanePlacement;
     }
 
     public String getName() {
@@ -118,6 +123,14 @@ public class Locations {
         return terroristPlacement;
     }
 
+    public Ellane getEllane() {
+        return ellane;
+    }
+
+    public int getEllanePlacement() {
+        return ellanePlacement;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -186,22 +199,38 @@ public class Locations {
         this.terroristPlacement = terroristPlacement;
     }
 
+    public void setEllane(Ellane ellane) {
+        this.ellane = ellane;
+    }
+
+    public void setEllanePlacement(int ellanePlacement) {
+        this.ellanePlacement = ellanePlacement;
+    }
+
     @Override
     public String toString() {
         return "Locations{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", north='" + north + '\'' +
+                ", northDescription='" + northDescription + '\'' +
                 ", west='" + west + '\'' +
+                ", westDescription='" + westDescription + '\'' +
                 ", east='" + east + '\'' +
+                ", eastDescription='" + eastDescription + '\'' +
                 ", south='" + south + '\'' +
+                ", southDescription='" + southDescription + '\'' +
                 ", item=" + item +
                 ", itemPlacementSouth=" + itemPlacementSouth +
                 ", itemPlacementEast=" + itemPlacementEast +
                 ", itemPlacementWest=" + itemPlacementWest +
                 ", itemPlacementNorth=" + itemPlacementNorth +
+                ", terrorist=" + terrorist +
+                ", terroristPlacement=" + terroristPlacement +
+                ", ellane=" + ellane +
+                ", ellanePlacement=" + ellanePlacement +
                 '}';
     }
-
 }
+
 

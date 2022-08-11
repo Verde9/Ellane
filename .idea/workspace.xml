@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d17cdfe-d2b3-4296-af37-e0adf1334ead" name="Changes" comment="" />
+    <list default="true" id="9d17cdfe-d2b3-4296-af37-e0adf1334ead" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Music/For Work 2_1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Music/intro wav 2_1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RoomsAndContent/rooms.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/character/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/character/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/character/Terrorist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/character/Terrorist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/model/Locations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/model/Locations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/view/EllaneView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/view/EllaneView.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,6 +46,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2D8xVRKlzeXCeqZmF7rJeShvjt5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
