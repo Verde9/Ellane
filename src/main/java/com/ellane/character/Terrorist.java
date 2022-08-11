@@ -33,112 +33,115 @@ public class Terrorist {
             switch (choice) {
                 case "fight":
                     if (player.getInventory().size() != 0) {
-                        boolean decision = true;
-                        int number;
-                        System.out.println(player.getName() + ":" + "Fuck... I guess there's no other way out of this.");
+                        if(player.getInventory().size() != 1 && player.getInventory().contains("keys") || player.getInventory().size() != 1 && player.getInventory().contains("gas mask")) {
+                            boolean decision = true;
+                            int number;
+                            System.out.println(player.getName() + ":" + "Fuck... I guess there's no other way out of this.");
 
-                        while (decision) {
-                            System.out.println("Here is your current inventory: " + player.getInventory());
-                            System.out.println();
-                            System.out.println("Commands: Type 'use' + item in inventory.");
-                            System.out.println();
-                            System.out.println("What should you do?");
-
-
-                            String fightChoice = scanner.nextLine().toLowerCase();
+                            while (decision) {
+                                System.out.println("Here is your current inventory: " + player.getInventory());
+                                System.out.println();
+                                System.out.println("Commands: Type 'use' + item in inventory.");
+                                System.out.println();
+                                System.out.println("What should you do?");
 
 
-                            try {
-                                String[] stringArr = fightChoice.split(" ", 2);
-                                firstWord = stringArr[0];
-                                secondWord = stringArr[1];
-                            } catch (Exception ignored) {
-
-                            }
+                                String fightChoice = scanner.nextLine().toLowerCase();
 
 
-                            if (firstWord.equals("use")) {
-                                if (player.getInventory().contains(secondWord)) {
+                                try {
+                                    String[] stringArr = fightChoice.split(" ", 2);
+                                    firstWord = stringArr[0];
+                                    secondWord = stringArr[1];
+                                } catch (Exception ignored) {
 
-                                    switch (secondWord) {
-                                        case "gun":
-                                            player.getInventory().remove("gun");
-                                            System.out.println(player.getName() + ":" + " Oh I got something for you!");
-                                            System.out.println();
-                                            System.out.println("*BANG BANG BANG BANG BANG*");
-
-                                            number = (int) (Math.random() * (100 - 1 + 1) + 1);
-
-                                            if (number > 10) {
-                                                System.out.println(getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...");
-                                                System.out.println("(Translation: You've won this battle American, but you have not won the.. ) ");
-                                                System.out.println();
-                                                System.out.println(getName() + ":" + " *Dies*");
-                                            } else {
-                                                System.out.println("You tried to shoot Ivan but missed. Ivan unloads a whole mag into you.");
-                                                System.out.println();
-                                                System.out.println("You die. Game Over");
-                                                System.exit(0);
-                                            }
-                                            decision = false;
-                                            valid = false;
-                                            break;
-                                        case "pocket knife":
-                                            player.getInventory().remove("pocket knife");
-                                            System.out.println(player.getName() + ":" + " Oh I got something for you!");
-                                            System.out.println();
-                                            System.out.println("* Attempts to stab Ivan *");
-
-                                            number = (int) (Math.random() * (100 - 1 + 1) + 1);
-
-                                            if (number > 50) {
-                                                System.out.println(getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...");
-                                                System.out.println("(Translation: You've won this battle American, but you have not won the.. ) ");
-                                                System.out.println();
-                                                System.out.println(getName() + ":" + " *Dies*");
-
-                                            } else {
-                                                System.out.println("You tried to stab Ivan but missed. Ivan unloads a whole mag into you.");
-                                                System.out.println();
-                                                System.out.println("You die. Game Over");
-                                                System.exit(0);
-                                            }
-                                            decision = false;
-                                            valid = false;
-                                            break;
-                                        case "bat":
-                                        case "pole":
-                                            player.getInventory().remove(secondWord);
-                                            System.out.println(player.getName() + ":" + " Oh I got something for you!");
-                                            System.out.println();
-                                            System.out.println("* Attempts to hit Ivan with pole *");
-
-                                            number = (int) (Math.random() * (100 - 1 + 1) + 1);
-
-                                            if (number > 30) {
-                                                System.out.println(getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...");
-                                                System.out.println("(Translation: You've won this battle American, but you have not won the.. ) ");
-                                                System.out.println();
-                                                System.out.println(getName() + ":" + " *Dies*");
-
-                                            } else {
-                                                System.out.println("You tried to hit Ivan with a pole but missed. Ivan unloads a whole mag into you.");
-                                                System.out.println();
-                                                System.out.println("You die. Game Over");
-                                                System.exit(0);
-                                            }
-                                            decision = false;
-                                            valid = false;
-                                            break;
-
-                                    }
                                 }
-                            } else {
-                                System.out.println("Invalid Command. Type 'use' + item in inventory.");
+
+
+                                if (firstWord.equals("use")) {
+                                    if (player.getInventory().contains(secondWord)) {
+
+                                        switch (secondWord) {
+                                            case "gun":
+                                                player.getInventory().remove("gun");
+                                                System.out.println(player.getName() + ":" + " Oh I got something for you!");
+                                                System.out.println();
+                                                System.out.println("*BANG BANG BANG BANG BANG*");
+
+                                                number = (int) (Math.random() * (100 - 1 + 1) + 1);
+
+                                                if (number > 10) {
+                                                    System.out.println(getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...");
+                                                    System.out.println("(Translation: You've won this battle American, but you have not won the.. ) ");
+                                                    System.out.println();
+                                                    System.out.println(getName() + ":" + " *Dies*");
+                                                } else {
+                                                    System.out.println("You tried to shoot Ivan but missed. Ivan unloads a whole mag into you.");
+                                                    System.out.println();
+                                                    System.out.println("You die. Game Over");
+                                                    System.exit(0);
+                                                }
+                                                decision = false;
+                                                valid = false;
+                                                break;
+                                            case "pocket knife":
+                                                player.getInventory().remove("pocket knife");
+                                                System.out.println(player.getName() + ":" + " Oh I got something for you!");
+                                                System.out.println();
+                                                System.out.println("* Attempts to stab Ivan *");
+
+                                                number = (int) (Math.random() * (100 - 1 + 1) + 1);
+
+                                                if (number > 50) {
+                                                    System.out.println(getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...");
+                                                    System.out.println("(Translation: You've won this battle American, but you have not won the.. ) ");
+                                                    System.out.println();
+                                                    System.out.println(getName() + ":" + " *Dies*");
+
+                                                } else {
+                                                    System.out.println("You tried to stab Ivan but missed. Ivan unloads a whole mag into you.");
+                                                    System.out.println();
+                                                    System.out.println("You die. Game Over");
+                                                    System.exit(0);
+                                                }
+                                                decision = false;
+                                                valid = false;
+                                                break;
+                                            case "bat":
+                                            case "pole":
+                                                player.getInventory().remove(secondWord);
+                                                System.out.println(player.getName() + ":" + " Oh I got something for you!");
+                                                System.out.println();
+                                                System.out.println("* Attempts to hit Ivan with pole *");
+
+                                                number = (int) (Math.random() * (100 - 1 + 1) + 1);
+
+                                                if (number > 30) {
+                                                    System.out.println(getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...");
+                                                    System.out.println("(Translation: You've won this battle American, but you have not won the.. ) ");
+                                                    System.out.println();
+                                                    System.out.println(getName() + ":" + " *Dies*");
+
+                                                } else {
+                                                    System.out.println("You tried to hit Ivan with a pole but missed. Ivan unloads a whole mag into you.");
+                                                    System.out.println();
+                                                    System.out.println("You die. Game Over");
+                                                    System.exit(0);
+                                                }
+                                                decision = false;
+                                                valid = false;
+                                                break;
+
+                                        }
+                                    }
+                                } else {
+                                    System.out.println("Invalid Command. Type 'use' + item in inventory.");
+                                }
+
                             }
-
+                        } else {
+                            System.out.println("You can't do anything with the item in your inventory you need to run to possibly survive?");
                         }
-
                     } else {
                         System.out.println("You're inventory is empty! You're going to have to run to hopefully survive!");
                     }
