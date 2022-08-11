@@ -130,11 +130,7 @@ public class EllaneApp {
 
         }
 
-        for(Locations location: locations) {
-            if(location.getTerroristPlacement() == 3){
-                System.out.println(location.getName() + "has a terrorist.");
-            }
-        }
+
 
     }
 
@@ -256,7 +252,7 @@ public class EllaneApp {
                             player.getInventory().add(secondWord);
                             System.out.println(player.getName() + " added the " + currentRoom.getItem().getName() + " to their inventory! ");
                             System.out.println();
-                            System.out.println("I'm going to put this gas mask on right away so I can breath easier!");
+                            System.out.println(player.getName() + ":" + " I'm going to put this gas mask on right away so I can breath easier!");
                             System.out.println();
                             System.out.println("Player health will now decrease by 1!");
                             currentRoom.setItem(item);
