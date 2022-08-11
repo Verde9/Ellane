@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
+
+// This class creates the player object
+
 public class Player {
     private String name;
     private Integer health = 85;

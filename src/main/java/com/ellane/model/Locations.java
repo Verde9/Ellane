@@ -4,6 +4,8 @@ package com.ellane.model;
 import com.ellane.character.Ellane;
 import com.ellane.character.Terrorist;
 
+// This class creates Locations objects after pulling the data from the rooms.json file.
+
 public class Locations {
 
     private String name;
