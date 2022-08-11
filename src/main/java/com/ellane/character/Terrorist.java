@@ -14,6 +14,7 @@ public class Terrorist {
         this.name = name;
     }
 
+    // This method initiates the terrorist and player fight depending on which room the terrorist is in.
 
     public void PlayerDetected(Player player, Terrorist terrorist) {
         Scanner scanner = new Scanner(System.in);
@@ -22,7 +23,11 @@ public class Terrorist {
         String firstWord = "";
         String secondWord = "";
 
+        // This will render the terrorist dialogue in the Ellane view class.
+
         view.renderTerroristDialogue(terrorist, player);
+
+        // The while loop starts a prompt that asks the player if they want to fight or run
 
         while (valid) {
             System.out.println(player.getName() + ":" + " Should I fight or should I run?");
@@ -30,6 +35,11 @@ public class Terrorist {
             String choice = scanner.nextLine().toLowerCase();
 
             switch (choice) {
+
+                // In the fight case it'll check if the players inventory is 0 in which case you cannot fight and have to select run.
+                // This will also check if the player only has a gas mask or keys in their inventory in which case you can't fight and will have to run.
+                // The else case here will allow the player to use certain items in their inventory to attack the terrorist in which case certain items will have either a higher probability or a lower probability of working and killing the terrorist.
+
                 case "fight":
                     if (player.getInventory().size() != 0) {
                         if(player.getInventory().size() == 1 && player.getInventory().contains("keys") || player.getInventory().size() == 1 && player.getInventory().contains("gas mask")) {
@@ -147,6 +157,9 @@ public class Terrorist {
                         System.out.println("You're inventory is empty! You're going to have to run to hopefully survive!");
                     }
                     break;
+
+                    // The run case will allow the player to try to escape, but they will still take damage which could potentially kill them and end the game.
+
                 case "run":
                     System.out.println(getName() + ":" + "Пытаешься уйти, да? Дай я тебе кое-что возьму с собой!");
                     System.out.println("(Translation: Trying to get away huh? Let me give you something to take with you!)");

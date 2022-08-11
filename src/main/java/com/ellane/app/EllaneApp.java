@@ -23,6 +23,9 @@ import java.util.concurrent.TimeUnit;
 
 
 public class EllaneApp {
+
+    // First word and second word variables are created here as well as the gameover Boolean. The locations list and items list are created here as well.
+
     private String firstWord;
     private String secondWord;
     private Locations currentRoom;
@@ -31,22 +34,27 @@ public class EllaneApp {
     List<Items> items = new ArrayList<>();
 
 
+    // The character objects and items are created here as well as the 'Empty' objects which will be used later in the code.
+
     Player player = new Player();
     Terrorist terrorist = new Terrorist("Ivan");
     Terrorist terroristBlank = new Terrorist("Empty");
     Ellane ellane = new Ellane("Ellane");
     Ellane ellaneBlank = new Ellane("Empty");
     Items item = new Items("empty");
-    private static EllaneView view = new EllaneView();
+    EllaneView view = new EllaneView();
     Scanner scan = new Scanner(System.in);
 
 
-    //this will run the app in the main class
+    // This will run the app in the main class
+
     public void initialize() throws InterruptedException {
         view = new EllaneView();
         view.renderWelcomeGameMessage();
         promptToStartGame();
     }
+
+    // This method checks the end game conditions when the following values are met.
 
     public void checkEndGameConditions() throws NullPointerException {
         if (player.getHealth() <= 0 || firstWord.equals("quit") || gameOver) {
@@ -56,10 +64,14 @@ public class EllaneApp {
         }
     }
 
+    // This method starts the intro music method and lets the user set their name.
+
     private void promptToStartGame() throws InterruptedException {
         introMusic("src/main/resources/Music/For Work 2_1.wav");
         setPlayerName();
     }
+
+    // This method creates all the items in the game and then add them to the items list which was created at the top of this page. It will also shuffle the items each time the game starts.
 
     public void generateItems() {
         Items gun = new Items("gun", "I see a gun on the ground! Let me check the mag...... and it's fully loaded! I should probably pick this up.");
@@ -87,17 +99,25 @@ public class EllaneApp {
         items.add(blank4);
         items.add(blank5);
 
+        // This will shuffle the items each time the game starts.
+
         Collections.shuffle(items);
     }
 
 
+    // This method will pull the data from the json file and create new location objects. The locations also have the ellane, terrorists, and item objects attached here as well.
+
     public void generateLocation() {
+        // This list sets number values to a list called num so that they can be used  to the 'itemPlacement' variables in the locations list.
+
         List<Integer> num = new ArrayList<>();
 
         num.add(1);
         num.add(2);
         num.add(3);
         num.add(4);
+
+        // This try catch will use gson to pull the locations data from the rooms.json file and save it to the locations list.
 
         try {
 
@@ -114,9 +134,13 @@ public class EllaneApp {
             e.printStackTrace();
         }
 
+        // These methods generate the items as well as randomize the terrorist and ellane objects.
+
         generateItems();
         randomizeTerrorist();
         randomizeEllane();
+
+        // This for loop will shuffle and place the items on each location's north, east, south, and west itemPlacement variables each time the game is started.
 
         for (int i = 0; i < locations.size() - 4; i++) {
             Locations currentLocation = locations.get(i);
@@ -136,6 +160,8 @@ public class EllaneApp {
     }
 
     public void randomizeTerrorist() {
+        // This list sets number values to a list called num so that they can be used for the 'terroristPlacement' variables in the locations list.
+
         List<Integer> num = new ArrayList<>();
 
         num.add(0);
@@ -147,6 +173,8 @@ public class EllaneApp {
         num.add(6);
 
         Collections.shuffle(num);
+
+        // This for loop will set the terrorist object in all the rooms except for the rooms ellan is possibly in, the roof, the roof staircase, and the lobby when the game starts.
 
         for (int i = 0; i < locations.size() - 4; i++) {
             Locations currentLocation = locations.get(i);
@@ -164,12 +192,16 @@ public class EllaneApp {
     }
 
     public void randomizeEllane() {
+        // This list sets number values to a list called num so that they can be used for the 'ellanePlacement' variables in the locations list.
+
         List<Integer> num = new ArrayList<>();
 
         num.add(0);
         num.add(1);
 
         Collections.shuffle(num);
+
+        // These will only place Ellane in rooms 205 or rooms 310 in the locations list.
 
         locations.get(7).setEllanePlacement(num.get(0));
         locations.get(8).setEllanePlacement(num.get(1));
@@ -181,6 +213,8 @@ public class EllaneApp {
         }
     }
 
+
+    // Allows user to set their name
 
     public void setPlayerName() throws InterruptedException {
         String playerName = "";
@@ -197,6 +231,8 @@ public class EllaneApp {
         startGame();
     }
 
+    // This will displayGameInfo and generate the locations while also prompting the player for a decision.
+
     private void startGame() throws InterruptedException {
         view.renderDisplayGameInfo();
         generateLocation();
@@ -207,6 +243,8 @@ public class EllaneApp {
         }
         view.renderEndGameMessageAndResults(player.getHealth());
     }
+
+    // This method will split the users input into two strings and save it to a string array while also saving them to the first and secondword variables.
 
     private void promptPlayerForDecision() throws InterruptedException {
         System.out.println("What should you do?");
@@ -228,6 +266,8 @@ public class EllaneApp {
 
     }
 
+
+    // This method go through a switch case based on the user's first word
 
     private void verifyFirstWord(String firstWord) throws InterruptedException {
 
@@ -331,6 +371,8 @@ public class EllaneApp {
         }
     }
 
+    // This method verifies the room movement while also doing a switch case on the second word.
+
     private void verifyRoomMovement() {
 
 
@@ -397,6 +439,8 @@ public class EllaneApp {
             }
         }
     }
+
+    // This method does a switch case on the second word. This will allow the player to move through each room.
 
     private void verifyLocation() {
 
@@ -507,6 +551,8 @@ public class EllaneApp {
 
     }
 
+    // This method isn't used but can help the user run music.
+
     public static void runMusic(String path) {
         try {
             Scanner scanner = new Scanner(System.in);
@@ -555,6 +601,7 @@ public class EllaneApp {
         }
     }
 
+    // This method starts the intro music in the beginning of the method.
 
     public static void introMusic(String path) {
         try {

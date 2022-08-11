@@ -1,5 +1,8 @@
 package com.ellane.model;
 
+
+// This class creates the items objects.
+
 public class Items {
     private String name;
     private String item_description;

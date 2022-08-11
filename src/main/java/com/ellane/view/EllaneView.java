@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+
+// This class contains most of the dialogue used this the app.
+
 public class EllaneView {
 
     public EllaneView() {
