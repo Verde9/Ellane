@@ -1,0 +1,19 @@
+<changelist name="stash_3" date="1660094214224" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/stash_3/shelved.patch" />
+  <option name="DESCRIPTION" value="stash 3" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/ellane/app/EllaneApp$1.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/ellane/app/EllaneApp.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/com/ellane/view/EllaneView.class" />
+    <option name="AFTER_PATH" value="target/classes/com/ellane/view/EllaneView.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/stash_3/EllaneView.class" />
+  </binary>
+</changelist>
