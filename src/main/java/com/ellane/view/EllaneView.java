@@ -137,4 +137,24 @@ public class EllaneView {
         System.out.println();
         System.out.println(player.getName() + ": " + "Yes, let's go..");
     }
+
+    public void renderWinGameDialogue(Ellane ellane, Player player) {
+
+        System.out.println("Helicopter Pilot: Hold on! we have a few more!");
+        System.out.println();
+        System.out.println(player.getName() + ": " + "Thank God! Look Ellane we made it!");
+        System.out.println();
+        System.out.println(ellane.getName() + ":" + "Thanks Mister! I can't wait to see my mommy!");
+        System.out.println();
+        System.out.println(player.getName() + ": " + "........ yeah.. I'm sure she'll be happy to know that you're safe");
+        System.out.println();
+        System.out.println("Helicopter Pilot: Alright! That's it, let's MOVE MOVE MOVE!");
+        System.out.println();
+        System.out.println("CONGRATULATIONS, you saved Ellane and yourself");
+        System.out.println();
+        System.out.println("Thanks for Playing Ellane!");
+        System.out.println();
+        System.out.println("GAME OVER");
+
+    }
 }

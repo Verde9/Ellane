@@ -196,7 +196,7 @@
     "westDescription": "Theres nothing here, I need to get to the roof!",
     "south": "N/A",
     "southDescription": "Nothing here, I gotta get to the roof.",
-    "north": "roof",
+    "north": "Roof",
     "northDescription": "If I head this way I can get to the roof!",
     "east": "Room 410",
     "eastDescription": "If I go back this way I'll go back to Room 410, I should definitely get to the roof!",

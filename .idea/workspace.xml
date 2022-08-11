@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9d17cdfe-d2b3-4296-af37-e0adf1334ead" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Music/For Work 2_1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Music/intro wav 2_1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RoomsAndContent/rooms.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/character/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/character/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/character/Terrorist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/character/Terrorist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/model/Locations.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/model/Locations.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/character/Ellane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/character/Ellane.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/view/EllaneView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/view/EllaneView.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -163,8 +158,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.EllaneApp2" />
         <item itemvalue="Application.EllaneApp (1)" />
         <item itemvalue="Application.EllaneApp" />
