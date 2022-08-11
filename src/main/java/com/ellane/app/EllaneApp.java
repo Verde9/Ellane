@@ -42,21 +42,21 @@ public class EllaneApp {
 
 
     //this will run the app in the main class
-    public void initialize() throws InterruptedException, IOException {
+    public void initialize() throws InterruptedException {
         view = new EllaneView();
         view.renderWelcomeGameMessage();
         promptToStartGame();
     }
 
     public void checkEndGameConditions() throws NullPointerException {
-        if (player.getHealth() <= 0 || firstWord.equals("quit") || gameOver == true) {
+        if (player.getHealth() <= 0 || firstWord.equals("quit") || gameOver) {
             gameOver = true;
             view.renderEndGameMessageAndResults(player.getHealth());
             System.exit(0);
         }
     }
 
-    private void promptToStartGame() throws InterruptedException, IOException {
+    private void promptToStartGame() throws InterruptedException {
         introMusic("src/main/resources/Music/For Work 2_1.wav");
         setPlayerName();
     }
@@ -100,7 +100,6 @@ public class EllaneApp {
         num.add(4);
 
         try {
-            Gson gson = new Gson();
 
             Reader reader = Files.newBufferedReader(Paths.get("src/main/resources/RoomsAndContent/rooms.json"));
 
@@ -133,8 +132,6 @@ public class EllaneApp {
 
         }
 
-        player.getInventory().add("keys");
-        player.getInventory().add("gun");
 
     }
 
@@ -185,7 +182,7 @@ public class EllaneApp {
     }
 
 
-    public void setPlayerName() throws IOException, InterruptedException {
+    public void setPlayerName() throws InterruptedException {
         String playerName = "";
         while (playerName.length() <= 0) {
             System.out.println();
@@ -200,7 +197,7 @@ public class EllaneApp {
         startGame();
     }
 
-    private void startGame() throws InterruptedException, IOException {
+    private void startGame() throws InterruptedException {
         view.renderDisplayGameInfo();
         generateLocation();
         System.out.println("You are currently in the " + currentRoom.getName() + " and you current health is: " + player.getHealth());
@@ -334,7 +331,7 @@ public class EllaneApp {
         }
     }
 
-    private void verifyRoomMovement() throws InterruptedException {
+    private void verifyRoomMovement() {
 
 
         if (firstWord.equals("go")) {
@@ -411,6 +408,17 @@ public class EllaneApp {
                     for (Locations room : locations) {
                         if (room.getName().equals(currentRoom.getNorth())) {
                             currentRoom = room;
+                            if (currentRoom.getName().equals("Roof")) {
+                                if (locations.get(7).getEllane() == ellaneBlank || locations.get(8).getEllane() == ellaneBlank) {
+                                    view.renderWinGameDialogue(ellane, player);
+                                    System.exit(0);
+                                } else {
+                                    System.out.println(player.getName() + ":" + " I can't leave yet! I don't have Ellane!");
+                                    currentRoom = locations.get(9);
+                                    break;
+                                }
+                            }
+                            currentRoom = room;
                             if (currentRoom.getTerrorist() == terrorist) {
                                 terrorist.PlayerDetected(player, this.terrorist);
                                 currentRoom.setTerrorist(terroristBlank);
@@ -419,7 +427,6 @@ public class EllaneApp {
                             break;
                         }
                     }
-
                 }
                 System.out.println();
                 break;
@@ -601,8 +608,5 @@ public class EllaneApp {
 
     }
 
-    public Boolean getGameOver() {
-        return gameOver;
-    }
 
 }

@@ -10,9 +10,5 @@ public class Main {
 
             EllaneApp app = new EllaneApp();
             app.initialize();
-            //app.verifyLocation();
-            //TODO: move logic to SRC
-
-            //TODO: need to test all items...//main shouldn't throw exceptions
         }
     }
