@@ -1,0 +1,214 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"9d17cdfe-d2b3-4296-af37-e0adf1334ead\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"develop\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2D8xVRKlzeXCeqZmF7rJeShvjt5\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"flattenModules\" value=\"true\" />\r\n    <option name=\"flattenPackages\" value=\"true\" />\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showExcludedFiles\" value=\"false\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.1150748\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\AmazonSDE\\Ellane2\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"EllaneApp (1)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.ellane.app.EllaneApp\" />\r\n      <module name=\"Ellane-Project\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.ellane.app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EllaneApp\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.EllaneApp\" />\r\n      <module name=\"Ellane-Project\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"EllaneApp2\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"app.EllaneApp2\" />\r\n      <module name=\"Ellane-Project\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"app.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main (1)\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"client.Main\" />\r\n      <module name=\"Ellane-Project\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"client.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"11\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.ellane.client.Main\" />\r\n      <module name=\"ellane_game\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.ellane.client.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"JetRunConfigurationType\">\r\n      <module name=\"Ellane-Project\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"KotlinStandaloneScriptRunConfigurationType\">\r\n      <module name=\"Ellane-Project\" />\r\n      <option name=\"filePath\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.Main (1)\" />\r\n        <item itemvalue=\"Application.EllaneApp2\" />\r\n        <item itemvalue=\"Application.EllaneApp (1)\" />\r\n        <item itemvalue=\"Application.EllaneApp\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"9d17cdfe-d2b3-4296-af37-e0adf1334ead\" name=\"Changes\" comment=\"\" />\r\n      <created>1660094535772</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1660094535772</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/Ellane_Project$EllaneApp.ic\" NAME=\"EllaneApp Coverage Results\" MODIFIED=\"1660055361111\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\">\r\n      <FILTER>app.*</FILTER>\r\n    </SUITE>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,7 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="9d17cdfe-d2b3-4296-af37-e0adf1334ead" name="Changes" comment="" />
++    <list default="true" id="9d17cdfe-d2b3-4296-af37-e0adf1334ead" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/ellane_game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ellane_game.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/Music/For Work 2_1.wav" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/Music/intro wav 2_1.wav" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/RoomsAndContent/rooms.json" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ellane/app/EllaneApp.class" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -14,6 +21,7 @@
+     <option name="RECENT_TEMPLATES">
+       <list>
+         <option value="Class" />
++        <option value="JUnit4 Test Class" />
+       </list>
+     </option>
+   </component>
+@@ -49,9 +57,15 @@
+   </component>
+   <component name="PropertiesComponent">
+     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
++    <property name="Downloaded.Files.Path.Enabled" value="false" />
++    <property name="Repository.Attach.Annotations" value="false" />
++    <property name="Repository.Attach.JavaDocs" value="false" />
++    <property name="Repository.Attach.Sources" value="false" />
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
++    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
++    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+     <property name="project.structure.last.edited" value="Modules" />
+     <property name="project.structure.proportion" value="0.15" />
+@@ -60,15 +74,21 @@
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\AmazonSDE\Ellane2" />
++    </key>
++    <key name="CreateTestDialog.Recents.Supers">
++      <recent name="" />
++    </key>
++    <key name="CreateTestDialog.RecentsKey">
++      <recent name="com.ellane.app" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.Main">
+-    <configuration name="EllaneApp (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneApp" />
++  <component name="RunManager" selected="JUnit.EllaneAppTest.randomizeTerrorist_shouldShuffleTheTerroristEnemy_everyTimeIsCall">
++    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="client.Main" />
+       <module name="Ellane-Project" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="com.ellane.app.*" />
++          <option name="PATTERN" value="client.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -76,12 +96,14 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="EllaneApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="app.EllaneApp" />
+-      <module name="Ellane-Project" />
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="ALTERNATIVE_JRE_PATH" value="11" />
++      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
++      <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
++      <module name="ellane_game" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="app.*" />
++          <option name="PATTERN" value="com.ellane.client.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -89,43 +111,50 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="EllaneApp2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="app.EllaneApp2" />
+-      <module name="Ellane-Project" />
++    <configuration name="EllaneAppTest.generateLocation_shouldLocationsAfterItGenerate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="ellane_game" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="app.*" />
++          <option name="PATTERN" value="com.ellane.app.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
++      <option name="PACKAGE_NAME" value="com.ellane.app" />
++      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
++      <option name="METHOD_NAME" value="generateLocation_shouldLocationsAfterItGenerate" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="client.Main" />
+-      <module name="Ellane-Project" />
++    <configuration name="EllaneAppTest.randomizeTerrorist_shouldShuffleTheTerroristEnemy_everyTimeIsCall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="ellane_game" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="client.*" />
++          <option name="PATTERN" value="com.ellane.app.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
++      <option name="PACKAGE_NAME" value="com.ellane.app" />
++      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
++      <option name="METHOD_NAME" value="randomizeTerrorist_shouldShuffleTheTerroristEnemy_everyTimeIsCall" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+-      <option name="MAIN_CLASS_NAME" value="com.ellane.client.Main" />
++    <configuration name="EllaneAppTest.setPlayerName_shouldPromptUserToTakeNameOfTheUserPlayer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="ellane_game" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="com.ellane.client.*" />
++          <option name="PATTERN" value="com.ellane.app.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
++      <option name="PACKAGE_NAME" value="com.ellane.app" />
++      <option name="MAIN_CLASS_NAME" value="com.ellane.app.EllaneAppTest" />
++      <option name="METHOD_NAME" value="setPlayerName_shouldPromptUserToTakeNameOfTheUserPlayer" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -145,11 +174,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="JUnit.EllaneAppTest.randomizeTerrorist_shouldShuffleTheTerroristEnemy_everyTimeIsCall" />
++        <item itemvalue="JUnit.EllaneAppTest.generateLocation_shouldLocationsAfterItGenerate" />
++        <item itemvalue="JUnit.EllaneAppTest.setPlayerName_shouldPromptUserToTakeNameOfTheUserPlayer" />
+         <item itemvalue="Application.Main" />
+         <item itemvalue="Application.Main (1)" />
+-        <item itemvalue="Application.EllaneApp2" />
+-        <item itemvalue="Application.EllaneApp (1)" />
+-        <item itemvalue="Application.EllaneApp" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -174,8 +203,12 @@
+         </entry>
+       </map>
+     </option>
++    <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
++    <SUITE FILE_PATH="coverage/Ellane2$Main.ic" NAME="Main Coverage Results" MODIFIED="1660082194209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
++      <FILTER>com.ellane.client.*</FILTER>
++    </SUITE>
+     <SUITE FILE_PATH="coverage/Ellane_Project$EllaneApp.ic" NAME="EllaneApp Coverage Results" MODIFIED="1660055361111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+       <FILTER>app.*</FILTER>
+     </SUITE>
+Index: ellane_game.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule=\"true\" type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" LANGUAGE_LEVEL=\"JDK_11\">\r\n    <output url=\"file://$MODULE_DIR$/target/classes\" />\r\n    <output-test url=\"file://$MODULE_DIR$/target/test-classes\" />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/java\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/resources\" type=\"java-resource\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test/java\" isTestSource=\"true\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/target\" />\r\n    </content>\r\n    <orderEntry type=\"jdk\" jdkName=\"11\" jdkType=\"JavaSDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.springframework.boot:spring-boot-autoconfigure:2.7.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.springframework.boot:spring-boot:2.7.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.springframework:spring-core:5.3.21\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.springframework:spring-jcl:5.3.21\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.springframework:spring-context:5.3.21\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.springframework:spring-aop:5.3.21\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.springframework:spring-beans:5.3.21\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.springframework:spring-expression:5.3.21\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.google.code.gson:gson:2.9.0\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ellane_game.iml b/ellane_game.iml
+--- a/ellane_game.iml	
++++ b/ellane_game.iml	
+@@ -20,5 +20,15 @@
+     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.21" level="project" />
+     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.21" level="project" />
+     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.9.0" level="project" />
++    <orderEntry type="module-library" scope="TEST">
++      <library name="JUnit4">
++        <CLASSES>
++          <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.13.1/junit-4.13.1.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
+   </component>
+ </module>
+\ No newline at end of file
