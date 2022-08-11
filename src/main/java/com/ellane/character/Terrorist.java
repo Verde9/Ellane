@@ -2,7 +2,6 @@ package com.ellane.character;
 
 import com.ellane.view.EllaneView;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -23,7 +22,7 @@ public class Terrorist {
         String firstWord = "";
         String secondWord = "";
 
-        view.terroristDialogue(terrorist, player);
+        view.renderTerroristDialogue(terrorist, player);
 
         while (valid) {
             System.out.println(player.getName() + ":" + " Should I fight or should I run?");
@@ -33,7 +32,9 @@ public class Terrorist {
             switch (choice) {
                 case "fight":
                     if (player.getInventory().size() != 0) {
-                        if(player.getInventory().size() != 1 && player.getInventory().contains("keys") || player.getInventory().size() != 1 && player.getInventory().contains("gas mask")) {
+                        if(player.getInventory().size() == 1 && player.getInventory().contains("keys") || player.getInventory().size() == 1 && player.getInventory().contains("gas mask")) {
+                            System.out.println("You can't do anything with the item in your inventory you need to run to possibly survive.");
+                        } else {
                             boolean decision = true;
                             int number;
                             System.out.println(player.getName() + ":" + "Fuck... I guess there's no other way out of this.");
@@ -131,7 +132,9 @@ public class Terrorist {
                                                 decision = false;
                                                 valid = false;
                                                 break;
-
+                                            default:
+                                                System.out.println(player.getName() + ":" + "I can't use that item, I need to use something else!");
+                                                break;
                                         }
                                     }
                                 } else {
@@ -139,8 +142,6 @@ public class Terrorist {
                                 }
 
                             }
-                        } else {
-                            System.out.println("You can't do anything with the item in your inventory you need to run to possibly survive?");
                         }
                     } else {
                         System.out.println("You're inventory is empty! You're going to have to run to hopefully survive!");

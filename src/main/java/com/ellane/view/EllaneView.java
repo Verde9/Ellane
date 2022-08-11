@@ -1,12 +1,12 @@
 package com.ellane.view;
 
+import com.ellane.character.Ellane;
 import com.ellane.character.Player;
 import com.ellane.character.Terrorist;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.concurrent.TimeUnit;
 
 public class EllaneView {
 
@@ -104,7 +104,7 @@ public class EllaneView {
         System.err.println("YOU MUST ENTER A NAME");
     }
 
-    public void terroristDialogue(Terrorist terrorist, Player player) {
+    public void renderTerroristDialogue(Terrorist terrorist, Player player) {
 
         System.out.println(terrorist.getName() + ":" + "Американец! Иди сюда быстро!...");
         System.out.println("(Translation: American! Come here now!.. ) ");
@@ -115,5 +115,26 @@ public class EllaneView {
         System.out.println();
         System.out.println(terrorist.getName() + ":" + "К счастью для тебя, американец, я не беру пленных!!...");
         System.out.println("(Translation: Lucky for you American, I take no prisoners. ) ");
+    }
+
+    public void renderEllaneDialogue(Ellane ellane, Player player) {
+
+        System.out.println(ellane.getName() + ":" + "* SHRIEKS *");
+        System.out.println();
+        System.out.println(player.getName() + ": " + "Ellane.. ELLANE !! It's ok! I'm not going to hurt you! Your mother sent me to come get you.");
+        System.out.println();
+        System.out.println(ellane.getName() + ":" + "Why did mommy send you?? Where is mommy???");
+        System.out.println();
+        System.out.println(player.getName() + ": " + "........ she's somewhere safe. She asked me to come get you so that I can get you to safety as well.");
+        System.out.println();
+        System.out.println(player.getName() + ": " + "Now we don't have much time Ellane, I'm not doing so well and don't have much time. We have to go NOW!!");
+        System.out.println();
+        System.out.println(ellane.getName() + ": " + "*Cries and sniffs* Ok mister, but I'm scared. I heard people screaming earlier.");
+        System.out.println();
+        System.out.println(player.getName() + ": " + "Don't worry Ellane, I promised your mother that I would protect you and get you to safety but if we don't go now I can't keep that promise!");
+        System.out.println();
+        System.out.println(ellane.getName() + ": " + "Ok, ok *sniffs* Let's go to mommy.");
+        System.out.println();
+        System.out.println(player.getName() + ": " + "Yes, let's go..");
     }
 }

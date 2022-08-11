@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Player {
     private String name;
-    private Integer health = 60;
+    private Integer health = 85;
     private ArrayList<String> inventory = new ArrayList<>();
 
     // Make constructor for properties
