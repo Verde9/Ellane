@@ -142,7 +142,7 @@ public class EllaneApp {
 
         // This for loop will shuffle and place the items on each location's north, east, south, and west itemPlacement variables each time the game is started.
 
-        for (int i = 0; i < locations.size() - 4; i++) {
+        for (int i = 0; i < locations.size() - 3; i++) {
             Locations currentLocation = locations.get(i);
 
             currentLocation.setItem(items.get(i));
@@ -171,12 +171,13 @@ public class EllaneApp {
         num.add(4);
         num.add(5);
         num.add(6);
+        num.add(7);
 
         Collections.shuffle(num);
 
         // This for loop will set the terrorist object in all the rooms except for the rooms ellan is possibly in, the roof, the roof staircase, and the lobby when the game starts.
 
-        for (int i = 0; i < locations.size() - 4; i++) {
+        for (int i = 0; i < locations.size() - 3; i++) {
             Locations currentLocation = locations.get(i);
 
             if (i != 0) {
@@ -203,13 +204,13 @@ public class EllaneApp {
 
         // These will only place Ellane in rooms 205 or rooms 310 in the locations list.
 
-        locations.get(7).setEllanePlacement(num.get(0));
-        locations.get(8).setEllanePlacement(num.get(1));
+        locations.get(9).setEllanePlacement(num.get(0));
+        locations.get(10).setEllanePlacement(num.get(1));
 
-        if (locations.get(7).getEllanePlacement() == 1) {
-            locations.get(7).setEllane(ellane);
+        if (locations.get(9).getEllanePlacement() == 1) {
+            locations.get(9).setEllane(ellane);
         } else {
-            locations.get(8).setEllane(ellane);
+            locations.get(10).setEllane(ellane);
         }
     }
 
@@ -402,31 +403,39 @@ public class EllaneApp {
                 switch (secondWord) {
                     case "east":
                         System.out.println(player.getName() + ": " + currentRoom.getEastDescription());
-                        if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementEast() == 1)) {
-                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                        if (currentRoom.getItem() != null) {
+                            if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementEast() == 1)) {
+                                System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                            }
+                            System.out.println();
                         }
-                        System.out.println();
                         break;
                     case "west":
                         System.out.println(player.getName() + ": " + currentRoom.getWestDescription());
-                        if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementWest() == 1)) {
-                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                        if (currentRoom.getItem() != null) {
+                            if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementWest() == 1)) {
+                                System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                            }
+                            System.out.println();
                         }
-                        System.out.println();
                         break;
                     case "south":
                         System.out.println(player.getName() + ": " + currentRoom.getSouthDescription());
-                        if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementSouth() == 1)) {
-                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                        if (currentRoom.getItem() != null) {
+                            if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementSouth() == 1)) {
+                                System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                            }
+                            System.out.println();
                         }
-                        System.out.println();
                         break;
                     case "north":
                         System.out.println(player.getName() + ": " + currentRoom.getNorthDescription());
-                        if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementNorth() == 1)) {
-                            System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                        if (currentRoom.getItem() != null) {
+                            if (!currentRoom.getItem().getName().equals("empty") && (currentRoom.getItemPlacementNorth() == 1)) {
+                                System.out.println(player.getName() + ": " + currentRoom.getItem().getItem_description());
+                            }
+                            System.out.println();
                         }
-                        System.out.println();
                         break;
                     default:
                         System.out.println(player.getName() + ": " + "I can't look that way.");
@@ -453,12 +462,12 @@ public class EllaneApp {
                         if (room.getName().equals(currentRoom.getNorth())) {
                             currentRoom = room;
                             if (currentRoom.getName().equals("Roof")) {
-                                if (locations.get(7).getEllane() == ellaneBlank || locations.get(8).getEllane() == ellaneBlank) {
+                                if (locations.get(9).getEllane() == ellaneBlank || locations.get(10).getEllane() == ellaneBlank) {
                                     view.renderWinGameDialogue(ellane, player);
                                     System.exit(0);
                                 } else {
                                     System.out.println(player.getName() + ":" + " I can't leave yet! I don't have Ellane!");
-                                    currentRoom = locations.get(9);
+                                    currentRoom = locations.get(7);
                                     break;
                                 }
                             }
