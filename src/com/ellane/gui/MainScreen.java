@@ -22,7 +22,7 @@ public class MainScreen {
     public static JLabel destImageLabel = new JLabel();
     public static Button submitButton = new Button("Submit");
     public static boolean isTerrorist = false;
-    MainScreen(){
+    public MainScreen(){
 //
 //        JFrame mainFrame = new JFrame();
 //        TopMenu topMenu = new TopMenu();
@@ -169,7 +169,7 @@ public class MainScreen {
 
 
         outPut.setEditable(false);
-        outPut.setFont(new Font("Interstate", Font.BOLD, 24 ));
+        outPut.setFont(new Font("Interstate", Font.BOLD, 20 ));
         outPut.setForeground(Color.WHITE);
         outPut.setBackground(Color.black);
         outPut.setBorder(BorderFactory.createLineBorder(Color.yellow));

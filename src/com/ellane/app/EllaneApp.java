@@ -4,6 +4,7 @@ import com.ellane.character.Ellane;
 import com.ellane.character.Terrorist;
 import com.ellane.client.Main;
 import com.ellane.gui.MainScreen;
+import com.ellane.gui.TypeWriter;
 import com.ellane.model.Items;
 import com.ellane.model.Locations;
 import com.ellane.character.Player;
@@ -19,10 +20,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -47,6 +45,7 @@ public class EllaneApp {
     public static Ellane ellaneBlank = new Ellane("Empty");
     Items item = new Items("empty");
     EllaneView view = new EllaneView();
+    public boolean isSaved = false;
 
 
     // This will run the app in the main class
@@ -118,12 +117,7 @@ public class EllaneApp {
     public void generateLocation() {
         // This list sets number values to a list called num so that they can be used  to the 'itemPlacement' variables in the locations list.
 
-        List<Integer> num = new ArrayList<>();
-
-        num.add(1);
-        num.add(2);
-        num.add(3);
-        num.add(4);
+        List<Integer> num = new ArrayList<>(Arrays.asList(1,2,3,4));
 
         // This try catch will use gson to pull the locations data from the rooms.json file and save it to the locations list.
 
@@ -166,27 +160,20 @@ public class EllaneApp {
 
         }
 
+        player.getInventory().add("keys");
+        player.getInventory().add("gun");
+
+
 
     }
 
     public void randomizeTerrorist() {
         // This list sets number values to a list called num so that they can be used for the 'terroristPlacement' variables in the locations list.
 
-        List<Integer> num = new ArrayList<>();
-
-        num.add(0);
-        num.add(1);
-        num.add(2);
-        num.add(3);
-        num.add(4);
-        num.add(5);
-        num.add(6);
-        num.add(7);
-
+        List<Integer> num = new ArrayList<>(Arrays.asList(0,1,2,3,4,5,6,7));
         Collections.shuffle(num);
 
         // This for loop will set the terrorist object in all the rooms except for the rooms ellan is possibly in, the roof, the roof staircase, and the lobby when the game starts.
-
         for (int i = 0; i < locations.size() - 3; i++) {
             Locations currentLocation = locations.get(i);
 
@@ -197,31 +184,20 @@ public class EllaneApp {
                     currentLocation.setTerrorist(terrorist);
                 }
             }
-
         }
-
     }
 
     public void randomizeEllane() {
         // This list sets number values to a list called num so that they can be used for the 'ellanePlacement' variables in the locations list.
 
-        List<Integer> num = new ArrayList<>();
-
-        num.add(0);
-        num.add(1);
-
+        List<Integer> num = new ArrayList<>(Arrays.asList(0,1));
         Collections.shuffle(num);
 
         // These will only place Ellane in rooms 205 or rooms 310 in the locations list.
 
-        locations.get(9).setEllanePlacement(num.get(0));
-        locations.get(10).setEllanePlacement(num.get(1));
+        locations.get(7).setEllanePlacement(num.get(0));
+        locations.get(8).setEllanePlacement(num.get(1));
 
-        if (locations.get(9).getEllanePlacement() == 1) {
-            locations.get(9).setEllane(ellane);
-        } else {
-            locations.get(10).setEllane(ellane);
-        }
     }
 
 
@@ -276,7 +252,7 @@ public class EllaneApp {
 
     // This method go through a switch case based on the user's first word
 
-    private void updateHealthInv(){
+    public void updateHealthInv(){
         MainScreen.invHealth.setText(" Health: " + player.getHealth() + "\n Inventory: " + player.getInventory().toString());
     }
 
@@ -371,7 +347,9 @@ public class EllaneApp {
                     case "north":
                     case "south":
                         verifyLocation();
-                        updateLocation();
+                        if(!MainScreen.isTerrorist && isSaved){
+                            updateLocation();
+                        }
                         MainScreen.destImageLabel.setText("Current Room: "+ currentRoom.getName());
                         ImageIcon icon = new ImageIcon(currentRoom.getImage());
                         MainScreen.destImageLabel.setIcon(icon);
@@ -444,18 +422,18 @@ public class EllaneApp {
                         if (room.getName().equals(currentRoom.getNorth())) {
                             currentRoom = room;
                             if (currentRoom.getName().equals("Roof")) {
-                                if (locations.get(9).getEllane() == ellaneBlank || locations.get(10).getEllane() == ellaneBlank) {
-                                    view.renderWinGameDialogue(ellane, player);
+                                if (isSaved) {
+                                    TypeWriter typeWriter = new TypeWriter(MainScreen.outPut, EllaneView.renderWinGameDialogue(ellane, player));
+                                    typeWriter.start();
                                 } else {
                                     MainScreen.outPut.setText(player.getName() + ":" + " I can't leave yet! I don't have Ellane!");
-                                    currentRoom = locations.get(7);
-                                    break;
+                                    currentRoom = locations.get(9);
+                                    return;
                                 }
                             }
                             currentRoom = room;
                             MainScreen.outPut.setText(player.getName() + ": " + currentRoom.getDescription());
                             if (currentRoom.getTerrorist() == terrorist) {
-                                MainScreen.isTerrorist = true;
                                 Terrorist.terrorStart(player, terrorist);
                                 currentRoom.setTerrorist(terroristBlank);
                             }
@@ -473,7 +451,6 @@ public class EllaneApp {
                         if (room.getName().equals(currentRoom.getSouth())) {
                             currentRoom = room;
                             if (currentRoom.getTerrorist() == terrorist) {
-                                MainScreen.isTerrorist = true;
                                 Terrorist.terrorStart(player, terrorist);
                                 currentRoom.setTerrorist(terroristBlank);
                             }
@@ -491,7 +468,6 @@ public class EllaneApp {
                         if (room.getName().equals(currentRoom.getEast())) {
                             currentRoom = room;
                             if (currentRoom.getTerrorist() == terrorist) {
-                                MainScreen.isTerrorist = true;
                                 Terrorist.terrorStart(player, terrorist);
                                 currentRoom.setTerrorist(terroristBlank);
                             }
@@ -506,33 +482,39 @@ public class EllaneApp {
                 } else {
                     for (Locations room : locations) {
                         if (room.getName().equals(currentRoom.getWest())) {
-                            if (room.getEllane() == ellane) {
+                            if (room.getEllanePlacement() == 1) {
                                 if (player.getInventory().contains("keys")) {
-                                    MainScreen.outPut.setText(player.getName() + ":" + " The doors locked. Let me see if a key off of the set of Ralph's can open this door.\n"+
-                                            "* door unlocks *\n" +
-                                            player.getName() + ":" + " Great it worked!\n"+
-                                            view.renderEllaneDialogue(ellane, player));
+                                    isSaved = true;
+                                    TypeWriter writer = new TypeWriter(MainScreen.outPut,view.renderEllaneDialogue(ellane, player));
+                                    writer.start();
                                     currentRoom = room;
                                     currentRoom.setEllane(ellaneBlank);
+
+                                    break;
                                 } else {
                                     MainScreen.outPut.setText(player.getName() + ":" + " The doors locked. I'm going to need a key to get in");
                                     break;
                                 }
                             }
-                            currentRoom = room;
-                            MainScreen.outPut.setText(player.getName() + ": " + currentRoom.getDescription());
-                            if (currentRoom.getTerrorist() == terrorist) {
-                                MainScreen.isTerrorist = true;
-                                currentRoom.setTerrorist(terroristBlank);
+                            else{
+                                currentRoom = room;
+                                MainScreen.outPut.setText(player.getName() + ": " + currentRoom.getDescription());
+                                if (currentRoom.getTerrorist() == terrorist) {
+                                    //MainScreen.isTerrorist = true;
+                                    Terrorist.terrorStart(player, terrorist);
+                                    currentRoom.setTerrorist(terroristBlank);
+                                }
+                                break;
                             }
-
-                            break;
+//                            //MainScreen.isTerrorist = true;
+//                            break;
                         }
                     }
                 }
                 break;
             default:
                 MainScreen.outPut.setText(player.getName() + ": " + "I can't go that way.");
+                break;
         }
 
     }

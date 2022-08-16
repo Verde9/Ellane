@@ -22,6 +22,7 @@ public class Terrorist {
     public static void terrorStart(Player player, Terrorist terrorist){
 
         // This will render the terrorist dialogue in the Ellane view class.
+        MainScreen.isTerrorist = true;
         TypeWriter typeWriter = new TypeWriter(MainScreen.outPut, EllaneView.renderTerroristDialogue(terrorist, player));
         typeWriter.start();
 
@@ -40,6 +41,7 @@ public class Terrorist {
         String[] choiceArr = choice.split(" ", 2);
         String firstWord = choiceArr[0];
         String secondWord = "";
+        EllaneApp app = new EllaneApp();
 
             switch (firstWord) {
 
@@ -48,94 +50,138 @@ public class Terrorist {
                 // The else case here will allow the player to use certain items in their inventory to attack the terrorist in which case certain items will have either a higher probability or a lower probability of working and killing the terrorist.
 
                 case "fight":
-                    if (player.getInventory().size() != 0) {
-                        if(player.getInventory().size() == 1 && player.getInventory().contains("keys") || player.getInventory().size() == 1 && player.getInventory().contains("gas mask")) {
-                            MainScreen.outPut.setText("You can't do anything with the item in your inventory you need to run to possibly survive.");
-                        } else {
-                            int number;
-                            MainScreen.outPut.setText(player.getName() + ":" + "Fuck... I guess there's no other way out of this.\n I should use an item in my inventory!");
-
-                            if (true) {
-
-
-                                String fightChoice = MainScreen.input.getText();
-
-                                if (firstWord.equals("use")) {
-                                    if (player.getInventory().contains(secondWord)) {
-
-                                        switch (secondWord) {
-                                            case "gun":
-                                                player.getInventory().remove("gun");
-                                                MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
-                                                        "*BANG BANG BANG BANG BANG*");
-
-                                                number = (int) (Math.random() * (100 - 1 + 1) + 1);
-
-                                                if (number > 10) {
-                                                    MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
-                                                            "*BANG BANG BANG BANG BANG*\n"+
-                                                            player.getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...\n"+
-                                                            "(Translation: You've won this battle American, but you have not won the.. ) \n"+
-                                                            player.getName() + ":" + " *Dies*");
-                                                } else {
-                                                    MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
-                                                            "*BANG BANG BANG BANG BANG*\n"+
-                                                            "You tried to shoot Ivan but missed. Ivan unloads a whole mag into you.\n"+
-                                                            "You die. Game Over");
-                                                }
-                                                break;
-                                            case "pocket knife":
-                                                player.getInventory().remove("pocket knife");
-                                                number = (int) (Math.random() * (100 - 1 + 1) + 1);
-
-                                                if (number > 50) {
-                                                    MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
-                                                            "* Attempts to stab Ivan *\n"+
-                                                            player.getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...\n"+
-                                                            "(Translation: You've won this battle American, but you have not won the.. ) \n"+
-                                                            player.getName() + ":" + " *Dies*");
-
-                                                } else {
-                                                    MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
-                                                            "* Attempts to stab Ivan *\n"+
-                                                            "You tried to stab Ivan but missed. Ivan unloads a whole mag into you.\n"+
-                                                            "You die. Game Over");
-                                                }
-                                                break;
-                                            case "bat":
-                                            case "pole":
-                                                player.getInventory().remove(secondWord);
-                                                number = (int) (Math.random() * (100 - 1 + 1) + 1);
-
-                                                if (number > 30) {
-                                                    MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
-                                                            "* Attempts to hit Ivan with pole *\n"+
-                                                            player.getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...\n"+
-                                                            "(Translation: You've won this battle American, but you have not won the.. ) \n"+
-                                                            player.getName() + ":" + " *Dies*");
-
-                                                } else {
-                                                    MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
-                                                            "* Attempts to stab Ivan *\n"+
-                                                            "You tried to hit Ivan with a pole but missed. Ivan unloads a whole mag into you.\n"+
-                                                            "You die. Game Over");
-                                                }
-                                                break;
-                                            default:
-                                                MainScreen.outPut.setText(player.getName() + ":" + "I can't use that item, I need to use something else!");
-                                                break;
-                                        }
-                                    }
-                                } else {
-                                    MainScreen.outPut.setText("Invalid Command. Type 'use' + item in inventory.");
-                                }
-
+                    if(player.getInventory().contains("gun")){
+                            player.getInventory().remove("gun");
+                            app.updateHealthInv();
+                            int number = (int) (Math.random() * (100 - 1 + 1) + 1);
+                            if (number > 10) {
+                                MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
+                                        "*BANG BANG BANG BANG BANG*\n"+
+                                        terrorist.getName() + ": " + "Вы выиграли эту битву, американец, но вы не выиграли...\n"+
+                                        "(Translation: You've won this battle American, but you have not won the.. ) \n"+
+                                        terrorist.getName() + ": " + " *Dies*");
+                            } else {
+                                MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
+                                        "*BANG BANG BANG BANG BANG*\n"+
+                                        "You tried to shoot Ivan but missed. Ivan unloads a whole mag into you.\n"+
+                                        "You die. Game Over");
                             }
-                        }
-                    } else {
-                        MainScreen.outPut.setText("You're inventory is empty! You're going to have to run to hopefully survive!");
+                            MainScreen.isTerrorist= false;
+                            break;
                     }
-                    break;
+                    else if(player.getInventory().contains("pole") || player.getInventory().contains("bat")){
+
+                        if(player.getInventory().contains("pole")) player.getInventory().remove("pole");
+                        else player.getInventory().remove("bat");
+                        app.updateHealthInv();
+                        int number = (int) (Math.random() * (100 - 1 + 1) + 1);
+                        if (number > 30) {
+                            MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
+                                    "* Attempts to bludgeon Ivan *\n"+
+                                    terrorist.getName() + ": " + "Вы выиграли эту битву, американец, но вы не выиграли...\n"+
+                                    "(Translation: You've won this battle American, but you have not won the.. ) \n"+
+                                    terrorist.getName() + ": " + " *Dies*");
+
+                        } else {
+                            MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
+                                    "* Attempts to bludgeon Ivan *\n"+
+                                    "You tried to hit Ivan with a pole but missed. Ivan unloads a whole mag into you.\n"+
+                                    "You die. Game Over");
+                        }
+                        MainScreen.isTerrorist= false;
+                        break;
+                    }
+                    else if(player.getInventory().contains("pocket knife")) {
+                        player.getInventory().remove("pocket knife");
+                        app.updateHealthInv();
+                        int number = (int) (Math.random() * (100 - 1 + 1) + 1);
+
+                        if (number > 50) {
+                            MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
+                                    "* Attempts to stab Ivan *\n"+
+                                    player.getName() + ": " + "Вы выиграли эту битву, американец, но вы не выиграли...\n"+
+                                    "(Translation: You've won this battle American, but you have not won the.. ) \n"+
+                                    player.getName() + ": " + " *Dies*");
+
+                        } else {
+                            MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
+                                    "* Attempts to stab Ivan *\n"+
+                                    "You tried to stab Ivan but missed. Ivan unloads a whole mag into you.\n"+
+                                    "You die. Game Over");
+                        }
+                        MainScreen.isTerrorist= false;
+                        break;
+                    }
+                    else {
+                        MainScreen.outPut.setText("You can't do anything with the item in your inventory you need to run to possibly survive.");
+                        break;
+                    }
+
+//                    if (player.getInventory().size() != 0) {
+//                        if(player.getInventory().size() == 1 && player.getInventory().contains("keys") || player.getInventory().size() == 1 && player.getInventory().contains("gas mask")) {
+//                            MainScreen.outPut.setText("You can't do anything with the item in your inventory you need to run to possibly survive.");
+//                        } else {
+//                            int number;
+//                            MainScreen.outPut.setText(player.getName() + ":" + "Fuck... I guess there's no other way out of this.\n I should use an item in my inventory!");
+//
+
+//                                if (firstWord.equals("use")) {
+//                                    if (player.getInventory().contains(secondWord)) {
+//
+//                                        switch (secondWord) {
+//
+//                                            case "pocket knife":
+//                                                player.getInventory().remove("pocket knife");
+//                                                number = (int) (Math.random() * (100 - 1 + 1) + 1);
+//
+//                                                if (number > 50) {
+//                                                    MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
+//                                                            "* Attempts to stab Ivan *\n"+
+//                                                            player.getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...\n"+
+//                                                            "(Translation: You've won this battle American, but you have not won the.. ) \n"+
+//                                                            player.getName() + ":" + " *Dies*");
+//
+//                                                } else {
+//                                                    MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
+//                                                            "* Attempts to stab Ivan *\n"+
+//                                                            "You tried to stab Ivan but missed. Ivan unloads a whole mag into you.\n"+
+//                                                            "You die. Game Over");
+//                                                }
+//                                                break;
+//                                            case "bat":
+//                                            case "pole":
+//                                                player.getInventory().remove(secondWord);
+//                                                number = (int) (Math.random() * (100 - 1 + 1) + 1);
+//
+//                                                if (number > 30) {
+//                                                    MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
+//                                                            "* Attempts to bludgeon Ivan *\n"+
+//                                                            player.getName() + ":" + "Вы выиграли эту битву, американец, но вы не выиграли...\n"+
+//                                                            "(Translation: You've won this battle American, but you have not won the.. ) \n"+
+//                                                            player.getName() + ":" + " *Dies*");
+//
+//                                                } else {
+//                                                    MainScreen.outPut.setText(player.getName() + ":" + " Oh I got something for you!\n"+
+//                                                            "* Attempts to bludgeon Ivan *\n"+
+//                                                            "You tried to hit Ivan with a pole but missed. Ivan unloads a whole mag into you.\n"+
+//                                                            "You die. Game Over");
+//                                                }
+//                                                break;
+//                                            default:
+//                                                MainScreen.outPut.setText(player.getName() + ":" + "I can't use that item, I need to use something else!");
+//                                                break;
+//                                        }
+//                                    }
+//                                } else {
+//                                    MainScreen.outPut.setText("Invalid Command. Type 'use' + item in inventory.");
+//                                }
+//
+//                            }
+//                        }
+//                    } else {
+//                        MainScreen.outPut.setText("You're inventory is empty! You're going to have to run to hopefully survive!");
+//                    }
+//                    break;
 
                 // The run case will allow the player to try to escape, but they will still take damage which could potentially kill them and end the game.
 

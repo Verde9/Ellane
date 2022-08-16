@@ -95,20 +95,20 @@ public class EllaneView {
 
     public static String renderTerroristDialogue(Terrorist terrorist, Player player) {
 
-        return("\n"+terrorist.getName() + ":" + "Американец! Иди сюда быстро!...\n"+
+        return("\n"+terrorist.getName() + ": " + "Американец! Иди сюда быстро!...\n"+
                 "(Translation: American! Come here now!.. ) \n"+
-                player.getName() + ":" + "Oh shit! This guy must be part of this invasion.\n"+
-                player.getName() + ":" + "Fuck!! Have to think fast! Now! Or I'm literally going to die.\n"+
-                terrorist.getName() + ":" + "К счастью для тебя, американец, я не беру пленных!!...\n"+
+                player.getName() + ": " + "Oh shit! This guy must be part of this invasion.\n"+
+                player.getName() + ": " + "Fuck!! Have to think fast! Now! Or I'm literally going to die.\n"+
+                terrorist.getName() + ": " + "К счастью для тебя, американец, я не беру пленных!!...\n"+
                 "(Translation: Lucky for you American, I take no prisoners.) \n"+
-                player.getName() + ":" + " Should I fight or should I run?");
+                player.getName() + ": " + " Should I fight or should I run?");
     }
 
     public static String renderEllaneDialogue(Ellane ellane, Player player) {
 
-        return(ellane.getName() + ":" + "* SHRIEKS *\n"+
+        return("\n"+ellane.getName() + ": " + "* SHRIEKS *\n"+
                 player.getName() + ": " + "Ellane.. ELLANE !! It's ok! I'm not going to hurt you! Your mother sent me to come get you.\n"+
-                ellane.getName() + ":" + "Why did mommy send you?? Where is mommy???\n"+
+                ellane.getName() + ": " + "Why did mommy send you?? Where is mommy???\n"+
                 player.getName() + ": " + "........ she's somewhere safe. She asked me to come get you so that I can get you to safety as well.\n"+
                 player.getName() + ": " + "Now we don't have much time Ellane, I'm not doing so well and don't have much time. We have to go NOW!!\n"+
                 ellane.getName() + ": " + "*Cries and sniffs* Ok mister, but I'm scared. I heard people screaming earlier.\n"+
@@ -119,9 +119,9 @@ public class EllaneView {
 
     public static String renderWinGameDialogue(Ellane ellane, Player player) {
 
-        return("Helicopter Pilot: Hold on! we have a few more!\n"+
+        return("\nHelicopter Pilot: Hold on! we have a few more!\n"+
                 player.getName() + ": " + "Thank God! Look Ellane we made it!\n"+
-                ellane.getName() + ":" + "Thanks Mister! I can't wait to see my mommy!\n"+
+                ellane.getName() + ": " + "Thanks Mister! I can't wait to see my mommy!\n"+
                 player.getName() + ": " + "........ yeah.. I'm sure she'll be happy to know that you're safe\n"+
                 "Helicopter Pilot: Alright! That's it, let's MOVE MOVE MOVE!\n"+
                 "CONGRATULATIONS, you saved Ellane and yourself\n"+

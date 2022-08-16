@@ -2,6 +2,7 @@ package com.ellane.client;
 
 
 import com.ellane.app.EllaneApp;
+import com.ellane.gui.MainScreen;
 import com.ellane.gui.TitleScreen;
 
 import java.io.IOException;
