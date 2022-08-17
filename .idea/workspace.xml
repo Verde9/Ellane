@@ -7,20 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1f56355-9c40-465b-9bfe-d67560e10527" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Fixed_RPG_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Ellane_Final_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Fixed_RPG_jar/Fixed_RPG.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Fixed_RPG_jar/Fixed_RPG.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/app/EllaneApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/app/EllaneApp$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Ellane_Final_jar/Fixed_RPG.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Ellane_Final_jar/Fixed_RPG.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/app/EllaneApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/app/EllaneApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/character/Terrorist.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/character/Terrorist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/client/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/client/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/gui/MainScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/gui/MainScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/gui/TypeWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/gui/TypeWriter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/view/EllaneView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Fixed_RPG/com/ellane/view/EllaneView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/rooms/rooms.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/rooms/rooms.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/app/EllaneApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/character/Terrorist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/character/Terrorist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/ellane/gui/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/gui/MainScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/ellane/gui/TypeWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/gui/TypeWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/ellane/view/EllaneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/ellane/view/EllaneView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +113,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660506552245</updated>
-      <workItem from="1660506553571" duration="70599000" />
+      <workItem from="1660506553571" duration="74912000" />
     </task>
     <servers />
   </component>

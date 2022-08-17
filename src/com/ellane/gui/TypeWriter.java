@@ -13,7 +13,7 @@ public class TypeWriter {
     public TypeWriter(JTextArea textArea, String input) {
         this.textArea = textArea;
         this.input = input;
-        timer = new Timer(40, new ActionListener() {
+        timer = new Timer(50, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (characterIndex < input.length()) {

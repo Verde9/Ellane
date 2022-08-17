@@ -159,12 +159,6 @@ public class EllaneApp {
             currentLocation.setItemPlacementWest(num.get(3));
 
         }
-
-        player.getInventory().add("keys");
-        player.getInventory().add("gun");
-
-
-
     }
 
     public void randomizeTerrorist() {
